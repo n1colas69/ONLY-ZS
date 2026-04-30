@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONLY ZS | Vintage & Second Hand</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- RUTA CORREGIDA: styles.css en la misma carpeta -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="custom-cursor"></div>
+    <div id="toast-container"></div>
+
+    <!-- BUSCADOR OVERLAY -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-content">
+            <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
+            <input type="text" id="searchInput" placeholder="BUSCAR PRODUCTOS...">
+        </div>
+    </div>
+
+    <!-- CARRITO DRAWER -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>TU CARRITO</h3>
+            <button id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="coupon-box">
+                <input type="text" id="couponInput" placeholder="Código de descuento (ej: ZS2026)">
+                <button id="applyCouponBtn">APLICAR</button>
+            </div>
+            <div class="cart-totals">
+                <div class="total-row" id="originalTotalRow" style="display: none;">
+                    <span>Subtotal:</span>
+                    <span class="crossed-price" id="cartSubtotal">$0</span>
+                </div>
+                <div class="total-row final-total">
+                    <span>Total:</span>
+                    <span class="accent-price" id="cartTotal">$0</span>
+                </div>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">PROCEDER AL PAGO</button>
+        </div>
+    </div>
+
+    <!-- WISHLIST DRAWER -->
+    <div class="wishlist-overlay" id="wishlistOverlay"></div>
+    <div class="wishlist-drawer" id="wishlistDrawer">
+        <div class="cart-header">
+            <h3>MIS FAVORITOS</h3>
+            <button id="closeWishlist"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="wishlistItems"></div>
+    </div>
+
+    <!-- MODAL CONTRASEÑA ADMIN GALERÍA -->
+    <div class="modal-overlay" id="adminModalOverlay">
+        <div class="modal-box admin-modal">
+            <button class="modal-close" id="adminModalClose"><i class="fas fa-times"></i></button>
+            <div class="admin-modal-icon"><i class="fas fa-lock"></i></div>
+            <h3>ACCESO ADMINISTRADOR</h3>
+            <p>Esta sección es solo para el creador de la página.</p>
+            <div class="admin-input-wrap">
+                <input type="password" id="adminPasswordInput" placeholder="Ingresá la contraseña" autocomplete="off">
+                <button id="adminPasswordSubmit" class="btn btn-dark">INGRESAR</button>
+            </div>
+            <p id="adminPasswordError" class="admin-error"></p>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">ZS</a>
+            <nav class="desktop-nav">
+                <a href="#hero">INICIO</a>
+                <a href="#categories">COLECCIONES</a>
+                <a href="#products">PRODUCTOS</a>
+                <a href="#gallery">GALERÍA</a>
+                <a href="#new-collection">PROXIMAMENTE</a>
+                <a href="#footer">SOBRE NOSOTROS</a>
+            </nav>
+            <div class="nav-icons">
+                <button id="searchBtn" aria-label="Buscar"><i class="fas fa-search"></i></button>
+                <button id="wishlistBtn" aria-label="Lista de deseos">
+                    <i class="far fa-heart"></i>
+                    <span class="badge" id="wishlistCount">0</span>
+                </button>
+                <button id="cartBtn" aria-label="Carrito">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </button>
+                <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="#hero" class="mobile-link">INICIO</a>
+            <a href="#categories" class="mobile-link">COLECCIONES</a>
+            <a href="#products" class="mobile-link">PRODUCTOS</a>
+            <a href="#gallery" class="mobile-link">GALERÍA</a>
+            <a href="#new-collection" class="mobile-link">PROXIMAMENTE</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-content reveal">
+            <h1>ONLY ZS</h1>
+            <p>Nueva colección ZS26</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">COMPRAR AHORA</a>
+                <a href="#new-collection" class="btn btn-outline">VER COLECCIÓN</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <p>ZS</p>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee">
+        <div class="marquee-content">
+            CARHARTT <span class="dot">·</span> CHAPS <span class="dot">·</span> DICKIES <span class="dot">·</span> JANSPORT <span class="dot">·</span> NAUTICA <span class="dot">·</span> POLO RALPH LAUREN <span class="dot">·</span> REAL TREE <span class="dot">·</span> RUSSELL <span class="dot">·</span>
+            CARHARTT <span class="dot">·</span> CHAPS <span class="dot">·</span> DICKIES <span class="dot">·</span> JANSPORT <span class="dot">·</span> NAUTICA <span class="dot">·</span> POLO RALPH LAUREN <span class="dot">·</span> REAL TREE <span class="dot">·</span> RUSSELL <span class="dot">·</span>
+        </div>
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <section class="categories section-padding" id="categories">
+        <h2 class="section-title reveal">EXPLORA NUESTRAS CATEGORÍAS</h2>
+        <div class="categories-grid reveal">
+            <div class="category-card" data-category="Remeras" style="background-image: url('https://placehold.co/600x800/222/FFF?text=REMERAS');">
+                <div class="category-content">
+                    <h3>CHOMBAS</h3>
+                    <p>+3 Productos</p>
+                    <button class="btn btn-primary btn-sm">Ver más</button>
+                </div>
+            </div>
+            <div class="category-card" data-category="Accesorios" style="background-image: url('https://placehold.co/600x800/222/FFF?text=ACCESORIOS');">
+                <div class="category-content">
+                    <h3>ACCESORIOS</h3>
+                    <p>+20 Productos</p>
+                    <button class="btn btn-primary btn-sm">Ver más</button>
+                </div>
+            </div>
+            <div class="category-card" data-category="Abrigos" style="background-image: url('https://placehold.co/600x800/222/FFF?text=ABRIGOS');">
+                <div class="category-content">
+                    <h3>ABRIGOS</h3>
+                    <p>+35 Productos</p>
+                    <button class="btn btn-primary btn-sm">Ver más</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="products section-padding" id="products">
+        <h2 class="section-title reveal">LO MÁS SOLICITADO</h2>
+        <div class="filters reveal">
+            <button class="filter-btn active" data-filter="all">TODOS</button>
+            <button class="filter-btn" data-filter="Remeras">REMERAS</button>
+            <button class="filter-btn" data-filter="Abrigos">ABRIGOS</button>
+            <button class="filter-btn" data-filter="Accesorios">ACCESORIOS</button>
+            <button class="filter-btn" data-filter="Pantalones">PANTALONES</button>
+        </div>
+        <div class="products-grid reveal" id="productsGrid"></div>
+    </section>
+
+    <!-- PROMO BANNER -->
+    <section class="promo-banner reveal">
+        <div class="promo-content">
+            <i class="fas fa-bolt"></i>
+            <h2>ENVÍO GRATIS EN COMPRAS A TODO EL PAÍS</h2>
+            <i class="fas fa-truck"></i>
+        </div>
+    </section>
+
+    <!-- NUEVA COLECCIÓN -->
+    <section class="new-collection section-padding" id="new-collection">
+        <div class="collection-container reveal">
+            <div class="collection-image">
+                <img src="https://placehold.co/800x1000/111/FFF?text=ZS26+COLLECTION" alt="ZS26 Collection" loading="lazy">
+            </div>
+            <div class="collection-text">
+                <h2>ZS26 COLLECTION</h2>
+                <p>Nuestra curaduría más exclusiva del año. Prendas vintage seleccionadas a mano, restauradas y listas para una segunda vida.</p>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Calidad premium verificada</li>
+                    <li><i class="fas fa-check"></i> Piezas únicas 1/1</li>
+                    <li><i class="fas fa-check"></i> Lavado y desinfección profunda</li>
+                </ul>
+                <a href="#products" class="btn btn-primary">DESCUBRIR</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials section-padding reveal">
+        <h2 class="section-title">LO QUE DICEN NUESTROS CLIENTES</h2>
+        <div class="slider-wrapper">
+            <button class="slider-arrow slider-prev" id="sliderPrev"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-container">
+                <div class="slider" id="testimonialSlider">
+                    <div class="slide">
+                        <img src="https://placehold.co/100x100/333/FFF?text=U1" alt="User" class="avatar">
+                        <h4>@Arles</h4>
+                        <div class="stars">★★★★★</div>
+                        <p>"Prenda nomas."</p>
+                    </div>
+                    <div class="slide">
+                        <img src="https://placehold.co/100x100/333/FFF?text=U2" alt="User" class="avatar">
+                        <h4>@Atilio</h4>
+                        <div class="stars">★★★★★</div>
+                        <p>"ZS🖤"</p>
+                    </div>
+                    <div class="slide">
+                        <img src="https://placehold.co/100x100/333/FFF?text=U3" alt="User" class="avatar">
+                        <h4>@Profeeee</h4>
+                        <div class="stars">★★★★★</div>
+                        <p>"Mansas remeeeeee."</p>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-arrow slider-next" id="sliderNext"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+    </section>
+
+    <!-- GALERÍA DE CLIENTES -->
+    <section class="gallery section-padding" id="gallery">
+        <h2 class="section-title reveal">GALERÍA DE CLIENTES</h2>
+        <p class="gallery-subtitle reveal">¡Mirá los looks de nuestra comunidad ZS!</p>
+        <!-- El botón de subir solo se muestra cuando el admin está autenticado -->
+        <div class="gallery-upload-area reveal" id="galleryUploadArea" style="display:none;">
+            <label for="galleryUpload" class="btn btn-dark gallery-upload-btn">
+                <i class="fas fa-camera"></i>&nbsp; SUBIR FOTO
+            </label>
+            <input type="file" id="galleryUpload" accept="image/*" multiple style="display: none;">
+            <button class="btn btn-outline-dark gallery-logout-btn" id="adminLogoutBtn" title="Cerrar sesión admin">
+                <i class="fas fa-sign-out-alt"></i> SALIR
+            </button>
+        </div>
+        <!-- Botón visible para cualquiera, abre el modal de contraseña -->
+        <div class="gallery-upload-area reveal" id="galleryAdminTriggerArea">
+            <button class="btn btn-dark gallery-upload-btn" id="openAdminModalBtn">
+                <i class="fas fa-lock"></i>&nbsp; SUBIR FOTO (ADMIN)
+            </button>
+        </div>
+        <div class="gallery-grid reveal" id="galleryGrid"></div>
+        <p class="gallery-empty-msg" id="galleryEmptyMsg">
+            <i class="fas fa-image"></i><br>
+            Todavía no hay fotos en la galería.
+        </p>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter reveal">
+        <div class="newsletter-content">
+            <h2>ÚNETE A LA FAMILIA ZS</h2>
+            <p>Suscribite y recibí un 10% de descuento en tu primera compra.</p>
+            <form id="newsletterForm" class="newsletter-form">
+                <input type="email" id="newsletterEmail" placeholder="Tu correo electrónico" required>
+                <button type="submit" class="btn btn-dark">SUSCRIBIRME</button>
+            </form>
+            <p id="newsletterMsg" class="success-msg"></p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h2 class="logo">ZS</h2>
+                <p>Curaduría vintage & second hand de primer nivel. Zona Sur, LR.</p>
+            </div>
+            <div class="footer-col">
+                <h3>EMPRESA</h3>
+                <a href="#hero">Sobre Nosotros</a>
+                <a href="#new-collection">Nueva Colección</a>
+                <a href="#gallery">Galería de Clientes</a>
+            </div>
+            <div class="footer-col">
+                <h3>AYUDA</h3>
+                <a href="#" id="linkEnvios">Envíos y Entregas</a>
+                <a href="#" id="linkDevoluciones">Cambios y Devoluciones</a>
+                <a href="#" id="linkFaq">Preguntas Frecuentes</a>
+            </div>
+            <div class="footer-col">
+                <h3>SÍGUENOS</h3>
+                <div class="social-icons">
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ONLY ZS. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/543800000000" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- MODAL INFO FOOTER -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box" id="modalBox">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <h3 id="modalTitle"></h3>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- RUTA CORREGIDA: main.js en la misma carpeta -->
+    <script src="main.js"></script>
+</body>
+</html>
