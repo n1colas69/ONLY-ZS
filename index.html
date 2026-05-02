@@ -140,27 +140,27 @@
             <h2 class="section-title">EXPLORÁ LO QUE TENEMOS</h2>
         </div>
         <div class="categories-grid reveal">
-            <div class="category-card" data-category="Remeras" style="background-image: url('https://placehold.co/600x800/1a1a1a/FFF?text=CHOMBAS');">
+            <div class="category-card" data-category="Remeras" style="background-image: url('assets/images/Productos/Remeras y Chombas/Portada.png');">
                 <div class="category-overlay"></div>
                 <div class="category-content">
-                    <h3>CHOMBAS</h3>
-                    <p>+3 Productos</p>
+                    <h3>REMERAS/CHOMBAS</h3>
+                    <p>2 Productos</p>
                     <button class="btn btn-outline-white btn-sm">Ver colección</button>
                 </div>
             </div>
-            <div class="category-card featured" data-category="Accesorios" style="background-image: url('https://placehold.co/600x800/111/FFF?text=ACCESORIOS');">
+            <div class="category-card featured" data-category="Accesorios" style="background-image: url('assets/images/Productos/Accesorios/Portada.png');">
                 <div class="category-overlay"></div>
                 <div class="category-content">
                     <h3>ACCESORIOS</h3>
-                    <p>+20 Productos</p>
+                    <p>4 Productos</p>
                     <button class="btn btn-outline-white btn-sm">Ver colección</button>
                 </div>
             </div>
-            <div class="category-card" data-category="Abrigos" style="background-image: url('https://placehold.co/600x800/222/FFF?text=ABRIGOS');">
+            <div class="category-card" data-category="Abrigos" style="background-image: url('assets/images/Productos/Abrigos/Portada-Abrigos.png');">
                 <div class="category-overlay"></div>
                 <div class="category-content">
                     <h3>ABRIGOS</h3>
-                    <p>+35 Productos</p>
+                    <p>2 Productos</p>
                     <button class="btn btn-outline-white btn-sm">Ver colección</button>
                 </div>
             </div>
@@ -185,13 +185,6 @@
             </div>
         </div>
         <div class="feature-divider"></div>
-        <div class="feature-item">
-            <i class="fas fa-rotate-left"></i>
-            <div>
-                <strong>CAMBIOS EN 7 DÍAS</strong>
-                <span>Sin preguntas, sin problemas</span>
-            </div>
-        </div>
         <div class="feature-divider"></div>
         <div class="feature-item">
             <i class="fas fa-gem"></i>
@@ -210,7 +203,7 @@
         </div>
         <div class="filters reveal">
             <button class="filter-btn active" data-filter="all">TODOS</button>
-            <button class="filter-btn" data-filter="Remeras">REMERAS</button>
+            <button class="filter-btn" data-filter="Remeras">REMERAS Y CHOMBAS</button>
             <button class="filter-btn" data-filter="Abrigos">ABRIGOS</button>
             <button class="filter-btn" data-filter="Accesorios">ACCESORIOS</button>
             <button class="filter-btn" data-filter="Pantalones">PANTALONES</button>
@@ -307,9 +300,9 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <h2 class="logo">ZS</h2>
-                <p>Curaduría vintage &amp; second hand<br>de primer nivel. Zona Sur, La Rioja.</p>
+                <p>Vintage &amp; second hand<br>de primer nivel.</p>
                 <div class="social-icons">
-                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/only_zonasur/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/543800000000" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
@@ -339,7 +332,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 ONLY ZS. Todos los derechos reservados.</p>
-            <p class="footer-hint">Hecho con <span style="color:#e74c3c">♥</span> en La Rioja, Argentina.</p>
+            <p class="footer-hint">Zona Sur, La Rioja, Argentina.</p>
         </div>
     </footer>
  
@@ -360,6 +353,34 @@
             <h3 id="modalTitle"></h3>
             <div id="modalBody"></div>
         </div>
+    </div>
+
+    <!-- PRODUCT DETAIL MODAL (Instagram Style) -->
+    <div class="modal-overlay" id="productModalOverlay">
+        <button class="product-modal-close" id="productModalClose"><i class="fas fa-times"></i></button>
+        <button class="product-modal-nav product-modal-prev" id="productModalPrev" aria-label="Producto anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="product-modal-container">
+            <div class="product-modal-gallery">
+                <button class="product-photo-nav product-photo-prev" id="productPhotoPrev" aria-label="Foto anterior"><i class="fas fa-chevron-left"></i></button>
+                <div class="product-modal-image">
+                    <img id="productModalImage" src="" alt="Producto">
+                </div>
+                <button class="product-photo-nav product-photo-next" id="productPhotoNext" aria-label="Siguiente foto"><i class="fas fa-chevron-right"></i></button>
+                <div class="product-modal-thumbs" id="productModalThumbs"></div>
+            </div>
+            <div class="product-modal-info">
+                <div class="product-modal-header">
+                    <span class="product-modal-category" id="productModalCategory"></span>
+                    <button class="product-modal-wishlist" id="productModalWishlist"><i class="far fa-heart"></i></button>
+                </div>
+                <h2 id="productModalName"></h2>
+                <div class="product-modal-prices" id="productModalPrices"></div>
+                <div class="product-modal-stock" id="productModalStock"></div>
+                <button class="btn btn-primary" id="productModalAddBtn" style="width: 100%; margin: 24px 0;">AGREGAR AL CARRITO</button>
+                <div class="product-modal-description" id="productModalDescription"></div>
+            </div>
+        </div>
+        <button class="product-modal-nav product-modal-next" id="productModalNext" aria-label="Siguiente producto"><i class="fas fa-chevron-right"></i></button>
     </div>
  
     <script src="main.js"></script>

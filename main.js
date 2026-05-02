@@ -7,20 +7,179 @@
    CONFIGURACIÓN ADMIN — CAMBIÁ ESTA CONTRASEÑA
    Abrí este archivo, buscá ADMIN_PASSWORD y cambiá el valor
 ========================================================= */
-const ADMIN_PASSWORD = "ZS@admin2026"; // ← CAMBIÁ ESTO POR TU CONTRASEÑA PERSONAL
+const ADMIN_PASSWORD = "ZS2026"; // ← CAMBIÁ ESTO POR TU CONTRASEÑA PERSONAL
 
 /* =========================================================
    1. DATOS DE PRODUCTOS
 ========================================================= */
 const productsData = [
-    { id: 1, name: "Polo Ralph Lauren Hi Tech Long Sleeve", category: "Remeras", price: 89000, originalPrice: 119000, badge: "OFERTA", image: "https://placehold.co/400x400/eee/333?text=POLO+RL", isNew: false, inStock: true },
-    { id: 2, name: "Carhartt Detroit Jacket J97", category: "Abrigos", price: 250000, originalPrice: null, badge: "NUEVO", image: "https://placehold.co/400x400/eee/333?text=CARHARTT", isNew: true, inStock: true },
-    { id: 3, name: "Vintage Dickies 874 Original", category: "Pantalones", price: 65000, originalPrice: null, badge: null, image: "https://placehold.co/400x400/eee/333?text=DICKIES", isNew: false, inStock: true },
-    { id: 4, name: "Jansport 90s Made in USA", category: "Accesorios", price: 45000, originalPrice: null, badge: "AGOTADO", image: "https://placehold.co/400x400/eee/333?text=JANSPORT", isNew: false, inStock: false },
-    { id: 5, name: "Nautica Competition Fleece", category: "Abrigos", price: 95000, originalPrice: null, badge: null, image: "https://placehold.co/400x400/eee/333?text=NAUTICA", isNew: false, inStock: true },
-    { id: 6, name: "Russell Athletic Hoodie Blank", category: "Abrigos", price: 75000, originalPrice: 90000, badge: "OFERTA", image: "https://placehold.co/400x400/eee/333?text=RUSSELL", isNew: false, inStock: true },
-    { id: 7, name: "Real Tree Camo Cap Vintage", category: "Accesorios", price: 30000, originalPrice: null, badge: null, image: "https://placehold.co/400x400/eee/333?text=REAL+TREE", isNew: false, inStock: true },
-    { id: 8, name: "Chaps Ralph Lauren Knit Sweater", category: "Remeras", price: 55000, originalPrice: null, badge: "NUEVO", image: "https://placehold.co/400x400/eee/333?text=CHAPS", isNew: true, inStock: true }
+    {
+        id: 1,
+        name: "Carhartt Hoodie",
+        category: "Abrigos",
+        price: 55000,
+        originalPrice: 70000,
+        badge: "OFERTA",
+        image: "assets/images/Productos/Abrigos/buzo-carhartt-bordo.png",
+        images: [
+            "assets/images/Productos/Abrigos/buzo-carhartt-bordo.png",
+            "assets/images/Productos/Abrigos/buzo-carhartt-bordo (2).png",
+            "assets/images/Productos/Abrigos/buzo-carhartt-bordo (3).png",
+            "assets/images/Productos/Abrigos/buzo-carhartt-bordo (4).png"
+        ],
+        description: "Hoodie color vino tinto con spell out en la manga, cuenta con los cordones de la capucha y todas sus etiquetas, tanto las exteriores como interiores.\nTalle XXL.\nEstado: 10/10.",
+        isNew: false,
+        inStock: true
+    },
+    {
+        id: 2,
+        name: "Champion Hoodie",
+        category: "Abrigos",
+        price: 66000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Abrigos/buzo-champions-negro.png",
+        images: [
+            "assets/images/Productos/Abrigos/buzo-champions-negro.png",
+            "assets/images/Productos/Abrigos/buzo-champions-negro (2).png",
+            "assets/images/Productos/Abrigos/buzo-champions-negro (3).png",
+            "assets/images/Productos/Abrigos/buzo-champions-negro (4).png"
+        ],
+        description: "Hoodie con spell out bordado en frente, cuenta con su logo bordado tambien en la manga, etiquetas y perfecto estado.\nTalle XL.\nEstado: 10/10.",
+        isNew: true,
+        inStock: true
+    },
+    {
+        id: 3,
+        name: "Dickies Jeans",
+        category: "Pantalones",
+        price: 35000,
+        originalPrice: null,
+        badge: null,
+        image: "assets/images/Productos/Pantalones/DickiesJean.png",
+        images: [
+            "assets/images/Productos/Pantalones/DickiesJean.png",
+            "assets/images/Productos/Pantalones/DickiesJean (2).png",
+            "assets/images/Productos/Pantalones/DickiesJean (3).png",
+            "assets/images/Productos/Pantalones/DickiesJean (4).png"
+        ],
+        description: "Jean Dickies clásico con fit recto. Resistente y cómodo, ideal para un estilo vintage con actitud.\nTalle: 34x30us\n104cm de largo por 42cm de ancho.\nEstado: 10/10, como nuevo.",
+        isNew: false,
+        inStock: true
+    },
+    {
+        id: 4,
+        name: "Under Armour CAP",
+        category: "Accesorios",
+        price: 20000,
+        originalPrice: null,
+        badge: "AGOTADO",
+        image: "assets/images/Productos/Accesorios/UnderArmourCAPBlue.png",
+        images: [
+            "assets/images/Productos/Accesorios/UnderArmourCAPBlue.png",
+            "assets/images/Productos/Accesorios/UnderArmourCAPBlue (2).png",
+            "assets/images/Productos/Accesorios/UnderArmourCAPBlue (3).png",
+            "assets/images/Productos/Accesorios/UnderArmourCAPBlue (4).png",
+            "assets/images/Productos/Accesorios/UnderArmourCAPBlue (5).png"
+        ],
+        description: "Gorra Under Armour azul, con logo bordado y ajuste trasero.\nTalle único, apta para cabezones.\nEstado: 9,5/10, tiene algunos hilitos sueltos en la correa.",
+        isNew: false,
+        inStock: false
+    },
+    {
+        id: 5,
+        name: "Russell",
+        category: "Remeras",
+        price: 20000,
+        originalPrice: null,
+        badge: null,
+        image: "assets/images/Productos/Remeras y Chombas/Rusell-Naranja.png",
+        images: [
+            "assets/images/Productos/Remeras y Chombas/Rusell-Naranja.png",
+            "assets/images/Productos/Remeras y Chombas/Rusell-Naranja (2).png"
+        ],
+        description: "Merch oficial de los Baltimore Orioles al ganar la East Division Champions 2014\nDiseño grafico con la iconica mascota Oriole Bird y colores clasicos del equipo\nTalle L: 75cm de largo por 55cm de ancho\nEstado: 10/10.",
+        isNew: false,
+        inStock: true
+    },
+    {
+        id: 6,
+        name: "Carhartt Force Grey Polo",
+        category: "Remeras",
+        price: 30000,
+        originalPrice: 35000,
+        badge: "OFERTA",
+        image: "assets/images/Productos/Remeras y Chombas/Chomba-carhartt-blanca.png",
+        images: [
+            "assets/images/Productos/Remeras y Chombas/Chomba-carhartt-blanca.png",
+            "assets/images/Productos/Remeras y Chombas/Chomba-carhartt-blanca (2).png",
+            "assets/images/Productos/Remeras y Chombas/Chomba-carhartt-blanca (3).png",
+            "assets/images/Productos/Remeras y Chombas/Chomba-carhartt-blanca (4).png",
+            "assets/images/Productos/Remeras y Chombas/Chomba-carhartt-blanca (5).png"
+
+        ],
+        description: "Chomba de algodon y 35% polyester de punto trenzado, lo que logra suavidad y ligereza en el calce, ideal para altas temperaturas o uso prolongado.\nTalle L: 77cm de largo por 57cm de ancho\nEstado: 10/10.",
+        isNew: false,
+        inStock: true
+    },
+    {
+        id: 7,
+        name: "Tote Bag Dickies Reworked",
+        category: "Accesorios",
+        price: 30000,
+        originalPrice: null,
+        badge: null,
+        image: "assets/images/Productos/Accesorios/ToteBagDickies.png",
+        images: [
+            "assets/images/Productos/Accesorios/ToteBagDickies.png",
+            "assets/images/Productos/Accesorios/ToteBagDickies (2).png",
+            "assets/images/Productos/Accesorios/ToteBagDickies (3).png",
+            "assets/images/Productos/Accesorios/ToteBagDickies (4).png"
+        ],
+        description: "Alta calidad de sus materiales, costuras reforzadas para que puedan ser bien cargadas.\nposee bolsillo exterior al frente con su logo arriba, bolsillo inferior interno, y un bolsillo lateral profundo.\nMedidas: 39cm de alto por 34cm de ancho",
+        isNew: false,
+        inStock: true
+    },
+    {
+        id: 8,
+        name: "ADIDAS SAMBA",
+        category: "Accesorios",
+        price: 200000,
+        originalPrice: null,
+        badge: null,
+        image: "assets/images/Productos/Accesorios/Adidas-samba.png",
+        images: [
+            "assets/images/Productos/Accesorios/Adidas-samba.png",
+            "assets/images/Productos/Accesorios/Adidas-samba (2).png",
+            "assets/images/Productos/Accesorios/Adidas-samba (3).png",
+            "assets/images/Productos/Accesorios/Adidas-samba (4).png",
+            "assets/images/Productos/Accesorios/Adidas-samba (5).png",
+            "assets/images/Productos/Accesorios/Adidas-samba (6).png",
+            "assets/images/Productos/Accesorios/Adidas-samba (7).png"
+        ],
+        description: "Zapatillas Adidas Samba auténticas. Un clásico intemporal con sello deportivo y urbano.\nTalle: 10.5us, 43arg, 27cm.\nEstado: 10/10 sin caja.",
+        isNew: false,
+        inStock: true
+    },
+    {
+        id: 9,
+        name: "Carhartt Pocket",
+        category: "Remeras",
+        price: 30000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Remeras y Chombas/carhartt-pocket-black.png",
+        images: [
+            "assets/images/Productos/Remeras y Chombas/carhartt-pocket-black.png",
+            "assets/images/Productos/Remeras y Chombas/carhartt-pocket-black (2).png",
+            "assets/images/Productos/Remeras y Chombas/carhartt-pocket-black (3).png",
+            "assets/images/Productos/Remeras y Chombas/carhartt-pocket-black (4).png",
+            "assets/images/Productos/Remeras y Chombas/carhartt-pocket-black (5).png"
+        ],
+        description: "Remera pocket de algodón, color bastante buscado ya que combina con todo, no dejando de lado la calidad 🇺🇸\nTalle L: 78cm de largo por 60cm de ancho\nEstado: 10/10",
+        isNew: true,
+        inStock: true
+    }
 ];
 
 /* =========================================================
@@ -29,6 +188,8 @@ const productsData = [
 let cart = JSON.parse(localStorage.getItem('zs_cart')) || [];
 let wishlist = JSON.parse(localStorage.getItem('zs_wishlist')) || [];
 let currentDiscount = 0;
+let currentProductModal = null; // Track current product in modal
+let currentProductPhoto = 0; // Track current photo inside product modal
 
 // Estado de sesión admin (solo dura mientras la pestaña esté abierta)
 let isAdminAuthenticated = sessionStorage.getItem('zs_admin') === '1';
@@ -46,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupGallery();
     setupAdminGallery();
     setupFooterLinks();
+    setupProductModal();
 
     // Botones de categorías
     document.querySelectorAll('.category-card').forEach(card => {
@@ -60,7 +222,76 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================================
-   4. ADMIN GALERÍA — SISTEMA DE CONTRASEÑA
+   4. PRODUCT MODAL SETUP
+========================================================= */
+function setupProductModal() {
+    const overlay = document.getElementById('productModalOverlay');
+    const closeBtn = document.getElementById('productModalClose');
+    const prevBtn = document.getElementById('productModalPrev');
+    const nextBtn = document.getElementById('productModalNext');
+    const addBtn = document.getElementById('productModalAddBtn');
+    const wishlistBtn = document.getElementById('productModalWishlist');
+    const photoPrevBtn = document.getElementById('productPhotoPrev');
+    const photoNextBtn = document.getElementById('productPhotoNext');
+    const thumbsContainer = document.getElementById('productModalThumbs');
+
+    // Close button
+    closeBtn.addEventListener('click', closeProductModal);
+
+    // Close on overlay click
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeProductModal();
+    });
+
+    // Navigation
+    prevBtn.addEventListener('click', () => navigateProductModal(-1));
+    nextBtn.addEventListener('click', () => navigateProductModal(1));
+
+    // Photo carousel navigation
+    photoPrevBtn.addEventListener('click', (e) => { e.stopPropagation(); updateProductPhoto(-1); });
+    photoNextBtn.addEventListener('click', (e) => { e.stopPropagation(); updateProductPhoto(1); });
+
+    thumbsContainer.addEventListener('click', (e) => {
+        const thumb = e.target.closest('.product-modal-thumb');
+        if (!thumb) return;
+        const index = Number(thumb.dataset.index);
+        if (!Number.isNaN(index)) setProductPhoto(index);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('active')) return;
+        if (e.key === 'Escape') closeProductModal();
+        if (e.key === 'ArrowLeft') updateProductPhoto(-1);
+        if (e.key === 'ArrowRight') updateProductPhoto(1);
+    });
+
+    // Add to cart
+    addBtn.addEventListener('click', () => {
+        if (currentProductModal) {
+            addToCart(currentProductModal);
+        }
+    });
+
+    // Wishlist toggle
+    wishlistBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentProductModal) {
+            const index = wishlist.indexOf(currentProductModal);
+            if (index > -1) {
+                wishlist.splice(index, 1);
+            } else {
+                wishlist.push(currentProductModal);
+            }
+            localStorage.setItem('zs_wishlist', JSON.stringify(wishlist));
+            updateCounters();
+            updateProductModal();
+        }
+    });
+}
+
+/* =========================================================
+   5. ADMIN GALERÍA — SISTEMA DE CONTRASEÑA
 ========================================================= */
 function setupAdminGallery() {
     const adminModalOverlay = document.getElementById('adminModalOverlay');
@@ -176,7 +407,7 @@ const formatMoney = (amount) =>
     new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(amount);
 
 /* =========================================================
-   6. RENDERIZAR PRODUCTOS
+   7. RENDERIZAR PRODUCTOS
 ========================================================= */
 function renderProducts(products) {
     const grid = document.getElementById('productsGrid');
@@ -213,12 +444,131 @@ function renderProducts(products) {
                 ${btnHTML}
             </div>
         `;
+        card.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON' && !e.target.closest('button')) {
+                openProductModal(prod.id);
+            }
+        });
         grid.appendChild(card);
     });
 }
 
 /* =========================================================
-   7. CARRITO
+   6. PRODUCT MODAL (Instagram Style)
+========================================================= */
+function openProductModal(productId) {
+    currentProductModal = productId;
+    currentProductPhoto = 0;
+    updateProductModal();
+    document.getElementById('productModalOverlay').classList.add('active');
+}
+
+function closeProductModal() {
+    document.getElementById('productModalOverlay').classList.remove('active');
+    currentProductModal = null;
+    currentProductPhoto = 0;
+}
+
+function updateProductModal() {
+    const product = productsData.find(p => p.id === currentProductModal);
+    if (!product) return;
+
+    const photos = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
+    if (currentProductPhoto >= photos.length) currentProductPhoto = photos.length - 1;
+    if (currentProductPhoto < 0) currentProductPhoto = 0;
+
+    const isWishlisted = wishlist.includes(product.id);
+    const priceHTML = product.originalPrice
+        ? `<span class="price-current">${formatMoney(product.price)}</span> <span class="price-old">${formatMoney(product.originalPrice)}</span>`
+        : `<span class="price-current">${formatMoney(product.price)}</span>`;
+
+    // Update modal content
+    const modalImage = document.getElementById('productModalImage');
+    modalImage.src = photos[currentProductPhoto];
+    modalImage.alt = product.name;
+    document.getElementById('productModalCategory').innerText = product.category;
+    document.getElementById('productModalName').innerText = product.name;
+    document.getElementById('productModalPrices').innerHTML = priceHTML;
+    document.getElementById('productModalStock').innerText = product.inStock ? '✓ En stock' : '✗ Agotado';
+    document.getElementById('productModalStock').classList.toggle('out-of-stock', !product.inStock);
+    document.getElementById('productModalDescription').innerText = product.description || 'Descripción no disponible.';
+
+    renderProductThumbs(photos, currentProductPhoto);
+
+    // Update wishlist button
+    const wishlistBtn = document.getElementById('productModalWishlist');
+    const icon = wishlistBtn.querySelector('i');
+    if (isWishlisted) {
+        icon.classList.replace('far', 'fas');
+        wishlistBtn.classList.add('active');
+    } else {
+        icon.classList.replace('fas', 'far');
+        wishlistBtn.classList.remove('active');
+    }
+
+    // Update add to cart button
+    const addBtn = document.getElementById('productModalAddBtn');
+    if (product.inStock) {
+        addBtn.disabled = false;
+        addBtn.style.background = '';
+        addBtn.innerText = 'AGREGAR AL CARRITO';
+    } else {
+        addBtn.disabled = true;
+        addBtn.style.background = '#777';
+        addBtn.innerText = 'AGOTADO';
+    }
+
+    // Update navigation buttons
+    const currentIndex = productsData.findIndex(p => p.id === currentProductModal);
+    document.getElementById('productModalPrev').disabled = currentIndex === 0;
+    document.getElementById('productModalNext').disabled = currentIndex === productsData.length - 1;
+    document.getElementById('productPhotoPrev').disabled = currentProductPhoto === 0;
+    document.getElementById('productPhotoNext').disabled = currentProductPhoto === photos.length - 1;
+}
+
+function updateProductPhoto(direction) {
+    const product = productsData.find(p => p.id === currentProductModal);
+    if (!product) return;
+    const photos = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
+    const newPhotoIndex = currentProductPhoto + direction;
+    if (newPhotoIndex >= 0 && newPhotoIndex < photos.length) {
+        currentProductPhoto = newPhotoIndex;
+        updateProductModal();
+    }
+}
+
+function setProductPhoto(index) {
+    const product = productsData.find(p => p.id === currentProductModal);
+    if (!product) return;
+    const photos = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
+    if (index >= 0 && index < photos.length) {
+        currentProductPhoto = index;
+        updateProductModal();
+    }
+}
+
+function renderProductThumbs(photos, activeIndex) {
+    const thumbsContainer = document.getElementById('productModalThumbs');
+    if (!thumbsContainer) return;
+    thumbsContainer.innerHTML = photos.map((src, index) => `
+        <button class="product-modal-thumb${index === activeIndex ? ' active' : ''}" data-index="${index}" type="button">
+            <img src="${src}" alt="Foto ${index + 1}">
+        </button>
+    `).join('');
+}
+
+function navigateProductModal(direction) {
+    const currentIndex = productsData.findIndex(p => p.id === currentProductModal);
+    let newIndex = currentIndex + direction;
+    if (newIndex >= 0 && newIndex < productsData.length) {
+        currentProductModal = productsData[newIndex].id;
+        currentProductPhoto = 0;
+        updateProductModal();
+    }
+}
+
+/* =========================================================
+   8. CARRITO
 ========================================================= */
 function addToCart(id) {
     const product = productsData.find(p => p.id === id);
@@ -311,7 +661,7 @@ document.getElementById('checkoutBtn').addEventListener('click', () => {
 });
 
 /* =========================================================
-   8. WISHLIST
+   9. WISHLIST
 ========================================================= */
 function toggleWishlist(id, btnElement) {
     const index = wishlist.indexOf(id);
@@ -392,7 +742,7 @@ function bounceIcon(id) {
 }
 
 /* =========================================================
-   9. UI — DRAWERS Y BUSCADOR
+   10. UI — DRAWERS Y BUSCADOR
 ========================================================= */
 // Carrito
 const cartOverlay = document.getElementById('cartOverlay');
@@ -490,7 +840,7 @@ document.getElementById('newsletterForm').addEventListener('submit', (e) => {
 });
 
 /* =========================================================
-   10. SLIDER DE TESTIMONIOS
+   11. SLIDER DE TESTIMONIOS
 ========================================================= */
 let currentSlide = 0;
 let sliderInterval;
@@ -528,7 +878,7 @@ function startAutoPlay()  { sliderInterval = setInterval(() => goToSlide(current
 function resetAutoPlay()  { clearInterval(sliderInterval); startAutoPlay(); }
 
 /* =========================================================
-   11. GALERÍA (subida solo para admin)
+   12. GALERÍA (subida solo para admin)
 ========================================================= */
 function setupGallery() {
     const input = document.getElementById('galleryUpload');
@@ -614,7 +964,7 @@ function renderGallery() {
 }
 
 /* =========================================================
-   12. MODALES DEL FOOTER
+   13. MODALES DEL FOOTER
 ========================================================= */
 function setupFooterLinks() {
     const modalOverlay = document.getElementById('modalOverlay');
@@ -624,22 +974,13 @@ function setupFooterLinks() {
             title: 'ENVÍOS Y ENTREGAS',
             body: `
                 <p>Realizamos envíos a todo el país a través de correo privado.</p>
-                <p><strong>Tiempos estimados:</strong></p>
-                <ul>
-                    <li>Capital / GBA: 24-48hs hábiles</li>
-                    <li>Interior: 3-7 días hábiles</li>
-                </ul>
                 <p>El costo de envío se calcula al momento del pago según tu ubicación.</p>
-                <p><strong>¿Comprás más de $200.000?</strong> El envío es gratis automáticamente.</p>
             `
         },
         linkDevoluciones: {
             title: 'CAMBIOS Y DEVOLUCIONES',
             body: `
-                <p>Tenés <strong>7 días corridos</strong> desde que recibís tu pedido para solicitar un cambio o devolución.</p>
-                <p>La prenda debe estar en el mismo estado en que fue recibida: sin uso, sin lavar y con su etiqueta original.</p>
-                <p>Para iniciar el proceso, contactanos por Instagram o WhatsApp con tu número de pedido.</p>
-                <p>Los gastos de envío por cambio corren por cuenta del comprador.</p>
+                <p>Hablar esto con javi</p>
             `
         },
         linkFaq: {
@@ -668,7 +1009,7 @@ function setupFooterLinks() {
 }
 
 /* =========================================================
-   13. SCROLL, PARALLAX Y CURSOR
+   14. SCROLL, PARALLAX Y CURSOR
 ========================================================= */
 let lastScrollY = window.scrollY;
 const navbar = document.getElementById('navbar');
@@ -697,11 +1038,13 @@ function setupObservers() {
 
 // Custom Cursor
 const cursor = document.getElementById('custom-cursor');
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top  = e.clientY + 'px';
-});
-document.querySelectorAll('a, button, input, label').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(2)');
-    el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
-});
+if (cursor) {
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, input, label').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(2)');
+        el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+    });
+}
