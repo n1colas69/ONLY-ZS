@@ -253,6 +253,7 @@ function setupProductModal() {
     const prevBtn = document.getElementById('productModalPrev');
     const nextBtn = document.getElementById('productModalNext');
     const addBtn = document.getElementById('productModalAddBtn');
+    const buyBtn = document.getElementById('productModalBuyBtn');
     const wishlistBtn = document.getElementById('productModalWishlist');
     const photoPrevBtn = document.getElementById('productPhotoPrev');
     const photoNextBtn = document.getElementById('productPhotoNext');
@@ -293,6 +294,13 @@ function setupProductModal() {
     addBtn.addEventListener('click', () => {
         if (currentProductModal) {
             addToCart(currentProductModal);
+        }
+    });
+
+    // Buy now
+    buyBtn.addEventListener('click', () => {
+        if (currentProductModal) {
+            buyNow(currentProductModal);
         }
     });
 
@@ -527,6 +535,25 @@ function addToCart(id) {
     bounceIcon('cartCount');
     showToast(`✓ ${product.name} agregado al carrito`);
     renderCart();
+}
+
+function buyNow(id) {
+    const product = productsData.find(p => p.id === id);
+    if (!product || !product.inStock) {
+        showToast("Producto no disponible");
+        return;
+    }
+    
+    // Add to cart if not already there
+    const existing = cart.find(item => item.id === id);
+    if (!existing) {
+        cart.push({ ...product, qty: 1 });
+        saveCart();
+    }
+    
+    // Close product modal and open checkout
+    closeProductModal();
+    openCheckoutModal();
 }
 
 function updateQty(id, change) {
