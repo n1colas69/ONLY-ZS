@@ -1,0 +1,1 @@
+-Siguiente paso importante: actualizar el numero de whatsapp en main..js (aprox. linea 11).

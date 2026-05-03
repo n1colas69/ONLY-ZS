@@ -673,6 +673,156 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
     padding: 0;
 }
 .dot-btn.active { background: var(--color-dark); width: 24px; border-radius: 4px; }
+.testimonial-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+.testimonial-admin-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+}
+.pending-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: var(--color-danger);
+    color: #fff;
+    font-size: 0.72rem;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+.testimonial-form,
+.photo-submit-form,
+.testimonial-admin-panel {
+    max-width: 760px;
+    margin: 24px auto 0;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+.testimonial-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 14px;
+}
+.testimonial-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.testimonial-field label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.testimonial-field input,
+.testimonial-field select,
+.testimonial-field textarea {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    background: var(--color-bg);
+    outline: none;
+    transition: var(--transition);
+}
+.testimonial-field textarea { resize: vertical; min-height: 110px; }
+.testimonial-field input:focus,
+.testimonial-field select:focus,
+.testimonial-field textarea:focus { border-color: var(--color-dark); background: #fff; }
+.testimonial-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+.testimonial-form-footer p {
+    color: var(--color-gray);
+    font-size: 0.86rem;
+    line-height: 1.5;
+}
+.testimonial-admin-header,
+.pending-review-item,
+.pending-review-actions {
+    display: flex;
+    align-items: center;
+}
+.testimonial-admin-header {
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+.testimonial-admin-header h3 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+.pending-reviews-list {
+    display: grid;
+    gap: 12px;
+}
+.pending-review-item {
+    justify-content: space-between;
+    gap: 18px;
+    padding: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+}
+.pending-review-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+.pending-review-meta strong {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+.pending-review-meta span {
+    color: var(--color-accent);
+    letter-spacing: 1px;
+    font-size: 0.82rem;
+}
+.pending-review-item p,
+.pending-empty {
+    color: var(--color-gray);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+.pending-review-actions {
+    flex-shrink: 0;
+    gap: 8px;
+}
+.pending-review-actions .btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+}
+.gallery-submit-status,
+.testimonial-submit-status {
+    margin-top: 10px;
+    color: var(--color-gray);
+    font-size: 0.86rem;
+    text-align: center;
+}
 
 /* =========================================================
    GALERÍA DE CLIENTES
@@ -690,6 +840,9 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
     justify-content: center;
     align-items: center;
     gap: 12px;
+    margin-bottom: 36px;
+}
+.photo-submit-form {
     margin-bottom: 36px;
 }
 .gallery-grid {
@@ -968,6 +1121,15 @@ footer {
     transition: var(--transition);
 }
 .qty-btn:hover { background: var(--color-dark); color: #fff; border-color: var(--color-dark); }
+.qty-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+.qty-btn:disabled:hover {
+    background: var(--color-light-gray);
+    color: var(--color-dark);
+    border-color: var(--color-border);
+}
 .qty-controls span { font-size: 0.9rem; font-weight: 600; min-width: 20px; text-align: center; }
 .remove-item { color: var(--color-gray); background: none; border: none; font-size: 0.75rem; text-decoration: underline; }
 .remove-item:hover { color: var(--color-danger); }
@@ -1224,6 +1386,106 @@ footer {
 .modal-box p { margin-bottom: 12px; line-height: 1.75; color: #555; font-size: 0.92rem; }
 .modal-box ul { padding-left: 20px; }
 .modal-box ul li { margin-bottom: 8px; line-height: 1.75; color: #555; list-style: disc; font-size: 0.92rem; }
+
+/* Checkout Modal */
+.checkout-modal {
+    max-width: 720px;
+    max-height: 92vh;
+    overflow-y: auto;
+}
+.checkout-step {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: var(--color-accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+.checkout-summary {
+    background: var(--color-light-gray);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 22px;
+}
+.checkout-summary-row,
+.checkout-summary-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    color: #444;
+    font-size: 0.86rem;
+    line-height: 1.5;
+}
+.checkout-summary-row + .checkout-summary-row { margin-top: 8px; }
+.checkout-summary-total {
+    border-top: 1px solid var(--color-border);
+    color: var(--color-dark);
+    font-weight: 700;
+    margin-top: 12px;
+    padding-top: 12px;
+}
+.checkout-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: var(--color-dark);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+.form-wide { grid-column: 1 / -1; }
+.checkout-form input,
+.checkout-form select,
+.checkout-form textarea {
+    width: 100%;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--color-dark);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+.checkout-form textarea { resize: vertical; min-height: 82px; }
+.checkout-form input:focus,
+.checkout-form select:focus,
+.checkout-form textarea:focus {
+    border-color: var(--color-dark);
+    box-shadow: 0 0 0 3px rgba(13,13,13,0.08);
+}
+.checkout-error {
+    color: var(--color-danger);
+    font-size: 0.82rem;
+    min-height: 20px;
+    margin: 12px 0 10px;
+}
+.checkout-submit {
+    width: 100%;
+    background: #25D366;
+    color: var(--color-dark);
+    border: none;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 18px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+.checkout-submit:hover {
+    background: var(--color-dark);
+    color: #fff;
+}
 
 /* Admin Modal */
 .admin-modal { text-align: center; max-width: 400px; }
@@ -1500,6 +1762,13 @@ footer {
     .newsletter-input-wrap { flex-direction: column; border-radius: var(--radius); }
     .newsletter-input-wrap .btn-dark { border-radius: var(--radius); }
     .admin-input-wrap { flex-direction: column; }
+    .testimonial-form-grid { grid-template-columns: 1fr; }
+    .testimonial-form-footer,
+    .pending-review-item,
+    .testimonial-admin-header { flex-direction: column; align-items: stretch; }
+    .pending-review-actions { justify-content: flex-end; }
+    .checkout-modal { padding: 32px 22px; }
+    .form-grid { grid-template-columns: 1fr; }
     .footer-top { flex-direction: column; gap: 36px; }
     .footer-bottom { flex-direction: column; text-align: center; }
     .footer-links-group { gap: 24px; }

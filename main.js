@@ -1,13 +1,12 @@
 /* =========================================================
    ONLY ZS — main.js
-   Versión con galería protegida por contraseña de admin
+   Versión con comunidad moderada por Firebase
 ========================================================= */
 
 /* =========================================================
-   CONFIGURACIÓN ADMIN — CAMBIÁ ESTA CONTRASEÑA
-   Abrí este archivo, buscá ADMIN_PASSWORD y cambiá el valor
+   CONFIGURACIÓN
 ========================================================= */
-const ADMIN_PASSWORD = "ZS2026"; // ← CAMBIÁ ESTO POR TU CONTRASEÑA PERSONAL
+const WHATSAPP_NUMBER = "543800000000";
 
 /* =========================================================
    1. DATOS DE PRODUCTOS
@@ -203,11 +202,9 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCart();
     renderWishlist();
     setupObservers();
-    setupSlider();
-    setupGallery();
-    setupAdminGallery();
     setupFooterLinks();
     setupProductModal();
+    setupCheckout();
 
     // Botones de categorías
     document.querySelectorAll('.category-card').forEach(card => {
@@ -291,104 +288,6 @@ function setupProductModal() {
 }
 
 /* =========================================================
-   5. ADMIN GALERÍA — SISTEMA DE CONTRASEÑA
-========================================================= */
-function setupAdminGallery() {
-    const adminModalOverlay = document.getElementById('adminModalOverlay');
-    const adminModalClose   = document.getElementById('adminModalClose');
-    const openAdminModalBtn = document.getElementById('openAdminModalBtn');
-    const adminPasswordInput  = document.getElementById('adminPasswordInput');
-    const adminPasswordSubmit = document.getElementById('adminPasswordSubmit');
-    const adminPasswordError  = document.getElementById('adminPasswordError');
-    const adminLogoutBtn      = document.getElementById('adminLogoutBtn');
-
-    // Si ya está autenticado en esta sesión, mostrar controles de admin
-    updateAdminUI();
-
-    // Abrir modal de contraseña
-    if (openAdminModalBtn) {
-        openAdminModalBtn.addEventListener('click', () => {
-            if (isAdminAuthenticated) {
-                // Si ya está logueado, ir directo al input de archivo
-                document.getElementById('galleryUpload').click();
-                return;
-            }
-            adminModalOverlay.classList.add('active');
-            adminPasswordInput.focus();
-        });
-    }
-
-    // Cerrar modal
-    if (adminModalClose) {
-        adminModalClose.addEventListener('click', () => {
-            adminModalOverlay.classList.remove('active');
-            adminPasswordInput.value = '';
-            adminPasswordError.innerText = '';
-        });
-    }
-    if (adminModalOverlay) {
-        adminModalOverlay.addEventListener('click', (e) => {
-            if (e.target === adminModalOverlay) {
-                adminModalOverlay.classList.remove('active');
-                adminPasswordInput.value = '';
-                adminPasswordError.innerText = '';
-            }
-        });
-    }
-
-    // Verificar contraseña
-    function checkPassword() {
-        const inputVal = adminPasswordInput.value;
-        if (inputVal === ADMIN_PASSWORD) {
-            isAdminAuthenticated = true;
-            sessionStorage.setItem('zs_admin', '1');
-            adminModalOverlay.classList.remove('active');
-            adminPasswordInput.value = '';
-            adminPasswordError.innerText = '';
-            updateAdminUI();
-            showToast("✓ Sesión de administrador iniciada");
-            // Abrir selector de archivo automáticamente
-            setTimeout(() => document.getElementById('galleryUpload').click(), 300);
-        } else {
-            adminPasswordError.innerText = 'Contraseña incorrecta. Intentá de nuevo.';
-            adminPasswordInput.value = '';
-            adminPasswordInput.focus();
-        }
-    }
-
-    if (adminPasswordSubmit) adminPasswordSubmit.addEventListener('click', checkPassword);
-    if (adminPasswordInput) {
-        adminPasswordInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') checkPassword();
-        });
-    }
-
-    // Cerrar sesión admin
-    if (adminLogoutBtn) {
-        adminLogoutBtn.addEventListener('click', () => {
-            isAdminAuthenticated = false;
-            sessionStorage.removeItem('zs_admin');
-            updateAdminUI();
-            showToast("Sesión de administrador cerrada");
-        });
-    }
-}
-
-function updateAdminUI() {
-    const uploadArea   = document.getElementById('galleryUploadArea');
-    const triggerArea  = document.getElementById('galleryAdminTriggerArea');
-    if (!uploadArea || !triggerArea) return;
-
-    if (isAdminAuthenticated) {
-        uploadArea.style.display  = 'flex';
-        triggerArea.style.display = 'none';
-    } else {
-        uploadArea.style.display  = 'none';
-        triggerArea.style.display = 'flex';
-    }
-}
-
-/* =========================================================
    5. UTILIDADES
 ========================================================= */
 function filterByCategory(category) {
@@ -405,6 +304,15 @@ function filterByCategory(category) {
 
 const formatMoney = (amount) =>
     new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(amount);
+
+const getProductStockQty = (product) => product.stockQty || 1;
+
+const getCartSubtotal = () => cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+const getCartTotal = () => {
+    const subtotal = getCartSubtotal();
+    return currentDiscount > 0 ? subtotal - (subtotal * currentDiscount) : subtotal;
+};
 
 /* =========================================================
    7. RENDERIZAR PRODUCTOS
@@ -572,8 +480,19 @@ function navigateProductModal(direction) {
 ========================================================= */
 function addToCart(id) {
     const product = productsData.find(p => p.id === id);
+    if (!product || !product.inStock) {
+        showToast("Producto no disponible");
+        return;
+    }
     const existing = cart.find(item => item.id === id);
-    if (existing) existing.qty += 1;
+    const stockQty = getProductStockQty(product);
+    if (existing) {
+        if (existing.qty >= stockQty) {
+            showToast("Solo hay una unidad disponible de esta pieza");
+            return;
+        }
+        existing.qty += 1;
+    }
     else cart.push({ ...product, qty: 1 });
     saveCart();
     bounceIcon('cartCount');
@@ -584,6 +503,12 @@ function addToCart(id) {
 function updateQty(id, change) {
     const item = cart.find(i => i.id === id);
     if (item) {
+        const product = productsData.find(p => p.id === id) || item;
+        const nextQty = item.qty + change;
+        if (change > 0 && nextQty > getProductStockQty(product)) {
+            showToast("No hay mas unidades disponibles de esta pieza");
+            return;
+        }
         item.qty += change;
         if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
         saveCart();
@@ -594,13 +519,14 @@ function updateQty(id, change) {
 function renderCart() {
     const container = document.getElementById('cartItems');
     container.innerHTML = '';
-    let subtotal = 0;
+    const subtotal = getCartSubtotal();
 
     if (cart.length === 0) {
         container.innerHTML = '<p class="empty-message"><i class="fas fa-shopping-cart" style="font-size:2rem;display:block;margin-bottom:10px;color:#ccc;"></i>Tu carrito está vacío.</p>';
     } else {
         cart.forEach(item => {
-            subtotal += item.price * item.qty;
+            const product = productsData.find(p => p.id === item.id) || item;
+            const hasMaxQty = item.qty >= getProductStockQty(product);
             container.innerHTML += `
                 <div class="cart-item">
                     <img src="${item.image}" alt="${item.name}">
@@ -610,7 +536,7 @@ function renderCart() {
                         <div class="qty-controls">
                             <button class="qty-btn" onclick="updateQty(${item.id}, -1)">-</button>
                             <span>${item.qty}</span>
-                            <button class="qty-btn" onclick="updateQty(${item.id}, 1)">+</button>
+                            <button class="qty-btn" onclick="updateQty(${item.id}, 1)" ${hasMaxQty ? 'disabled title="Sin mas stock"' : ''}>+</button>
                         </div>
                         <button class="remove-item" onclick="updateQty(${item.id}, -${item.qty})">Eliminar</button>
                     </div>
@@ -657,8 +583,86 @@ document.getElementById('applyCouponBtn').addEventListener('click', () => {
 
 document.getElementById('checkoutBtn').addEventListener('click', () => {
     if (cart.length === 0) { showToast("Tu carrito está vacío"); return; }
-    showToast("¡Redirigiendo a pasarela de pago...");
+    openCheckoutModal();
 });
+
+function setupCheckout() {
+    const overlay = document.getElementById('checkoutModalOverlay');
+    const closeBtn = document.getElementById('checkoutModalClose');
+    const form = document.getElementById('checkoutForm');
+
+    closeBtn.addEventListener('click', closeCheckoutModal);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeCheckoutModal();
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const errorNode = document.getElementById('checkoutError');
+        errorNode.innerText = '';
+
+        if (cart.length === 0) {
+            errorNode.innerText = 'Tu carrito esta vacio.';
+            return;
+        }
+
+        if (!form.checkValidity()) {
+            errorNode.innerText = 'Completa los campos obligatorios para coordinar la entrega.';
+            form.reportValidity();
+            return;
+        }
+
+        const message = buildCheckoutMessage();
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank', 'noopener');
+        showToast('Pedido listo para enviar por WhatsApp');
+    });
+}
+
+function openCheckoutModal() {
+    renderCheckoutSummary();
+    closeCartUI();
+    document.getElementById('checkoutModalOverlay').classList.add('active');
+    setTimeout(() => document.getElementById('checkoutName').focus(), 100);
+}
+
+function closeCheckoutModal() {
+    document.getElementById('checkoutModalOverlay').classList.remove('active');
+    document.getElementById('checkoutError').innerText = '';
+}
+
+function renderCheckoutSummary() {
+    const summary = document.getElementById('checkoutSummary');
+    const rows = cart.map(item => `
+        <div class="checkout-summary-row">
+            <span>${item.qty} x ${item.name}</span>
+            <strong>${formatMoney(item.price * item.qty)}</strong>
+        </div>
+    `).join('');
+    const discountRow = currentDiscount > 0
+        ? `<div class="checkout-summary-row"><span>Descuento aplicado</span><strong>${Math.round(currentDiscount * 100)}% OFF</strong></div>`
+        : '';
+
+    summary.innerHTML = `
+        ${rows}
+        ${discountRow}
+        <div class="checkout-summary-total">
+            <span>Total productos</span>
+            <strong>${formatMoney(getCartTotal())}</strong>
+        </div>
+    `;
+}
+
+function buildCheckoutMessage() {
+    const getValue = (id) => document.getElementById(id).value.trim();
+    const items = cart
+        .map(item => `- ${item.qty} x ${item.name} (${formatMoney(item.price * item.qty)})`)
+        .join('\n');
+    const discountText = currentDiscount > 0 ? `\nDescuento: ${Math.round(currentDiscount * 100)}% OFF` : '';
+    const notes = getValue('checkoutNotes') || 'Sin notas';
+
+    return `Hola ONLY ZS! Quiero coordinar esta compra:\n\n${items}${discountText}\nTotal productos: ${formatMoney(getCartTotal())}\n\nDatos de entrega:\nNombre: ${getValue('checkoutName')}\nTelefono: ${getValue('checkoutPhone')}\nProvincia: ${getValue('checkoutProvince')}\nCiudad: ${getValue('checkoutCity')}\nDireccion: ${getValue('checkoutAddress')}\nEntrega: ${getValue('checkoutDelivery')}\nPago: ${getValue('checkoutPayment')}\nNotas: ${notes}`;
+}
 
 /* =========================================================
    9. WISHLIST
@@ -828,6 +832,7 @@ function showToast(msg) {
     setTimeout(() => toast.classList.add('show'), 10);
     setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 300); }, 3000);
 }
+window.showToast = showToast;
 
 // Newsletter
 document.getElementById('newsletterForm').addEventListener('submit', (e) => {
@@ -845,9 +850,176 @@ document.getElementById('newsletterForm').addEventListener('submit', (e) => {
 let currentSlide = 0;
 let sliderInterval;
 
+function setupTestimonials() {
+    const formToggle = document.getElementById('openTestimonialFormBtn');
+    const form = document.getElementById('testimonialForm');
+    if (formToggle && form) {
+        formToggle.addEventListener('click', () => {
+            const isVisible = form.style.display === 'block';
+            form.style.display = isVisible ? 'none' : 'block';
+            if (!isVisible) document.getElementById('testimonialName')?.focus();
+        });
+        form.addEventListener('submit', handleTestimonialSubmit);
+    }
+    renderApprovedTestimonials();
+    renderPendingReviews();
+}
+
+function handleTestimonialSubmit(e) {
+    e.preventDefault();
+    const nameInput = document.getElementById('testimonialName');
+    const ratingInput = document.getElementById('testimonialRating');
+    const commentInput = document.getElementById('testimonialComment');
+    const name = nameInput.value.trim();
+    const rating = Number(ratingInput.value);
+    const comment = commentInput.value.trim();
+
+    if (!name || !comment || rating < 1 || rating > 5) {
+        showToast("Completá tu nombre, puntuación y comentario.");
+        return;
+    }
+
+    const pending = getPendingReviews();
+    pending.unshift({
+        id: Date.now(),
+        name,
+        rating,
+        comment,
+        createdAt: new Date().toISOString()
+    });
+    savePendingReviews(pending);
+    e.target.reset();
+    e.target.style.display = 'none';
+    renderPendingReviews();
+    showToast("Reseña enviada. Queda pendiente de aprobación.");
+}
+
+function getApprovedReviews() {
+    return [];
+}
+
+function saveApprovedReviews(reviews) {
+    void reviews;
+}
+
+function getPendingReviews() {
+    return [];
+}
+
+function savePendingReviews(reviews) {
+    void reviews;
+}
+
+function escapeHTML(value) {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function getInitials(name) {
+    return name
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .map(part => part.charAt(0).toUpperCase())
+        .join('') || 'ZS';
+}
+
+function renderStars(rating) {
+    return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+}
+
+function createReviewSlide(review) {
+    const initials = encodeURIComponent(getInitials(review.name));
+    const safeName = escapeHTML(review.name);
+    const safeComment = escapeHTML(review.comment);
+    return `
+        <div class="slide dynamic-review" data-review-id="${review.id}">
+            <div class="stars">${renderStars(review.rating)}</div>
+            <p>"${safeComment}"</p>
+            <div class="slide-author">
+                <img src="https://placehold.co/48x48/1a1a1a/FFF?text=${initials}" alt="${safeName}" class="avatar">
+                <span>@${safeName}</span>
+            </div>
+        </div>
+    `;
+}
+
+function renderApprovedTestimonials() {
+    const slider = document.getElementById('testimonialSlider');
+    if (!slider) return;
+    slider.querySelectorAll('.dynamic-review').forEach(slide => slide.remove());
+    getApprovedReviews().forEach(review => {
+        slider.insertAdjacentHTML('beforeend', createReviewSlide(review));
+    });
+}
+
+function renderPendingReviews() {
+    const pending = getPendingReviews();
+    const badge = document.getElementById('pendingReviewsBadge');
+    const list = document.getElementById('pendingReviewsList');
+    if (badge) {
+        badge.textContent = pending.length;
+        badge.style.display = pending.length && isAdminAuthenticated ? 'inline-flex' : 'none';
+    }
+    if (!list) return;
+    list.innerHTML = '';
+    if (!isAdminAuthenticated) return;
+    if (pending.length === 0) {
+        list.innerHTML = '<p class="pending-empty">No hay reseñas pendientes.</p>';
+        return;
+    }
+    pending.forEach(review => {
+        const item = document.createElement('div');
+        item.className = 'pending-review-item';
+        item.innerHTML = `
+            <div>
+                <div class="pending-review-meta">
+                    <strong>@${escapeHTML(review.name)}</strong>
+                    <span>${renderStars(review.rating)}</span>
+                </div>
+                <p>${escapeHTML(review.comment)}</p>
+            </div>
+            <div class="pending-review-actions">
+                <button class="btn btn-dark" onclick="approveReview(${review.id})">APROBAR</button>
+                <button class="btn-icon-outline" onclick="rejectReview(${review.id})"><i class="fas fa-trash"></i></button>
+            </div>
+        `;
+        list.appendChild(item);
+    });
+}
+
+function approveReview(id) {
+    if (!isAdminAuthenticated) { showToast("No tenés permisos."); return; }
+    const pending = getPendingReviews();
+    const review = pending.find(item => item.id === id);
+    if (!review) return;
+    savePendingReviews(pending.filter(item => item.id !== id));
+    saveApprovedReviews([review, ...getApprovedReviews()].slice(0, 20));
+    renderApprovedTestimonials();
+    setupSlider();
+    renderPendingReviews();
+    goToSlide(document.querySelectorAll('.slide').length - 1);
+    showToast("Reseña aprobada y publicada.");
+}
+
+function rejectReview(id) {
+    if (!isAdminAuthenticated) { showToast("No tenés permisos."); return; }
+    savePendingReviews(getPendingReviews().filter(item => item.id !== id));
+    renderPendingReviews();
+    showToast("Reseña descartada.");
+}
+
 function setupSlider() {
     const slides = document.querySelectorAll('.slide');
     const dotsContainer = document.getElementById('sliderDots');
+    if (!dotsContainer || slides.length === 0) return;
+    clearInterval(sliderInterval);
+    dotsContainer.innerHTML = '';
+    currentSlide = Math.min(currentSlide, slides.length - 1);
     slides.forEach((_, i) => {
         const dot = document.createElement('button');
         dot.className = 'dot-btn' + (i === 0 ? ' active' : '');
@@ -855,8 +1027,11 @@ function setupSlider() {
         dot.addEventListener('click', () => goToSlide(i));
         dotsContainer.appendChild(dot);
     });
+    document.getElementById('sliderPrev')?.replaceWith(document.getElementById('sliderPrev').cloneNode(true));
+    document.getElementById('sliderNext')?.replaceWith(document.getElementById('sliderNext').cloneNode(true));
     document.getElementById('sliderPrev').addEventListener('click', () => { goToSlide(currentSlide - 1); resetAutoPlay(); });
     document.getElementById('sliderNext').addEventListener('click', () => { goToSlide(currentSlide + 1); resetAutoPlay(); });
+    goToSlide(currentSlide);
     startAutoPlay();
 }
 
@@ -920,13 +1095,11 @@ function handleGalleryUpload(e) {
 }
 
 function getGallery() {
-    try { return JSON.parse(localStorage.getItem('zs_gallery')) || []; }
-    catch { return []; }
+    return [];
 }
 
 function saveGallery(gallery) {
-    try { localStorage.setItem('zs_gallery', JSON.stringify(gallery)); }
-    catch { showToast("No hay espacio para más fotos. Eliminá algunas primero."); }
+    void gallery;
 }
 
 function deleteGalleryItem(id) {
