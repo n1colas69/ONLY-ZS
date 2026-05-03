@@ -13,8 +13,12 @@
     --color-border: #E8E8E6;
     --color-accent: #BFA16A;       /* Dorado apagado, sofisticado */
     --color-accent-dark: #9C834F;
-    --color-red: #B92020;
-    --color-red-soft: #F7E7E6;
+    --color-white: #FFFFFF;
+    --color-black: #0D0D0D;
+    --color-white-rgb: 255,255,255;
+    --color-text: var(--color-dark);
+    --color-red: var(--color-accent);
+    --color-red-soft: rgba(191,161,106,0.15);
     --color-danger: #C0392B;
     --color-success: #27AE60;
     --font-heading: 'Bebas Neue', sans-serif;
@@ -33,10 +37,54 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
     font-family: var(--font-body);
     background-color: var(--color-bg);
-    color: var(--color-dark);
+    color: var(--color-text);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
+
+body.night-mode {
+    --color-bg: #0D0D0D;
+    --color-dark: var(--color-accent);
+    --color-white: #0D0D0D;
+    --color-white-rgb: 13,13,13;
+    --color-accent: #0D0D0D;
+    --color-accent-dark: #0A0A0A;
+    --color-border: rgba(191,161,106,0.2);
+    --color-light-gray: #1A1A1A;
+    --color-gray: #BFB6A1;
+    --color-text: var(--color-accent);
+}
+
+body.night-mode .section-tag.light { color: var(--color-white); }
+body.night-mode .btn-outline { color: var(--color-white); border-color: rgba(var(--color-white-rgb),0.6); }
+body.night-mode .btn-outline:hover { background-color: var(--color-white); color: var(--color-dark); border-color: var(--color-white); }
+body.night-mode .btn-outline-white:hover { background-color: var(--color-white); color: var(--color-dark); }
+body.night-mode .desktop-nav a:hover,
+body.night-mode .nav-icons button:hover,
+body.night-mode .mobile-link:hover { color: var(--color-white); }
+body.night-mode .product-card,
+body.night-mode .cart-drawer,
+body.night-mode .wishlist-drawer,
+body.night-mode .modal-box,
+body.night-mode .checkout-modal,
+body.night-mode .search-content,
+body.night-mode .newsletter,
+body.night-mode .footer-top,
+body.night-mode .footer-bottom,
+body.night-mode .gallery-lightbox-frame {
+    background: #121212;
+    color: var(--color-white);
+}
+body.night-mode .product-card .product-title,
+body.night-mode .product-card .product-price,
+body.night-mode .cart-header h3,
+body.night-mode .footer-col h4,
+body.night-mode .gallery-lightbox-info,
+body.night-mode .newsletter p,
+body.night-mode .section-title,
+body.night-mode p,
+body.night-mode span,
+body.night-mode a { color: var(--color-white); }
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
