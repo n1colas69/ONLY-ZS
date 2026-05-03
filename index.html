@@ -196,90 +196,27 @@
         <div class="products-grid reveal" id="productsGrid"></div>
     </section>
  
-    <!-- TESTIMONIOS -->
-    <section class="testimonials section-padding reveal" id="testimonials">
-        <div class="section-header">
-            <span class="section-tag">RESEÑAS</span>
-            <h2 class="section-title">LO QUE DICEN</h2>
-        </div>
-        <div class="slider-wrapper">
-            <button class="slider-arrow slider-prev" id="sliderPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-container">
-                <div class="slider" id="testimonialSlider">
-                </div>
-            </div>
-            <button class="slider-arrow slider-next" id="sliderNext" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="slider-dots" id="sliderDots"></div>
-        <div class="testimonial-actions">
-            <button class="btn btn-dark" id="openTestimonialFormBtn">
-                <i class="fas fa-pen"></i> DEJAR RESEÑA
-            </button>
-            <a class="btn-icon-outline testimonial-admin-btn" href="admin/" title="Panel admin">
-                <i class="fas fa-lock"></i>
-            </a>
-        </div>
-        <form class="testimonial-form" id="testimonialForm" novalidate style="display:none;">
-            <div class="testimonial-form-grid">
-                <div class="testimonial-field">
-                    <label for="testimonialName">Nombre</label>
-                    <input type="text" id="testimonialName" maxlength="40" placeholder="Tu nombre" required>
-                </div>
-                <div class="testimonial-field">
-                    <label for="testimonialRating">Puntuación</label>
-                    <select id="testimonialRating" required>
-                        <option value="5">5 estrellas</option>
-                        <option value="4">4 estrellas</option>
-                        <option value="3">3 estrellas</option>
-                        <option value="2">2 estrellas</option>
-                        <option value="1">1 estrella</option>
-                    </select>
-                </div>
-            </div>
-            <div class="testimonial-field">
-                <label for="testimonialComment">Comentario</label>
-                <textarea id="testimonialComment" maxlength="240" rows="4" placeholder="Contanos qué te pareció tu compra" required></textarea>
-            </div>
-            <div class="testimonial-form-footer">
-                <p>Tu reseña queda pendiente hasta que la apruebe el administrador.</p>
-                <button type="submit" class="btn btn-dark">ENVIAR RESEÑA</button>
-            </div>
-        </form>
-    </section>
- 
     <!-- GALERÍA DE CLIENTES -->
     <section class="gallery section-padding" id="gallery">
         <div class="section-header reveal">
             <span class="section-tag">COMUNIDAD</span>
             <h2 class="section-title">GALERÍA ZS</h2>
         </div>
-        <p class="gallery-subtitle reveal">Looks reales de nuestra comunidad. <br>¿Compraste algo? Mandanos tu foto.</p>
-        <form class="photo-submit-form" id="photoSubmitForm" novalidate>
-            <div class="testimonial-form-grid">
-                <div class="testimonial-field">
-                    <label for="photoSubmitName">Nombre</label>
-                    <input type="text" id="photoSubmitName" maxlength="40" placeholder="Tu nombre" required>
-                </div>
-                <div class="testimonial-field">
-                    <label for="photoSubmitFile">Foto</label>
-                    <input type="file" id="photoSubmitFile" accept="image/*" required>
-                </div>
-            </div>
-            <div class="testimonial-field">
-                <label for="photoSubmitCaption">Comentario opcional</label>
-                <textarea id="photoSubmitCaption" maxlength="160" rows="3" placeholder="Contanos qué estás usando"></textarea>
-            </div>
-            <div class="testimonial-form-footer">
-                <p>Tu foto queda pendiente hasta que la apruebe el administrador.</p>
-                <button type="submit" class="btn btn-dark">ENVIAR FOTO</button>
-            </div>
-        </form>
+        <p class="gallery-subtitle reveal">Looks reales de nuestra comunidad. <br>Mandanos tu foto o comentario por Instagram.</p>
+        <div class="gallery-cta reveal">
+            <a class="btn btn-dark" href="https://ig.me/m/only_zonasur" target="_blank" rel="noopener">
+                <i class="fab fa-instagram"></i> ENVIAR POR INSTAGRAM
+            </a>
+            <a class="btn-icon-outline" href="https://www.instagram.com/only_zonasur/" target="_blank" rel="noopener">
+                VER PERFIL
+            </a>
+        </div>
  
         <div class="gallery-grid reveal" id="galleryGrid"></div>
         <p class="gallery-empty-msg" id="galleryEmptyMsg">
             <i class="fas fa-camera"></i><br>
             Todavía no hay fotos en la galería.<br>
-            <small>¡Compartí tu look con nosotros por WhatsApp!</small>
+            <small>¡Compartí tu look con nosotros por Instagram!</small>
         </p>
     </section>
  
@@ -443,8 +380,23 @@
         </div>
         <button class="product-modal-nav product-modal-next" id="productModalNext" aria-label="Siguiente producto"><i class="fas fa-chevron-right"></i></button>
     </div>
+
+    <!-- COMMUNITY GALLERY MODAL -->
+    <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+        <button class="gallery-lightbox-close" id="galleryLightboxClose" aria-label="Cerrar galería"><i class="fas fa-times"></i></button>
+        <button class="gallery-lightbox-nav gallery-lightbox-prev" id="galleryLightboxPrev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="gallery-lightbox-frame">
+            <img id="galleryLightboxImage" src="" alt="Foto de la comunidad ONLY ZS">
+            <div class="gallery-lightbox-info">
+                <span id="galleryLightboxCounter"></span>
+                <a href="https://ig.me/m/only_zonasur" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i> Enviar la tuya
+                </a>
+            </div>
+        </div>
+        <button class="gallery-lightbox-nav gallery-lightbox-next" id="galleryLightboxNext" aria-label="Siguiente imagen"><i class="fas fa-chevron-right"></i></button>
+    </div>
  
     <script src="main.js"></script>
-    <script type="module" src="community.js"></script>
 </body>
 </html>

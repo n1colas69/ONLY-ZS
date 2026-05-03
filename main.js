@@ -1,6 +1,6 @@
 /* =========================================================
    ONLY ZS — main.js
-   Versión con comunidad moderada por Firebase
+   Versión estática con galería comunitaria estilo Instagram
 ========================================================= */
 
 /* =========================================================
@@ -189,9 +189,34 @@ let wishlist = JSON.parse(localStorage.getItem('zs_wishlist')) || [];
 let currentDiscount = 0;
 let currentProductModal = null; // Track current product in modal
 let currentProductPhoto = 0; // Track current photo inside product modal
+let currentGalleryPhoto = 0;
 
-// Estado de sesión admin (solo dura mientras la pestaña esté abierta)
-let isAdminAuthenticated = sessionStorage.getItem('zs_admin') === '1';
+const communityGalleryData = [
+    {
+        src: "assets/images/Productos/Galeria ZS/camperon-dickies-negro.png",
+        alt: "Camperón Dickies negro en la comunidad ONLY ZS"
+    },
+    {
+        src: "assets/images/Productos/Galeria ZS/chomba-club-america.png",
+        alt: "Chomba Club América en la comunidad ONLY ZS"
+    },
+    {
+        src: "assets/images/Productos/Galeria ZS/chomba-porche-roja.png",
+        alt: "Chomba Porsche roja en la comunidad ONLY ZS"
+    },
+    {
+        src: "assets/images/Productos/Galeria ZS/Captura de pantalla 2026-05-01 200048.png",
+        alt: "Look de la comunidad ONLY ZS"
+    },
+    {
+        src: "assets/images/Productos/Galeria ZS/Captura de pantalla 2026-05-01 200104.png",
+        alt: "Foto enviada por la comunidad ONLY ZS"
+    },
+    {
+        src: "assets/images/Productos/Galeria ZS/Captura de pantalla 2026-05-01 200131.png",
+        alt: "Publicación de la comunidad ONLY ZS"
+    }
+];
 
 /* =========================================================
    3. INICIALIZACIÓN
@@ -205,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFooterLinks();
     setupProductModal();
     setupCheckout();
+    setupCommunityGallery();
 
     // Botones de categorías
     document.querySelectorAll('.category-card').forEach(card => {
@@ -392,8 +418,11 @@ function updateProductModal() {
 
     // Update modal content
     const modalImage = document.getElementById('productModalImage');
+    modalImage.classList.remove('image-enter');
+    void modalImage.offsetWidth;
     modalImage.src = photos[currentProductPhoto];
     modalImage.alt = product.name;
+    modalImage.classList.add('image-enter');
     document.getElementById('productModalCategory').innerText = product.category;
     document.getElementById('productModalName').innerText = product.name;
     document.getElementById('productModalPrices').innerHTML = priceHTML;
@@ -822,6 +851,105 @@ document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', () => document.getElementById('mobileNav').classList.remove('active'));
 });
 
+/* =========================================================
+   11. GALERÍA COMUNIDAD
+========================================================= */
+function setupCommunityGallery() {
+    renderCommunityGallery();
+
+    const overlay = document.getElementById('galleryLightbox');
+    const closeBtn = document.getElementById('galleryLightboxClose');
+    const prevBtn = document.getElementById('galleryLightboxPrev');
+    const nextBtn = document.getElementById('galleryLightboxNext');
+    let touchStartX = 0;
+
+    if (!overlay) return;
+
+    closeBtn?.addEventListener('click', closeGalleryLightbox);
+    prevBtn?.addEventListener('click', () => updateGalleryLightbox(-1));
+    nextBtn?.addEventListener('click', () => updateGalleryLightbox(1));
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeGalleryLightbox();
+    });
+
+    overlay.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    overlay.addEventListener('touchend', (e) => {
+        const diff = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(diff) < 45) return;
+        updateGalleryLightbox(diff > 0 ? -1 : 1);
+    }, { passive: true });
+
+    document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('active')) return;
+        if (e.key === 'Escape') closeGalleryLightbox();
+        if (e.key === 'ArrowLeft') updateGalleryLightbox(-1);
+        if (e.key === 'ArrowRight') updateGalleryLightbox(1);
+    });
+}
+
+function renderCommunityGallery() {
+    const grid = document.getElementById('galleryGrid');
+    const emptyMsg = document.getElementById('galleryEmptyMsg');
+    if (!grid || !emptyMsg) return;
+
+    grid.innerHTML = '';
+    if (communityGalleryData.length === 0) {
+        emptyMsg.classList.add('visible');
+        return;
+    }
+
+    emptyMsg.classList.remove('visible');
+    communityGalleryData.forEach((item, index) => {
+        const button = document.createElement('button');
+        button.className = 'gallery-item';
+        button.type = 'button';
+        button.style.setProperty('--delay', `${index * 55}ms`);
+        button.innerHTML = `
+            <img src="${item.src}" alt="${item.alt}" loading="lazy">
+            <span class="gallery-item-hover"><i class="fab fa-instagram"></i></span>
+        `;
+        button.addEventListener('click', () => openGalleryLightbox(index));
+        grid.appendChild(button);
+    });
+}
+
+function openGalleryLightbox(index) {
+    currentGalleryPhoto = index;
+    updateGalleryLightbox(0);
+    const overlay = document.getElementById('galleryLightbox');
+    overlay?.classList.add('active');
+    overlay?.setAttribute('aria-hidden', 'false');
+}
+
+function closeGalleryLightbox() {
+    const overlay = document.getElementById('galleryLightbox');
+    overlay?.classList.remove('active');
+    overlay?.setAttribute('aria-hidden', 'true');
+}
+
+function updateGalleryLightbox(direction) {
+    if (communityGalleryData.length === 0) return;
+    currentGalleryPhoto += direction;
+    if (currentGalleryPhoto < 0) currentGalleryPhoto = communityGalleryData.length - 1;
+    if (currentGalleryPhoto >= communityGalleryData.length) currentGalleryPhoto = 0;
+
+    const item = communityGalleryData[currentGalleryPhoto];
+    const image = document.getElementById('galleryLightboxImage');
+    const counter = document.getElementById('galleryLightboxCounter');
+    if (!image || !counter) return;
+
+    image.classList.remove('image-enter');
+    void image.offsetWidth;
+    image.src = item.src;
+    image.alt = item.alt;
+    image.classList.add('image-enter');
+    counter.textContent = `${currentGalleryPhoto + 1} / ${communityGalleryData.length}`;
+}
+
 // Toasts
 function showToast(msg) {
     const container = document.getElementById('toast-container');
@@ -843,298 +971,6 @@ document.getElementById('newsletterForm').addEventListener('submit', (e) => {
     email.value = '';
     setTimeout(() => msg.innerText = '', 5000);
 });
-
-/* =========================================================
-   11. SLIDER DE TESTIMONIOS
-========================================================= */
-let currentSlide = 0;
-let sliderInterval;
-
-function setupTestimonials() {
-    const formToggle = document.getElementById('openTestimonialFormBtn');
-    const form = document.getElementById('testimonialForm');
-    if (formToggle && form) {
-        formToggle.addEventListener('click', () => {
-            const isVisible = form.style.display === 'block';
-            form.style.display = isVisible ? 'none' : 'block';
-            if (!isVisible) document.getElementById('testimonialName')?.focus();
-        });
-        form.addEventListener('submit', handleTestimonialSubmit);
-    }
-    renderApprovedTestimonials();
-    renderPendingReviews();
-}
-
-function handleTestimonialSubmit(e) {
-    e.preventDefault();
-    const nameInput = document.getElementById('testimonialName');
-    const ratingInput = document.getElementById('testimonialRating');
-    const commentInput = document.getElementById('testimonialComment');
-    const name = nameInput.value.trim();
-    const rating = Number(ratingInput.value);
-    const comment = commentInput.value.trim();
-
-    if (!name || !comment || rating < 1 || rating > 5) {
-        showToast("Completá tu nombre, puntuación y comentario.");
-        return;
-    }
-
-    const pending = getPendingReviews();
-    pending.unshift({
-        id: Date.now(),
-        name,
-        rating,
-        comment,
-        createdAt: new Date().toISOString()
-    });
-    savePendingReviews(pending);
-    e.target.reset();
-    e.target.style.display = 'none';
-    renderPendingReviews();
-    showToast("Reseña enviada. Queda pendiente de aprobación.");
-}
-
-function getApprovedReviews() {
-    return [];
-}
-
-function saveApprovedReviews(reviews) {
-    void reviews;
-}
-
-function getPendingReviews() {
-    return [];
-}
-
-function savePendingReviews(reviews) {
-    void reviews;
-}
-
-function escapeHTML(value) {
-    return String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-}
-
-function getInitials(name) {
-    return name
-        .split(/\s+/)
-        .filter(Boolean)
-        .slice(0, 2)
-        .map(part => part.charAt(0).toUpperCase())
-        .join('') || 'ZS';
-}
-
-function renderStars(rating) {
-    return '★'.repeat(rating) + '☆'.repeat(5 - rating);
-}
-
-function createReviewSlide(review) {
-    const initials = encodeURIComponent(getInitials(review.name));
-    const safeName = escapeHTML(review.name);
-    const safeComment = escapeHTML(review.comment);
-    return `
-        <div class="slide dynamic-review" data-review-id="${review.id}">
-            <div class="stars">${renderStars(review.rating)}</div>
-            <p>"${safeComment}"</p>
-            <div class="slide-author">
-                <img src="https://placehold.co/48x48/1a1a1a/FFF?text=${initials}" alt="${safeName}" class="avatar">
-                <span>@${safeName}</span>
-            </div>
-        </div>
-    `;
-}
-
-function renderApprovedTestimonials() {
-    const slider = document.getElementById('testimonialSlider');
-    if (!slider) return;
-    slider.querySelectorAll('.dynamic-review').forEach(slide => slide.remove());
-    getApprovedReviews().forEach(review => {
-        slider.insertAdjacentHTML('beforeend', createReviewSlide(review));
-    });
-}
-
-function renderPendingReviews() {
-    const pending = getPendingReviews();
-    const badge = document.getElementById('pendingReviewsBadge');
-    const list = document.getElementById('pendingReviewsList');
-    if (badge) {
-        badge.textContent = pending.length;
-        badge.style.display = pending.length && isAdminAuthenticated ? 'inline-flex' : 'none';
-    }
-    if (!list) return;
-    list.innerHTML = '';
-    if (!isAdminAuthenticated) return;
-    if (pending.length === 0) {
-        list.innerHTML = '<p class="pending-empty">No hay reseñas pendientes.</p>';
-        return;
-    }
-    pending.forEach(review => {
-        const item = document.createElement('div');
-        item.className = 'pending-review-item';
-        item.innerHTML = `
-            <div>
-                <div class="pending-review-meta">
-                    <strong>@${escapeHTML(review.name)}</strong>
-                    <span>${renderStars(review.rating)}</span>
-                </div>
-                <p>${escapeHTML(review.comment)}</p>
-            </div>
-            <div class="pending-review-actions">
-                <button class="btn btn-dark" onclick="approveReview(${review.id})">APROBAR</button>
-                <button class="btn-icon-outline" onclick="rejectReview(${review.id})"><i class="fas fa-trash"></i></button>
-            </div>
-        `;
-        list.appendChild(item);
-    });
-}
-
-function approveReview(id) {
-    if (!isAdminAuthenticated) { showToast("No tenés permisos."); return; }
-    const pending = getPendingReviews();
-    const review = pending.find(item => item.id === id);
-    if (!review) return;
-    savePendingReviews(pending.filter(item => item.id !== id));
-    saveApprovedReviews([review, ...getApprovedReviews()].slice(0, 20));
-    renderApprovedTestimonials();
-    setupSlider();
-    renderPendingReviews();
-    goToSlide(document.querySelectorAll('.slide').length - 1);
-    showToast("Reseña aprobada y publicada.");
-}
-
-function rejectReview(id) {
-    if (!isAdminAuthenticated) { showToast("No tenés permisos."); return; }
-    savePendingReviews(getPendingReviews().filter(item => item.id !== id));
-    renderPendingReviews();
-    showToast("Reseña descartada.");
-}
-
-function setupSlider() {
-    const slides = document.querySelectorAll('.slide');
-    const dotsContainer = document.getElementById('sliderDots');
-    if (!dotsContainer || slides.length === 0) return;
-    clearInterval(sliderInterval);
-    dotsContainer.innerHTML = '';
-    currentSlide = Math.min(currentSlide, slides.length - 1);
-    slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className = 'dot-btn' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', `Ir al testimonio ${i + 1}`);
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-    });
-    document.getElementById('sliderPrev')?.replaceWith(document.getElementById('sliderPrev').cloneNode(true));
-    document.getElementById('sliderNext')?.replaceWith(document.getElementById('sliderNext').cloneNode(true));
-    document.getElementById('sliderPrev').addEventListener('click', () => { goToSlide(currentSlide - 1); resetAutoPlay(); });
-    document.getElementById('sliderNext').addEventListener('click', () => { goToSlide(currentSlide + 1); resetAutoPlay(); });
-    goToSlide(currentSlide);
-    startAutoPlay();
-}
-
-function goToSlide(index) {
-    const slider = document.getElementById('testimonialSlider');
-    const slides = document.querySelectorAll('.slide');
-    const dots   = document.querySelectorAll('.dot-btn');
-    if (!slider || slides.length === 0) return;
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-    slider.style.transition = 'transform 0.5s ease';
-    const slideWidth = slides[0].clientWidth + 30;
-    slider.style.transform = `translateX(-${index * slideWidth}px)`;
-    currentSlide = index;
-    dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-}
-
-function startAutoPlay()  { sliderInterval = setInterval(() => goToSlide(currentSlide + 1), 4000); }
-function resetAutoPlay()  { clearInterval(sliderInterval); startAutoPlay(); }
-
-/* =========================================================
-   12. GALERÍA (subida solo para admin)
-========================================================= */
-function setupGallery() {
-    const input = document.getElementById('galleryUpload');
-    if (input) input.addEventListener('change', handleGalleryUpload);
-    renderGallery();
-}
-
-function handleGalleryUpload(e) {
-    // Doble verificación de seguridad
-    if (!isAdminAuthenticated) {
-        showToast("No tenés permisos para subir fotos.");
-        e.target.value = '';
-        return;
-    }
-    const files = Array.from(e.target.files);
-    if (files.length === 0) return;
-    let gallery = getGallery();
-    if (gallery.length >= 20) {
-        showToast("Máximo 20 fotos. Eliminá alguna para subir más.");
-        e.target.value = '';
-        return;
-    }
-    let processed = 0;
-    const toProcess = Math.min(files.length, 20 - gallery.length);
-    files.slice(0, toProcess).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-            gallery.push({ id: Date.now() + Math.random(), src: ev.target.result });
-            processed++;
-            if (processed === toProcess) {
-                saveGallery(gallery);
-                renderGallery();
-                showToast(`✓ ${toProcess} foto${toProcess > 1 ? 's' : ''} subida${toProcess > 1 ? 's' : ''}`);
-            }
-        };
-        reader.readAsDataURL(file);
-    });
-    e.target.value = '';
-}
-
-function getGallery() {
-    return [];
-}
-
-function saveGallery(gallery) {
-    void gallery;
-}
-
-function deleteGalleryItem(id) {
-    if (!isAdminAuthenticated) { showToast("No tenés permisos."); return; }
-    let gallery = getGallery().filter(item => item.id !== id);
-    saveGallery(gallery);
-    renderGallery();
-    showToast("Foto eliminada");
-}
-
-function renderGallery() {
-    const grid     = document.getElementById('galleryGrid');
-    const emptyMsg = document.getElementById('galleryEmptyMsg');
-    const gallery  = getGallery();
-    grid.innerHTML = '';
-    if (gallery.length === 0) { emptyMsg.classList.add('visible'); return; }
-    emptyMsg.classList.remove('visible');
-    gallery.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'gallery-item';
-        // Botón de eliminar solo visible para el admin
-        const deleteBtn = isAdminAuthenticated
-            ? `<div class="gallery-item-overlay">
-                   <button class="gallery-delete-btn" onclick="deleteGalleryItem(${item.id})" title="Eliminar foto">
-                       <i class="fas fa-trash"></i>
-                   </button>
-               </div>`
-            : '';
-        div.innerHTML = `
-            <img src="${item.src}" alt="Foto de cliente ZS" loading="lazy">
-            ${deleteBtn}
-        `;
-        grid.appendChild(div);
-    });
-}
 
 /* =========================================================
    13. MODALES DEL FOOTER
