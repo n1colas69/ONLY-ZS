@@ -1937,7 +1937,15 @@ footer {
     .product-modal-next { right: 10px; }
 }
 @media (max-width: 600px) {
-    .product-modal-container { width: 95%; }
+    .product-modal-container { width: 100%; max-width: 100%; }
+    .product-modal-image {
+        max-height: min(65vh, 420px);
+        min-height: 320px;
+    }
+    .product-modal-image img {
+        object-fit: contain;
+        height: auto;
+    }
     .product-modal-info { padding: 20px; }
     .product-modal-close { width: 32px; height: 32px; font-size: 0.9rem; }
     #productModalName { font-size: 1.5rem; }
