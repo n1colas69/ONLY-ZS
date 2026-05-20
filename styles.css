@@ -1754,6 +1754,8 @@ footer {
     justify-content: center;
     max-height: 600px;
     position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
 }
 .product-modal-image img {
     width: 100%;
