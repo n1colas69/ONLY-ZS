@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colaboración | ONLY ZS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body { background: var(--color-bg); }
+
+        .brand-page #navbar {
+            background-color: rgba(13,13,13,0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 14px 6%;
+        }
+
+        .brand-nav-icons .home-link {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.05rem;
+            padding: 8px 10px;
+            transition: color 0.3s;
+        }
+
+        .brand-nav-icons .home-link:hover { color: #fff; }
+
+        .brand-search-results {
+            display: grid;
+            gap: 10px;
+            margin-top: 24px;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+
+        .brand-search-result {
+            display: grid;
+            grid-template-columns: 58px 1fr auto;
+            align-items: center;
+            gap: 14px;
+            padding: 10px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius);
+            color: #fff;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .brand-search-result img {
+            width: 58px;
+            height: 58px;
+            object-fit: cover;
+            border-radius: var(--radius);
+        }
+
+        .brand-search-result strong {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+        }
+
+        .brand-search-result span {
+            color: rgba(255,255,255,0.62);
+            font-size: 0.75rem;
+        }
+
+        .brand-search-result i { color: var(--color-accent); }
+
+        .collab-hero {
+            min-height: 88vh;
+            padding: 150px 6% 70px;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            background: #111 center/cover no-repeat;
+        }
+
+        .collab-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.56) 45%, rgba(0,0,0,0.9) 100%);
+            z-index: 0;
+        }
+
+        .collab-hero-content {
+            position: relative;
+            z-index: 1;
+            width: min(980px, 100%);
+        }
+
+        .collab-hero h1 {
+            font-size: clamp(4.5rem, 13vw, 10rem);
+            line-height: 0.88;
+            color: #fff;
+            margin: 18px 0 18px;
+        }
+
+        .collab-hero p {
+            max-width: 720px;
+            color: rgba(255,255,255,0.84);
+            font-size: clamp(1rem, 2vw, 1.22rem);
+            line-height: 1.85;
+            margin-bottom: 30px;
+        }
+
+        .collab-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .collab-info-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(220px, 0.6fr));
+            gap: 18px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .collab-info-card {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 26px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .collab-info-card h3 {
+            font-size: 1.55rem;
+            margin-bottom: 12px;
+        }
+
+        .collab-info-card p {
+            color: var(--color-gray);
+            line-height: 1.75;
+            font-size: 0.94rem;
+        }
+
+        .collab-link-list {
+            display: grid;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .collab-link-list a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            transition: var(--transition);
+        }
+
+        .collab-link-list a:hover {
+            border-color: var(--color-dark);
+            transform: translateY(-2px);
+        }
+
+        .collab-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .collab-gallery-item {
+            border: none;
+            background: #111;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            min-height: 520px;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+
+        .collab-gallery-item img {
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+
+        .collab-gallery-item::after {
+            content: '\f065';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.92);
+            color: var(--color-dark);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .collab-gallery-item:hover img { transform: scale(1.025); }
+        .collab-gallery-item:hover::after { opacity: 1; }
+
+        .collab-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+            background: rgba(0,0,0,0.96);
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 18px;
+            padding: 26px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .collab-lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .collab-lightbox-close,
+        .collab-lightbox-nav {
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(255,255,255,0.92);
+            color: var(--color-dark);
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .collab-lightbox-close:hover,
+        .collab-lightbox-nav:hover {
+            background: var(--color-accent);
+        }
+
+        .collab-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .collab-lightbox-frame {
+            min-height: 0;
+            display: grid;
+            place-items: center;
+            gap: 14px;
+        }
+
+        .collab-lightbox-frame img {
+            width: auto;
+            max-width: 100%;
+            max-height: 84vh;
+            object-fit: contain;
+            border-radius: var(--radius);
+            animation: imageOpenIn 0.25s ease both;
+        }
+
+        .collab-lightbox-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            color: rgba(255,255,255,0.78);
+            font-size: 0.82rem;
+        }
+
+        .collab-lightbox-info a {
+            color: #fff;
+            border-bottom: 1px solid rgba(255,255,255,0.35);
+        }
+
+        @media (max-width: 960px) {
+            .collab-info-grid { grid-template-columns: 1fr; }
+            .collab-gallery-grid { grid-template-columns: 1fr; }
+            .collab-gallery-item,
+            .collab-gallery-item img { min-height: 440px; }
+        }
+
+        @media (max-width: 640px) {
+            .collab-hero {
+                min-height: 82vh;
+                padding: 120px 5% 50px;
+            }
+
+            .collab-actions { flex-direction: column; align-items: flex-start; }
+            .collab-gallery-item,
+            .collab-gallery-item img { min-height: 380px; }
+            .collab-lightbox {
+                grid-template-columns: 1fr;
+                padding: 14px;
+            }
+            .collab-lightbox-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .collab-lightbox-prev { left: 10px; }
+            .collab-lightbox-next { right: 10px; }
+            .brand-search-result { grid-template-columns: 50px 1fr; }
+            .brand-search-result i { display: none; }
+        }
+    </style>
+</head>
+<body class="brand-page">
+    <div id="toast-container"></div>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-content">
+            <button class="close-search" id="closeSearch" aria-label="Cerrar búsqueda"><i class="fas fa-times"></i></button>
+            <p class="search-label">¿QUÉ ESTÁS BUSCANDO?</p>
+            <input type="text" id="searchInput" placeholder="Producto o colaboración...">
+            <div class="brand-search-results" id="brandSearchResults"></div>
+        </div>
+    </div>
+
+    <header id="navbar">
+        <div class="nav-container">
+            <a href="index.html#hero" class="logo">ZS</a>
+            <nav class="desktop-nav">
+                <a href="index.html#hero">INICIO</a>
+                <a href="index.html#collaborations">COLABORACIONES</a>
+                <a href="index.html#products">PRODUCTOS</a>
+                <a href="#brandGallery">GALERÍA</a>
+                <a href="#footer">CONTACTO</a>
+            </nav>
+            <div class="nav-icons brand-nav-icons">
+                <button id="searchBtn" aria-label="Buscar"><i class="fas fa-search"></i></button>
+                    <a class="home-link" href="index.html" aria-label="Volver al inicio"><i class="fas fa-house"></i></a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menú"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Cerrar menú"><i class="fas fa-times"></i></button>
+            <a href="index.html#hero" class="mobile-link">INICIO</a>
+            <a href="index.html#collaborations" class="mobile-link">COLABORACIONES</a>
+            <a href="index.html#products" class="mobile-link">PRODUCTOS</a>
+            <a href="#brandGallery" class="mobile-link">GALERÍA</a>
+            <a href="#footer" class="mobile-link">CONTACTO</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="collab-hero" id="brandHero">
+            <div class="collab-hero-content reveal">
+                <span class="section-tag">COLABORACIÓN</span>
+                <h1 id="brandTitle">Marca</h1>
+                <p id="brandTagline">Selección ONLY ZS.</p>
+                <div class="collab-actions">
+                    <a href="#brandGallery" class="btn btn-primary">VER GALERÍA</a>
+                    <a id="brandContactBtn" href="#" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="section-header reveal">
+                <span class="section-tag" id="brandLabel">MARCA</span>
+                <h2 class="section-title">MAS INFO</h2>
+            </div>
+            <div class="collab-info-grid reveal">
+                <article class="collab-info-card">
+                    <p id="brandDescription"></p>
+                </article>
+                <article class="collab-info-card">
+                    <h3>Redes</h3>
+                    <p>Links oficiales para conocer más.</p>
+                    <div class="collab-link-list">
+                        <a id="brandInstagram" href="#" target="_blank" rel="noopener"><span><i class="fab fa-instagram"></i> Instagram</span><i class="fas fa-arrow-up-right-from-square"></i></a>
+                        <a id="brandYoutube" href="#" target="_blank" rel="noopener"><span><i class="fab fa-youtube"></i> YouTube</span><i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-padding" id="brandGallery">
+            <div class="section-header reveal">
+                <span class="section-tag">GALERÍA</span>
+                <h2 class="section-title">FOTOS DE LA MARCA</h2>
+            </div>
+            <div class="collab-gallery-grid reveal" id="collabGalleryGrid"></div>
+        </section>
+
+        <section class="newsletter reveal">
+            <div class="newsletter-content">
+                <span class="section-tag light">COMUNIDAD</span>
+                <h2>SUMATE A LA FAMILIA ZS</h2>
+                <p>Suscribite y recibí un <strong>10% de descuento</strong> en tu primera compra.</p>
+                <form id="newsletterForm" class="newsletter-form" novalidate>
+                    <div class="newsletter-input-wrap">
+                        <input type="email" id="newsletterEmail" placeholder="tu@email.com" required>
+                        <button type="submit" class="btn btn-dark">SUSCRIBIRME</button>
+                    </div>
+                </form>
+                <p id="newsletterMsg" class="success-msg"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h2 class="logo">ZS</h2>
+                <p>Vintage &amp; second hand<br>de primer nivel.</p>
+                <div class="social-icons">
+                    <a id="brandFooterInstagram" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a id="brandFooterYoutube" href="#" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-group">
+                <div class="footer-col">
+                    <h4>TIENDA</h4>
+                    <a href="index.html#categories">Colecciones</a>
+                    <a href="index.html#collaborations">Colaboraciones</a>
+                    <a href="index.html#products">Productos</a>
+                    <a href="index.html#gallery">Galería</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AYUDA</h4>
+                    <a href="#" data-info="info">Info</a>
+                    <a href="#" data-info="envios">Envíos</a>
+                    <a href="#" data-info="devoluciones">Devoluciones</a>
+                    <a href="#" data-info="faq">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h4>MEDIOS DE PAGO</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i class="fas fa-money-bill-wave" title="Efectivo"></i>
+                    </div>
+                    <p class="footer-small">También aceptamos<br>MercadoPago y transferencia.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ONLY ZS. Todos los derechos reservados.</p>
+            <p class="footer-hint">Zona Sur, La Rioja, Argentina.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box" id="modalBox">
+            <button class="modal-close" id="modalClose" aria-label="Cerrar modal"><i class="fas fa-times"></i></button>
+            <h3 id="modalTitle"></h3>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <div class="collab-lightbox" id="collabLightbox" aria-hidden="true">
+        <button class="collab-lightbox-close" id="collabLightboxClose" aria-label="Cerrar galería"><i class="fas fa-times"></i></button>
+        <button class="collab-lightbox-nav collab-lightbox-prev" id="collabLightboxPrev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="collab-lightbox-frame">
+            <img id="collabLightboxImage" src="" alt="Foto de la colaboración">
+            <div class="collab-lightbox-info">
+                <span id="collabLightboxCounter"></span>
+                <a id="collabLightboxContact" href="#" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Más de Culto A Las Calles</a>
+            </div>
+        </div>
+        <button class="collab-lightbox-nav collab-lightbox-next" id="collabLightboxNext" aria-label="Siguiente imagen"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="data.js"></script>
+    <script src="utils.js"></script>
+    <script>
+        let activeBrand = null;
+        let activeGalleryIndex = 0;
+        let touchStartX = 0;
+
+        const params = new URLSearchParams(window.location.search);
+        const rawKey = (params.get('brand') || params.get('name') || 'carhartt').trim().toLowerCase().replace(/\s+/g, '-');
+        activeBrand = collaborationsData.find(item => item.key === rawKey) || collaborationsData[0];
+
+        function setupBrandPage() {
+            document.title = `${activeBrand.title} | ONLY ZS`;
+            document.getElementById('brandHero').style.backgroundImage = `url('${activeBrand.heroImage}')`;
+            document.getElementById('brandTitle').innerText = activeBrand.title;
+            document.getElementById('brandTagline').innerText = activeBrand.tagline;
+            document.getElementById('brandLabel').innerText = activeBrand.label;
+            document.getElementById('brandDescription').innerText = activeBrand.description;
+            const brandInstagramLink = document.getElementById('brandInstagram');
+            const brandYoutubeLink = document.getElementById('brandYoutube');
+            const brandFooterInstagram = document.getElementById('brandFooterInstagram');
+            const brandFooterYoutube = document.getElementById('brandFooterYoutube');
+            const brandContactBtn = document.getElementById('brandContactBtn');
+            const brandLightboxContact = document.getElementById('collabLightboxContact');
+
+            if (activeBrand.instagram) {
+                brandInstagramLink.href = activeBrand.instagram;
+                brandContactBtn.href = activeBrand.instagram;
+                brandLightboxContact.href = activeBrand.instagram;
+                brandFooterInstagram.href = activeBrand.instagram;
+                brandInstagramLink.style.display = '';
+                brandContactBtn.style.display = '';
+                brandLightboxContact.style.display = '';
+                brandFooterInstagram.style.display = '';
+            } else {
+                brandInstagramLink.style.display = 'none';
+                brandContactBtn.style.display = 'none';
+                brandLightboxContact.style.display = 'none';
+                brandFooterInstagram.style.display = 'none';
+            }
+
+            if (activeBrand.youtube) {
+                brandYoutubeLink.href = activeBrand.youtube;
+                brandFooterYoutube.href = activeBrand.youtube;
+                brandYoutubeLink.style.display = '';
+                brandFooterYoutube.style.display = '';
+            } else {
+                brandYoutubeLink.style.display = 'none';
+                brandFooterYoutube.style.display = 'none';
+            }
+
+            renderCollabGallery();
+        }
+
+        function renderCollabGallery() {
+            const grid = document.getElementById('collabGalleryGrid');
+            grid.innerHTML = '';
+            activeBrand.gallery.forEach((src, index) => {
+                const button = document.createElement('button');
+                button.className = 'collab-gallery-item';
+                button.type = 'button';
+                button.innerHTML = `<img src="${src}" alt="${activeBrand.title} foto ${index + 1}" loading="lazy">`;
+                button.addEventListener('click', () => openCollabLightbox(index));
+                grid.appendChild(button);
+            });
+        }
+
+        function openCollabLightbox(index) {
+            activeGalleryIndex = index;
+            updateCollabLightbox(0);
+            const overlay = document.getElementById('collabLightbox');
+            overlay.classList.add('active');
+            overlay.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeCollabLightbox() {
+            const overlay = document.getElementById('collabLightbox');
+            overlay.classList.remove('active');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (document.fullscreenElement) {
+                document.exitFullscreen().catch(() => {});
+            }
+        }
+
+        function updateCollabLightbox(direction) {
+            const photos = activeBrand.gallery;
+            activeGalleryIndex += direction;
+            if (activeGalleryIndex < 0) activeGalleryIndex = photos.length - 1;
+            if (activeGalleryIndex >= photos.length) activeGalleryIndex = 0;
+
+            const image = document.getElementById('collabLightboxImage');
+            image.classList.remove('image-enter');
+            void image.offsetWidth;
+            image.src = photos[activeGalleryIndex];
+            image.alt = `${activeBrand.title} foto ${activeGalleryIndex + 1}`;
+            image.classList.add('image-enter');
+            document.getElementById('collabLightboxCounter').innerText = `${activeGalleryIndex + 1} / ${photos.length}`;
+        }
+
+        function setupSearch() {
+            const overlay = document.getElementById('searchOverlay');
+            const input = document.getElementById('searchInput');
+            const results = document.getElementById('brandSearchResults');
+            const searchItems = [
+                ...collaborationsData.map(item => ({
+                    title: item.title,
+                    subtitle: item.label,
+                    image: item.heroImage,
+                    href: `brand.html?brand=${item.key}`
+                })),
+                ...productsData.map(item => ({
+                    title: item.name,
+                    subtitle: item.category,
+                    image: item.image,
+                    href: 'index.html#products'
+                }))
+            ];
+
+            document.getElementById('searchBtn').addEventListener('click', () => {
+                overlay.classList.add('active');
+                input.focus();
+            });
+
+            document.getElementById('closeSearch').addEventListener('click', closeSearch);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeSearch();
+            });
+
+            input.addEventListener('input', () => {
+                const term = input.value.trim().toLowerCase();
+                results.innerHTML = '';
+                if (!term) return;
+
+                const matches = searchItems.filter(item =>
+                    `${item.title} ${item.subtitle}`.toLowerCase().includes(term)
+                ).slice(0, 8);
+
+                results.innerHTML = matches.length
+                    ? matches.map(item => `
+                        <a class="brand-search-result" href="${item.href}">
+                            <img src="${item.image}" alt="${item.title}">
+                            <span><strong>${item.title}</strong><span>${item.subtitle}</span></span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    `).join('')
+                    : '<p style="color:rgba(255,255,255,0.65);font-size:0.9rem;">No encontramos resultados.</p>';
+            });
+
+            function closeSearch() {
+                overlay.classList.remove('active');
+                input.value = '';
+                results.innerHTML = '';
+            }
+        }
+
+        function setupPageUI() {
+            const mobileNav = document.getElementById('mobileNav');
+            document.getElementById('hamburgerBtn').addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+            });
+            document.getElementById('mobileNavClose').addEventListener('click', () => mobileNav.classList.remove('active'));
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => mobileNav.classList.remove('active'));
+            });
+
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                backToTop.classList.toggle('visible', window.scrollY > 450);
+            });
+            backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            document.getElementById('collabLightboxClose').addEventListener('click', closeCollabLightbox);
+            document.getElementById('collabLightboxPrev').addEventListener('click', () => updateCollabLightbox(-1));
+            document.getElementById('collabLightboxNext').addEventListener('click', () => updateCollabLightbox(1));
+            document.getElementById('collabLightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'collabLightbox') closeCollabLightbox();
+            });
+            document.getElementById('collabLightbox').addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+            document.getElementById('collabLightbox').addEventListener('touchend', (e) => {
+                const diff = e.changedTouches[0].clientX - touchStartX;
+                if (Math.abs(diff) > 45) updateCollabLightbox(diff > 0 ? -1 : 1);
+            }, { passive: true });
+
+            document.addEventListener('keydown', (e) => {
+                const lightboxOpen = document.getElementById('collabLightbox').classList.contains('active');
+                if (e.key === 'Escape') {
+                    closeCollabLightbox();
+                    document.getElementById('searchOverlay').classList.remove('active');
+                }
+                if (!lightboxOpen) return;
+                if (e.key === 'ArrowLeft') updateCollabLightbox(-1);
+                if (e.key === 'ArrowRight') updateCollabLightbox(1);
+            });
+        }
+
+        function setupNewsletter() {
+            const form = document.getElementById('newsletterForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('newsletterEmail');
+                const msg = document.getElementById('newsletterMsg');
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+                msg.innerText = `¡Gracias! Hemos enviado tu descuento a ${email.value}`;
+                email.value = '';
+                setTimeout(() => msg.innerText = '', 5000);
+            });
+        }
+
+        function setupFooterModals() {
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalClose = document.getElementById('modalClose');
+            const infos = {
+                info: {
+                    title: 'Info',
+                    body: `
+                        <p>Somos Only ZS, un emprendimiento de ropa vintage y de segunda mano con sede en La Rioja, Argentina.</p>
+                        <p>Las piezas pueden tener detalles propios del uso previo. Revisamos cada prenda y comunicamos su estado con claridad.</p>
+                    `
+                },
+                envios: {
+                    title: 'ENVÍOS Y ENTREGAS',
+                    body: `
+                        <p>Realizamos envíos a todo el país por correo privado.</p>
+                        <p>El costo de envío se coordina según ubicación y modalidad elegida.</p>
+                    `
+                },
+                devoluciones: {
+                    title: 'CAMBIOS Y DEVOLUCIONES',
+                    body: `
+                        <p>Los cambios o devoluciones se gestionan por Instagram.</p>
+                        <p>Enviá el producto consultado, el motivo y una foto si corresponde.</p>
+                    `
+                },
+                faq: {
+                    title: 'PREGUNTAS FRECUENTES',
+                    body: `
+                        <p><strong>¿Las prendas están lavadas?</strong><br>Sí, todas pasan por revisión y limpieza antes de publicarse.</p>
+                        <p><strong>¿Puedo reservar?</strong><br>Sí, escribinos por Instagram para coordinar.</p>
+                        <p><strong>¿Cómo pago?</strong><br>Aceptamos transferencia, MercadoPago, efectivo, Visa y Mastercard.</p>
+                    `
+                }
+            };
+
+            document.querySelectorAll('[data-info]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const item = infos[link.dataset.info];
+                    document.getElementById('modalTitle').innerText = item.title;
+                    document.getElementById('modalBody').innerHTML = item.body;
+                    modalOverlay.classList.add('active');
+                });
+            });
+
+            const closeModal = () => modalOverlay.classList.remove('active');
+            modalClose.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeModal();
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupBrandPage();
+            setupObservers();
+            setupSearch();
+            setupPageUI();
+            setupNewsletter();
+            setupFooterModals();
+        });
+    </script>
+    <script src="scroll.js"></script>
+</body>
+</html>

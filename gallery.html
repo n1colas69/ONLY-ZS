@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería ZS | ONLY ZS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="full-gallery-page">
+    <div id="toast-container"></div>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-content">
+            <button class="close-search" id="closeSearch" aria-label="Cerrar búsqueda"><i class="fas fa-times"></i></button>
+            <p class="search-label">¿QUÉ ESTÁS BUSCANDO?</p>
+            <input type="text" id="searchInput" placeholder="Galería, productos, comunidad...">
+        </div>
+    </div>
+
+    <header id="navbar">
+        <div class="nav-container">
+            <a href="index.html#hero" class="logo">ZS</a>
+            <nav class="desktop-nav">
+                <a href="index.html#hero">INICIO</a>
+                <a href="index.html#products">PRODUCTOS</a>
+                <a href="index.html#collaborations">COLABORACIONES</a>
+                <a href="#galleryFull">GALERÍA</a>
+                <a href="#footer">NOSOTROS</a>
+            </nav>
+            <div class="nav-icons">
+                <button id="searchBtn" aria-label="Buscar"><i class="fas fa-search"></i></button>
+                <a class="whatsapp-link" href="https://wa.me/543804176824" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a class="home-link" href="index.html" aria-label="Volver al inicio"><i class="fas fa-house"></i></a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menú"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Cerrar menú"><i class="fas fa-times"></i></button>
+            <a href="index.html#hero" class="mobile-link">INICIO</a>
+            <a href="index.html#products" class="mobile-link">PRODUCTOS</a>
+            <a href="index.html#collaborations" class="mobile-link">COLABORACIONES</a>
+            <a href="#galleryFull" class="mobile-link">GALERÍA</a>
+            <a href="#footer" class="mobile-link">NOSOTROS</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery-page-hero">
+            <div class="gallery-page-hero-content reveal">
+                <span class="section-tag">COMUNIDAD</span>
+                <h1>GALERÍA ZS</h1>
+                <p>Looks reales, fotos de la comunidad y registros que siguen construyendo el archivo visual de ONLY ZS.</p>
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="#galleryFull">VER FOTOS</a>
+                    <a class="btn btn-outline" href="https://ig.me/m/only_zonasur" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i> ENVIAR IMAGEN
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery section-padding" id="galleryFull">
+            <div class="section-header reveal">
+                <span class="section-tag">ARCHIVO</span>
+                <h2 class="section-title">TODAS LAS IMÁGENES</h2>
+            </div>
+            <p class="gallery-subtitle reveal">Compartí tu foto por Instagram y sumate a la comunidad.</p>
+            <div class="gallery-cta reveal">
+                <a class="btn btn-dark" href="https://ig.me/m/only_zonasur" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i> ENVIAR POR INSTAGRAM
+                </a>
+                <a class="btn-icon-outline" href="https://www.instagram.com/only_zonasur/" target="_blank" rel="noopener">
+                    VER PERFIL
+                </a>
+            </div>
+            <div class="gallery-grid gallery-page-grid reveal" id="galleryGrid"></div>
+            <p class="gallery-empty-msg" id="galleryEmptyMsg">
+                <i class="fas fa-camera"></i><br>
+                Todavía no hay fotos en la galería.<br>
+                <small>¡Compartí tu look con nosotros por Instagram!</small>
+            </p>
+        </section>
+
+        <section class="newsletter reveal">
+            <div class="newsletter-content">
+                <span class="section-tag light">COMUNIDAD</span>
+                <h2>SUMATE A LA FAMILIA ZS</h2>
+                <p>Suscribite y recibí un <strong>10% de descuento</strong> en tu primera compra.</p>
+                <form id="newsletterForm" class="newsletter-form" novalidate>
+                    <div class="newsletter-input-wrap">
+                        <input type="email" id="newsletterEmail" placeholder="tu@email.com" required>
+                        <button type="submit" class="btn btn-dark">SUSCRIBIRME</button>
+                    </div>
+                </form>
+                <p id="newsletterMsg" class="success-msg"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h2 class="logo">ZS</h2>
+                <p>Vintage &amp; second hand<br>de primer nivel.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/only_zonasur/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/543804176824" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-group">
+                <div class="footer-col">
+                    <h4>TIENDA</h4>
+                    <a href="index.html#categories">Colecciones</a>
+                    <a href="index.html#collaborations">Colaboraciones</a>
+                    <a href="index.html#products">Productos</a>
+                    <a href="#galleryFull">Galería</a>
+                </div>
+                <div class="footer-col">
+                    <h4>AYUDA</h4>
+                    <a href="#" data-info="info">Info</a>
+                    <a href="#" data-info="envios">Envíos</a>
+                    <a href="#" data-info="devoluciones">Devoluciones</a>
+                    <a href="#" data-info="faq">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h4>MEDIOS DE PAGO</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i class="fas fa-money-bill-wave" title="Efectivo"></i>
+                    </div>
+                    <p class="footer-small">También aceptamos<br>MercadoPago y transferencia.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ONLY ZS. Todos los derechos reservados.</p>
+            <p class="footer-hint">Zona Sur, La Rioja, Argentina.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/543804176824" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box" id="modalBox">
+            <button class="modal-close" id="modalClose" aria-label="Cerrar modal"><i class="fas fa-times"></i></button>
+            <h3 id="modalTitle"></h3>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+        <button class="gallery-lightbox-close" id="galleryLightboxClose" aria-label="Cerrar galería"><i class="fas fa-times"></i></button>
+        <button class="gallery-lightbox-nav gallery-lightbox-prev" id="galleryLightboxPrev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="gallery-lightbox-frame">
+            <img id="galleryLightboxImage" src="" alt="Foto de la comunidad ONLY ZS">
+            <div class="gallery-lightbox-info">
+                <span id="galleryLightboxCounter"></span>
+                <a href="https://ig.me/m/only_zonasur" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i> Enviar la tuya
+                </a>
+            </div>
+        </div>
+        <button class="gallery-lightbox-nav gallery-lightbox-next" id="galleryLightboxNext" aria-label="Siguiente imagen"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="utils.js"></script>
+    <script src="gallery.js"></script>
+    <script src="scroll.js"></script>
+    <script>
+        let currentGalleryPhoto = 0;
+
+        function setupGalleryPageUI() {
+            const mobileNav = document.getElementById('mobileNav');
+            document.getElementById('hamburgerBtn').addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+            });
+            document.getElementById('mobileNavClose').addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => mobileNav.classList.remove('active'));
+            });
+
+            const searchOverlay = document.getElementById('searchOverlay');
+            const searchInput = document.getElementById('searchInput');
+            document.getElementById('searchBtn').addEventListener('click', () => {
+                searchOverlay.classList.add('active');
+                searchInput.focus();
+            });
+            document.getElementById('closeSearch').addEventListener('click', closeSearch);
+            searchOverlay.addEventListener('click', (e) => {
+                if (e.target === searchOverlay) closeSearch();
+            });
+            searchInput.addEventListener('input', (e) => {
+                if (e.target.value.trim()) {
+                    document.getElementById('galleryFull').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                backToTop.classList.toggle('visible', window.scrollY > 450);
+            });
+            backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeSearch();
+            });
+
+            function closeSearch() {
+                searchOverlay.classList.remove('active');
+                searchInput.value = '';
+            }
+        }
+
+        function setupNewsletter() {
+            const form = document.getElementById('newsletterForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+                const email = document.getElementById('newsletterEmail');
+                const msg = document.getElementById('newsletterMsg');
+                msg.innerText = `¡Gracias! Hemos enviado tu descuento a ${email.value}`;
+                email.value = '';
+                setTimeout(() => msg.innerText = '', 5000);
+            });
+        }
+
+        function setupFooterModals() {
+            const modalOverlay = document.getElementById('modalOverlay');
+            const infos = {
+                info: {
+                    title: 'Info',
+                    body: '<p>Somos Only ZS, un emprendimiento de ropa vintage y de segunda mano con sede en La Rioja, Argentina.</p><p>La galería reúne fotos reales de la comunidad y registros compartidos por Instagram.</p>'
+                },
+                envios: {
+                    title: 'ENVÍOS Y ENTREGAS',
+                    body: '<p>Realizamos envíos a todo el país por correo privado.</p><p>El costo se coordina según ubicación y modalidad elegida.</p>'
+                },
+                devoluciones: {
+                    title: 'CAMBIOS Y DEVOLUCIONES',
+                    body: '<p>Los cambios o devoluciones se gestionan por WhatsApp.</p><p>Escribinos con el producto consultado y el motivo.</p>'
+                },
+                faq: {
+                    title: 'PREGUNTAS FRECUENTES',
+                    body: '<p><strong>¿Cómo envío mi foto?</strong><br>Usá el botón de Instagram para abrir el chat y mandarnos tu imagen.</p><p><strong>¿Puedo etiquetar a ONLY ZS?</strong><br>Sí, también podés mencionarnos en historias o publicaciones.</p>'
+                }
+            };
+
+            document.querySelectorAll('[data-info]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const item = infos[link.dataset.info];
+                    document.getElementById('modalTitle').innerText = item.title;
+                    document.getElementById('modalBody').innerHTML = item.body;
+                    modalOverlay.classList.add('active');
+                });
+            });
+
+            const closeModal = () => modalOverlay.classList.remove('active');
+            document.getElementById('modalClose').addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeModal();
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupObservers();
+            setupCommunityGallery();
+            setupGalleryPageUI();
+            setupNewsletter();
+            setupFooterModals();
+        });
+    </script>
+</body>
+</html>
