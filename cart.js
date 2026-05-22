@@ -73,7 +73,7 @@ function renderCart() {
             const hasMaxQty = item.qty >= getProductStockQty(product);
             container.innerHTML += `
                 <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}">
+                    <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}" loading="lazy" decoding="async" width="65" height="65">
                     <div class="cart-item-details">
                         <p class="cart-item-title">${item.name}</p>
                         <p class="cart-item-price">${formatMoney(item.price)}</p>

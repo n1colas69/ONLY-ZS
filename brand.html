@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/images/optimized/lg/assets/images/Brand/Culto A Las Calles/HERO-CULTO-A-LAS-CALLES.jpg" fetchpriority="high">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 
@@ -492,15 +493,15 @@
         let touchStartX = 0;
 
         const params = new URLSearchParams(window.location.search);
-        const rawKey = (params.get('brand') || params.get('name') || 'carhartt').trim().toLowerCase().replace(/\s+/g, '-');
+        const rawKey = (params.get('brand') || params.get('name') || 'culto-a-las-calles').trim().toLowerCase().replace(/\s+/g, '-');
         activeBrand = collaborationsData.find(item => item.key === rawKey) || collaborationsData[0];
 
         function setupBrandPage() {
             document.title = `${activeBrand.title} | ONLY ZS`;
-            document.getElementById('brandHero').style.backgroundImage = `url('${activeBrand.heroImage}')`;
+            document.getElementById('brandHero').style.backgroundImage = `url('${getOptimizedImage(activeBrand.heroImage, 'lg')}')`;
             document.getElementById('brandTitle').innerText = activeBrand.title;
             document.getElementById('brandTagline').innerText = activeBrand.tagline;
-            document.getElementById('brandLabel').innerText = activeBrand.label;
+            document.getElementById('brandLabel').innerText = activeBrand.label || activeBrand.title;
             document.getElementById('brandDescription').innerText = activeBrand.description;
             const brandInstagramLink = document.getElementById('brandInstagram');
             const brandYoutubeLink = document.getElementById('brandYoutube');
@@ -545,7 +546,7 @@
                 const button = document.createElement('button');
                 button.className = 'collab-gallery-item';
                 button.type = 'button';
-                button.innerHTML = `<img src="${src}" alt="${activeBrand.title} foto ${index + 1}" loading="lazy">`;
+                button.innerHTML = `<img src="${getOptimizedImage(src, 'sm')}"${getImageFallbackAttr(src)} alt="${activeBrand.title} foto ${index + 1}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" fetchpriority="${index < 2 ? 'high' : 'auto'}">`;
                 button.addEventListener('click', () => openCollabLightbox(index));
                 grid.appendChild(button);
             });
@@ -577,10 +578,14 @@
             const image = document.getElementById('collabLightboxImage');
             image.classList.remove('image-enter');
             void image.offsetWidth;
-            image.src = photos[activeGalleryIndex];
+            image.src = getOptimizedImage(photos[activeGalleryIndex], 'lg');
+            image.dataset.fallbackSrc = photos[activeGalleryIndex];
             image.alt = `${activeBrand.title} foto ${activeGalleryIndex + 1}`;
+            image.decoding = 'async';
             image.classList.add('image-enter');
             document.getElementById('collabLightboxCounter').innerText = `${activeGalleryIndex + 1} / ${photos.length}`;
+            preloadImage(photos[activeGalleryIndex - 1], 'lg');
+            preloadImage(photos[activeGalleryIndex + 1], 'lg');
         }
 
         function setupSearch() {
@@ -590,7 +595,7 @@
             const searchItems = [
                 ...collaborationsData.map(item => ({
                     title: item.title,
-                    subtitle: item.label,
+                    subtitle: item.label || item.title,
                     image: item.heroImage,
                     href: `brand.html?brand=${item.key}`
                 })),
@@ -624,7 +629,7 @@
                 results.innerHTML = matches.length
                     ? matches.map(item => `
                         <a class="brand-search-result" href="${item.href}">
-                            <img src="${item.image}" alt="${item.title}">
+                            <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.title}" loading="lazy" decoding="async">
                             <span><strong>${item.title}</strong><span>${item.subtitle}</span></span>
                             <i class="fas fa-arrow-right"></i>
                         </a>

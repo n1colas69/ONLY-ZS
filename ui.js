@@ -65,6 +65,9 @@ function initUI() {
             setProductsPanelOpen(!isOpen);
         });
     }
+    document.querySelectorAll('a[href="#products"], a[href="index.html#products"]').forEach(link => {
+        link.addEventListener('click', () => setProductsPanelOpen(true));
+    });
 
     // Filtros
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -111,7 +114,7 @@ function initFooterLinks() {
             body: `
                 <p>¡Hola! Somos Only ZS, un emprendimiento de ropa vintage y de segunda mano con sede en La Rioja, Argentina.</p>
                 <p>Por favor, tenga en cuenta que los artículos de segunda mano pueden venir con leves defectos. Vintage no significa perfecto. Si quieres artículos perfectos compra nuevos.</p>
-                <p>543804176824</p>
+                <p>3804176824</p>
             `
         },
         linkEnvios: {

@@ -59,7 +59,7 @@ function renderCommunityGallery() {
         button.type = 'button';
         button.style.setProperty('--delay', `${index * 55}ms`);
         button.innerHTML = `
-            <img src="${item.src}" alt="${item.alt}" loading="lazy">
+            <img src="${getOptimizedImage(item.src, 'sm')}"${getImageFallbackAttr(item.src)} alt="${item.alt}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" fetchpriority="${index < 2 ? 'high' : 'auto'}" width="720" height="720">
             <span class="gallery-item-hover"><i class="fab fa-instagram"></i></span>
         `;
         button.addEventListener('click', () => openGalleryLightbox(index));
@@ -94,8 +94,13 @@ function updateGalleryLightbox(direction) {
 
     image.classList.remove('image-enter');
     void image.offsetWidth;
-    image.src = item.src;
+    image.src = getOptimizedImage(item.src, 'lg');
+    image.dataset.fallbackSrc = item.src;
     image.alt = item.alt;
+    image.decoding = 'async';
     image.classList.add('image-enter');
     counter.textContent = `${currentGalleryPhoto + 1} / ${communityGalleryData.length}`;
+
+    preloadImage(communityGalleryData[currentGalleryPhoto - 1]?.src, 'lg');
+    preloadImage(communityGalleryData[currentGalleryPhoto + 1]?.src, 'lg');
 }

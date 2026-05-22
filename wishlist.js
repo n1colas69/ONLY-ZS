@@ -34,7 +34,7 @@ function renderWishlist() {
     wishlisted.forEach(item => {
         container.innerHTML += `
             <div class="wishlist-item">
-                <img src="${item.image}" alt="${item.name}">
+                <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}" loading="lazy" decoding="async" width="65" height="65">
                 <div class="wishlist-item-info">
                     <p class="wishlist-item-title">${item.name}</p>
                     <p class="wishlist-item-price">${formatMoney(item.price)}</p>

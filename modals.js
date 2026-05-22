@@ -33,8 +33,10 @@ function updateProductModal() {
     const modalImage = document.getElementById('productModalImage');
     modalImage.classList.remove('image-enter');
     void modalImage.offsetWidth;
-    modalImage.src = photos[currentProductPhoto];
+    modalImage.src = getOptimizedImage(photos[currentProductPhoto], 'lg');
+    modalImage.dataset.fallbackSrc = photos[currentProductPhoto];
     modalImage.alt = product.name;
+    modalImage.decoding = 'async';
     modalImage.classList.add('image-enter');
     document.getElementById('productModalCategory').innerText = product.category;
     document.getElementById('productModalName').innerText = product.name;
@@ -74,6 +76,9 @@ function updateProductModal() {
     document.getElementById('productModalNext').disabled = currentIndex === productsData.length - 1;
     document.getElementById('productPhotoPrev').disabled = currentProductPhoto === 0;
     document.getElementById('productPhotoNext').disabled = currentProductPhoto === photos.length - 1;
+
+    preloadImage(photos[currentProductPhoto - 1], 'lg');
+    preloadImage(photos[currentProductPhoto + 1], 'lg');
 }
 
 function updateProductPhoto(direction) {
@@ -102,7 +107,7 @@ function renderProductThumbs(photos, activeIndex) {
     if (!thumbsContainer) return;
     thumbsContainer.innerHTML = photos.map((src, index) => `
         <button class="product-modal-thumb${index === activeIndex ? ' active' : ''}" data-index="${index}" type="button">
-            <img src="${src}" alt="Foto ${index + 1}">
+            <img src="${getOptimizedImage(src, 'sm')}"${getImageFallbackAttr(src)} alt="Foto ${index + 1}" loading="lazy" decoding="async" width="72" height="72">
         </button>
     `).join('');
 }

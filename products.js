@@ -10,8 +10,9 @@ function renderProducts(products) {
         grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#aaa;padding:40px 0;">No se encontraron productos.</p>';
         return;
     }
-    products.forEach(prod => {
+    products.forEach((prod, index) => {
         const isWishlisted = wishlist.includes(prod.id);
+        const cardImage = getOptimizedImage(prod.image, 'sm');
         const badgeHTML = prod.badge
             ? `<span class="product-badge badge-${prod.badge.toLowerCase()}">${prod.badge}</span>` : '';
         const priceHTML = prod.originalPrice
@@ -27,9 +28,9 @@ function renderProducts(products) {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-            <div style="position:relative;">
+            <div class="product-image-wrap">
                 ${badgeHTML}
-                <img src="${prod.image}" alt="${prod.name}" class="product-image" loading="lazy">
+                <img src="${cardImage}"${getImageFallbackAttr(prod.image)} alt="${prod.name}" class="product-image" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" fetchpriority="${index < 2 ? 'high' : 'auto'}" width="720" height="900">
                 <button class="wishlist-icon ${isWishlisted ? 'active' : ''}" onclick="toggleWishlist(${prod.id}, this)">
                     <i class="${isWishlisted ? 'fas' : 'far'} fa-heart"></i>
                 </button>

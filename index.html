@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/images/optimized/lg/assets/images/HERO-ZS.jpg" fetchpriority="high">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -128,7 +129,7 @@
             <h2 class="section-title">EXPLORÁ LO QUE TENEMOS</h2>
         </div>
         <div class="categories-grid reveal">
-            <div class="category-card" data-category="Remeras" style="background-image: url('assets/images/Productos/Remeras y Chombas/Portada.png');">
+            <div class="category-card" data-category="Remeras" style="background-image: url('assets/images/optimized/sm/assets/images/Productos/Remeras y Chombas/Portada.jpg');">
                 <div class="category-overlay"></div>
                 <div class="category-content">
                     <h3>REMERAS/CHOMBAS</h3>
@@ -136,7 +137,7 @@
                     <button class="btn btn-outline-white btn-sm">Ver colección</button>
                 </div>
             </div>
-            <div class="category-card featured" data-category="Camisas" style="background-image: url('assets/images/Productos/Camisas/CAMISA-CHAPS-2-1.jpg');">
+            <div class="category-card featured" data-category="Camisas" style="background-image: url('assets/images/optimized/sm/assets/images/Productos/Camisas/CAMISA-CHAPS-2-1.jpg');">
                 <div class="category-overlay"></div>
                 <div class="category-content">
                     <h3>CAMISAS</h3>
@@ -144,7 +145,7 @@
                     <button class="btn btn-outline-white btn-sm">Ver colección</button>
                 </div>
             </div>
-            <div class="category-card" data-category="Pantalones" style="background-image: url('assets/images/Productos/Pantalones/Portada-Pantalones.png');">
+            <div class="category-card" data-category="Pantalones" style="background-image: url('assets/images/optimized/sm/assets/images/Productos/Pantalones/Portada-Pantalones.jpg');">
                 <div class="category-overlay"></div>
                 <div class="category-content">
                     <h3>SHORT Y PANTALONES</h3>
@@ -217,10 +218,10 @@
             </div>
             <div class="brand-list-wrapper">
                 <div class="brand-list">
-                    <a class="brand-item" href="brand.html?brand=culto-a-las-calles" title="Ver colaboración Culto A Las Calles" aria-label="Ver colaboración Culto A Las Calles" style="background-image: url('assets/images/Brand/Culto A Las Calles/HERO-CULTO-A-LAS-CALLES.jpg');">
+                    <a class="brand-item" href="brand.html?brand=culto-a-las-calles" title="Ver colaboración Culto A Las Calles" aria-label="Ver colaboración Culto A Las Calles" style="background-image: url('assets/images/optimized/sm/assets/images/Brand/Culto A Las Calles/HERO-CULTO-A-LAS-CALLES.jpg');">
                         <span>CULTO A LAS CALLES</span>
                     </a>
-                    <a class="brand-item brand-item-placeholder" href="brand.html?brand=proxima-colaboracion" title="Ver próxima colaboración" aria-label="Ver próxima colaboración" style="background-image: url('assets/images/HERO-ZS.png');">
+                    <a class="brand-item brand-item-placeholder" href="brand.html?brand=proxima-colaboracion" title="Ver próxima colaboración" aria-label="Ver próxima colaboración" style="background-image: url('assets/images/optimized/sm/assets/images/HERO-ZS.jpg');">
                         <span>PRÓXIMA COLABORACIÓN</span>
                     </a>
                 </div>
@@ -280,7 +281,7 @@
                 <p>Vintage &amp; second hand<br>de primer nivel.</p>
                 <div class="social-icons">
                     <a href="https://www.instagram.com/only_zonasur/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/543804176824" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/3804176824" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-links-group">
@@ -316,7 +317,7 @@
     </footer>
  
     <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/543804176824" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/3804176824" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
  
@@ -412,9 +413,9 @@
                 <h2 id="productModalName"></h2>
                 <div class="product-modal-prices" id="productModalPrices"></div>
                 <div class="product-modal-stock" id="productModalStock"></div>
-                <div style="display: flex; gap: 12px; margin: 24px 0;">
-                    <button class="btn btn-primary" id="productModalBuyBtn" style="flex: 1;">COMPRAR AHORA</button>
-                    <button class="btn btn-primary" id="productModalAddBtn" style="flex: 1;">AGREGAR AL CARRITO</button>
+                <div class="product-modal-actions">
+                    <button class="btn btn-primary" id="productModalBuyBtn">COMPRAR AHORA</button>
+                    <button class="btn btn-primary" id="productModalAddBtn">AGREGAR AL CARRITO</button>
                 </div>
                 <div class="product-modal-description" id="productModalDescription"></div>
             </div>

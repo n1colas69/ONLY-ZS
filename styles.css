@@ -114,9 +114,9 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 13px 28px;
+    padding: 11px 24px;
     font-family: var(--font-heading);
-    font-size: 1.05rem;
+    font-size: 1rem;
     letter-spacing: 1px;
     border: none;
     border-radius: var(--radius);
@@ -327,7 +327,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
 .hero {
     height: 100vh;
     min-height: 600px;
-    background-image: url('assets/images/HERO-ZS.png');
+    background-image: url('assets/images/optimized/lg/assets/images/HERO-ZS.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -597,9 +597,37 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
 .brand-item-placeholder {
     background-position: center 38%;
     filter: grayscale(1);
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: not-allowed;
+    position: relative;
 }
 .brand-item-placeholder::after {
     background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.78));
+}
+.brand-item-placeholder::before {
+    content: 'PRÓXIMAMENTE';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background: rgba(0,0,0,0.7);
+    color: var(--color-accent);
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+.brand-item-placeholder.available {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+}
+.brand-item-placeholder.available::before {
+    display: none;
 }
 @media (max-width: 900px) {
     .brand-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -757,16 +785,22 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
     display: flex;
     flex-direction: column;
     animation: imageCardIn 0.55s ease both;
+    min-width: 0;
 }
 .product-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
     border-color: rgba(185,32,32,0.28);
 }
-.product-image-wrap { position: relative; overflow: hidden; }
+.product-image-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    background: var(--color-light-gray);
+}
 .product-image {
     width: 100%;
-    aspect-ratio: 4/5;
+    height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
@@ -822,6 +856,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
     line-height: 1.4;
     margin-bottom: 10px;
     flex: 1;
+    overflow-wrap: anywhere;
 }
 .product-prices {
     display: flex;
@@ -843,6 +878,9 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
     opacity: 0;
     transform: translateY(8px);
     transition: var(--transition);
+    min-height: 42px;
+    white-space: normal;
+    line-height: 1;
 }
 .product-actions {
     display: grid;
@@ -927,7 +965,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
     align-items: flex-end;
     position: relative;
     color: #fff;
-    background: linear-gradient(180deg, rgba(0,0,0,0.24), rgba(0,0,0,0.82)), url('assets/images/Productos/Galeria ZS/HERO-GALERIA-ZS.jpg') center/cover no-repeat;
+    background: linear-gradient(180deg, rgba(0,0,0,0.24), rgba(0,0,0,0.82)), url('assets/images/optimized/lg/assets/images/Productos/Galeria ZS/HERO-GALERIA-ZS.jpg') center/cover no-repeat;
 }
 .gallery-page-hero-content {
     position: relative;
@@ -1065,6 +1103,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
 }
 .gallery-lightbox-frame img {
     width: 100%;
+    height: auto;
     max-height: 78vh;
     object-fit: contain;
     background: #050505;
@@ -1880,6 +1919,17 @@ footer {
 .product-modal-stock.out-of-stock {
     color: var(--color-danger);
 }
+.product-modal-actions {
+    display: flex;
+    gap: 12px;
+    margin: 24px 0;
+}
+.product-modal-actions .btn {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+    text-align: center;
+}
 #productModalDescription {
     font-size: 0.95rem;
     color: var(--color-gray);
@@ -1939,16 +1989,43 @@ footer {
     .product-modal-next { right: 10px; }
 }
 @media (max-width: 600px) {
-    .product-modal-container { width: 100%; max-width: 100%; }
+    .product-modal-container {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100dvh;
+        overflow-y: auto;
+        border-radius: 0;
+        gap: 0;
+    }
+    .product-modal-gallery { gap: 10px; }
     .product-modal-image {
-        max-height: min(65vh, 420px);
-        min-height: 320px;
+        aspect-ratio: auto;
+        height: min(58vh, 420px);
+        max-height: none;
+        min-height: 280px;
     }
     .product-modal-image img {
+        height: 100%;
         object-fit: contain;
-        height: auto;
+    }
+    .product-modal-thumbs {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 0 14px 12px;
+    }
+    .product-modal-thumb {
+        width: 56px;
+        height: 56px;
+        flex: 0 0 auto;
     }
     .product-modal-info { padding: 20px; }
+    .product-modal-actions {
+        flex-direction: column;
+        gap: 10px;
+        margin: 18px 0;
+    }
+    .product-modal-actions .btn { width: 100%; }
     .product-modal-close { width: 32px; height: 32px; font-size: 0.9rem; }
     #productModalName { font-size: 1.5rem; }
     .product-modal-prices .price-current { font-size: 1.4rem; }
@@ -1980,12 +2057,30 @@ footer {
     .mobile-nav-close { display: flex; }
     .hero h1 { font-size: clamp(4rem, 18vw, 7rem); }
     .products-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .product-info { padding: 14px 12px 16px; }
+    .product-actions { grid-template-columns: 1fr; gap: 8px; }
+    .add-to-cart,
+    .buy-now {
+        min-height: 38px;
+        padding: 9px 10px;
+        font-size: 0.86rem;
+    }
     .cart-drawer, .wishlist-drawer { width: 100%; right: -100%; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .gallery-preview-grid { grid-template-columns: 1fr; }
     .gallery-page-hero { min-height: 64vh; padding: 120px 5% 54px; }
     .gallery-cta { flex-direction: column; }
     .gallery-lightbox { padding: 16px; }
+    .gallery-lightbox-frame {
+        width: 100%;
+        max-height: calc(100dvh - 32px);
+    }
+    .gallery-lightbox-frame img { max-height: calc(100dvh - 96px); }
+    .gallery-lightbox-info {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
     .gallery-lightbox-nav { width: 40px; height: 40px; }
     .gallery-lightbox-prev { left: 10px; }
     .gallery-lightbox-next { right: 10px; }
@@ -2000,12 +2095,58 @@ footer {
     .footer-links-group { gap: 24px; }
     .features-strip { flex-direction: column; align-items: flex-start; gap: 4px; }
     .feature-item { padding: 10px 0; }
+    .product-card .add-to-cart,
+    .product-card .buy-now {
+        opacity: 1;
+        transform: none;
+    }
+    .whatsapp-float {
+        right: 18px;
+        bottom: calc(18px + env(safe-area-inset-bottom));
+        width: 46px;
+        height: 46px;
+        font-size: 1.35rem;
+    }
+    .back-to-top {
+        right: 18px;
+        bottom: calc(72px + env(safe-area-inset-bottom));
+    }
 }
 @media (max-width: 480px) {
-    .products-grid { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .product-title { font-size: 0.8rem; }
+    .product-category { font-size: 0.62rem; letter-spacing: 1.4px; }
+    .price-current { font-size: 0.95rem; }
+    .product-info { padding: 12px 10px 14px; }
+    .wishlist-icon {
+        top: 8px;
+        right: 8px;
+        width: 30px;
+        height: 30px;
+    }
+    .add-to-cart,
+    .buy-now {
+        font-size: 0.78rem;
+        padding: 8px;
+    }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-preview-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 4.5rem; }
     .hero-buttons { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 360px) {
+    .products-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+    .hero {
+        background-image: url('assets/images/optimized/sm/assets/images/HERO-ZS.jpg');
+        background-attachment: scroll;
+    }
+    .gallery-page-hero {
+        background-image: linear-gradient(180deg, rgba(0,0,0,0.24), rgba(0,0,0,0.82)), url('assets/images/optimized/sm/assets/images/Productos/Galeria ZS/HERO-GALERIA-ZS.jpg');
+    }
 }
 
 @media (min-width: 769px) {
