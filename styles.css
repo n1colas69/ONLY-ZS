@@ -211,6 +211,15 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
     color: #fff;
     letter-spacing: 3px;
     line-height: 1;
+    display: inline-flex;
+    align-items: center;
+}
+.logo-img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    filter: invert(1) contrast(1.15);
+    mix-blend-mode: screen;
 }
 .desktop-nav a {
     margin: 0 14px;
@@ -1250,7 +1259,11 @@ footer {
     color: #fff;
     letter-spacing: 3px;
     margin-bottom: 14px;
-    display: block;
+    display: inline-flex;
+}
+.footer-brand .logo-img {
+    width: 70px;
+    height: 70px;
 }
 .footer-brand p {
     font-size: 0.85rem;

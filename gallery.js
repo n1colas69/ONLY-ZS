@@ -53,7 +53,16 @@ function renderCommunityGallery() {
 
     emptyMsg.classList.remove('visible');
     const galleryLimit = Number(grid.dataset.galleryLimit) || communityGalleryData.length;
-    communityGalleryData.slice(0, galleryLimit).forEach((item, index) => {
+    const featuredItems = (grid.dataset.galleryFeatured || '')
+        .split(',')
+        .map(item => Number(item.trim()) - 1)
+        .filter(index => Number.isInteger(index) && communityGalleryData[index])
+        .map(index => ({ item: communityGalleryData[index], originalIndex: index }));
+    const galleryItems = featuredItems.length
+        ? featuredItems
+        : communityGalleryData.map((item, originalIndex) => ({ item, originalIndex }));
+
+    galleryItems.slice(0, galleryLimit).forEach(({ item, originalIndex }, index) => {
         const button = document.createElement('button');
         button.className = 'gallery-item';
         button.type = 'button';
@@ -62,7 +71,7 @@ function renderCommunityGallery() {
             <img src="${getOptimizedImage(item.src, 'sm')}"${getImageFallbackAttr(item.src)} alt="${item.alt}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" fetchpriority="${index < 2 ? 'high' : 'auto'}" width="720" height="720">
             <span class="gallery-item-hover"><i class="fab fa-instagram"></i></span>
         `;
-        button.addEventListener('click', () => openGalleryLightbox(index));
+        button.addEventListener('click', () => openGalleryLightbox(originalIndex));
         grid.appendChild(button);
     });
 }
