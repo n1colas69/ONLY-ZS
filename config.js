@@ -3,4 +3,4 @@
    Configuración global
 ========================================================= */
 
-const WHATSAPP_NUMBER = "3804176824";
+const WHATSAPP_NUMBER = "38041517-30";
