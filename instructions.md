@@ -150,6 +150,43 @@ Encontrar el array `productsData` y agregar un nuevo objeto:
 
 ---
 
+## 🌟 Galería de Comunidad
+
+### 1. Agregar una Imagen a la Galería
+
+- Guardar la imagen en:
+  - `assets/images/Productos/Galeria ZS/`
+  - `assets/images/optimized/lg/assets/images/Productos/Galeria ZS/`
+  - `assets/images/optimized/sm/assets/images/Productos/Galeria ZS/`
+- Usar nombres claros y sin espacios, por ejemplo:
+  - `GALERIA-ZS-001.jpg`
+  - `GALERIA-ZS-002.jpg`
+- Comprimir la imagen antes de subirla:
+  - `lg`: max 1200px de ancho, hasta 150KB
+  - `sm`: max 600px de ancho, hasta 100KB
+- Si la galería se gestiona desde datos, actualizar el array correspondiente en `data.js` con la nueva ruta.
+
+### 2. Quitar una Imagen de la Galería
+
+- Eliminar el archivo de las tres ubicaciones necesarias:
+  - `assets/images/Productos/Galeria ZS/`
+  - `assets/images/optimized/lg/assets/images/Productos/Galeria ZS/`
+  - `assets/images/optimized/sm/assets/images/Productos/Galeria ZS/`
+- Si existe una referencia en `data.js`, quitar la ruta del array de imágenes.
+- Verificar en `gallery.html` y `gallery.js` que no queden referencias directas al nombre eliminado.
+
+### 3. Actualizar una Imagen de la Galería
+
+- Reemplazar el archivo antiguo con el nuevo en las tres ubicaciones:
+  - `assets/images/Productos/Galeria ZS/`
+  - `assets/images/optimized/lg/assets/images/Productos/Galeria ZS/`
+  - `assets/images/optimized/sm/assets/images/Productos/Galeria ZS/`
+- Mantener el mismo nombre de archivo para evitar referencias rotas, o actualizar la ruta en el código si cambia el nombre.
+- Si es necesario, actualizar las rutas en `data.js` y en `gallery.html`.
+- Probar la galería en desktop y mobile para confirmar que la imagen se carga correctamente.
+
+---
+
 ## 🤝 Administrar Colaboraciones
 
 ### 1. Agregar una Nueva Colaboración
