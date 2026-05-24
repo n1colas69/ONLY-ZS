@@ -93,19 +93,10 @@ function renderCart() {
     const subtotalNode = document.getElementById('cartSubtotal');
     const originalRow  = document.getElementById('originalTotalRow');
 
-    if (currentDiscount > 0) {
-        const finalTotal = subtotal - (subtotal * currentDiscount);
-        subtotalNode.innerText = formatMoney(subtotal);
-        totalNode.innerText    = formatMoney(finalTotal);
-        originalRow.style.display = 'flex';
-        totalNode.style.background = 'var(--color-dark)';
-        totalNode.style.color      = 'var(--color-accent)';
-    } else {
-        totalNode.innerText = formatMoney(subtotal);
-        originalRow.style.display = 'none';
-        totalNode.style.background = 'transparent';
-        totalNode.style.color      = 'var(--color-dark)';
-    }
+    totalNode.innerText = formatMoney(subtotal);
+    originalRow.style.display = 'none';
+    totalNode.style.background = 'transparent';
+    totalNode.style.color      = 'var(--color-dark)';
 }
 
 function saveCart() {

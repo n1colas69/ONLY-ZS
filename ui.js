@@ -157,34 +157,7 @@ function initFooterLinks() {
     modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
 }
 
-function initNewsletter() {
-    const form = document.getElementById('newsletterForm');
-    if (!form) return;
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('newsletterEmail');
-        const msg   = document.getElementById('newsletterMsg');
-        msg.innerText = `¡Gracias! Hemos enviado tu descuento a ${email.value}`;
-        email.value = '';
-        setTimeout(() => msg.innerText = '', 5000);
-    });
-}
-
-function initCoupon() {
-    const couponBtn = document.getElementById('applyCouponBtn');
-    if (!couponBtn) return;
-    couponBtn.addEventListener('click', () => {
-        const code = document.getElementById('couponInput').value.toUpperCase().trim();
-        if (code === 'ZS2026') {
-            currentDiscount = 0.15;
-            showToast("✓ Cupón ZS2026 aplicado — 15% OFF");
-        } else {
-            currentDiscount = 0;
-            showToast("Código inválido. Intentá con ZS2026");
-        }
-        renderCart();
-    });
-}
+/* Newsletter removed: initNewsletter() deleted to disable subscription form handling */
 
 function initCheckoutBtn() {
     const checkoutBtn = document.getElementById('checkoutBtn');

@@ -210,13 +210,9 @@ function renderCheckoutSummary() {
             <strong>${formatMoney(item.price * item.qty)}</strong>
         </div>
     `).join('');
-    const discountRow = currentDiscount > 0
-        ? `<div class="checkout-summary-row"><span>Descuento aplicado</span><strong>${Math.round(currentDiscount * 100)}% OFF</strong></div>`
-        : '';
 
     summary.innerHTML = `
         ${rows}
-        ${discountRow}
         <div class="checkout-summary-total">
             <span>Total productos</span>
             <strong>${formatMoney(getCartTotal())}</strong>
@@ -229,10 +225,9 @@ function buildCheckoutMessage() {
     const items = cart
         .map(item => `- ${item.qty} x ${item.name} (${formatMoney(item.price * item.qty)})`)
         .join('\n');
-    const discountText = currentDiscount > 0 ? `\nDescuento: ${Math.round(currentDiscount * 100)}% OFF` : '';
     const notes = getValue('checkoutNotes') || 'Sin notas';
 
-    return `Hola ONLY ZS! Quiero coordinar esta compra:\n\n${items}${discountText}\nTotal productos: ${formatMoney(getCartTotal())}\n\nDatos de entrega:\nNombre: ${getValue('checkoutName')}\nTeléfono: ${getValue('checkoutPhone')}\nProvincia: ${getValue('checkoutProvince')}\nCiudad: ${getValue('checkoutCity')}\nDirección: ${getValue('checkoutAddress')}\nEntrega: ${getValue('checkoutDelivery')}\nPago: ${getValue('checkoutPayment')}\nNotas: ${notes}`;
+    return `Hola ONLY ZS! Quiero coordinar esta compra:\n\n${items}\nTotal productos: ${formatMoney(getCartTotal())}\n\nDatos de entrega:\nNombre: ${getValue('checkoutName')}\nTeléfono: ${getValue('checkoutPhone')}\nProvincia: ${getValue('checkoutProvince')}\nCiudad: ${getValue('checkoutCity')}\nDirección: ${getValue('checkoutAddress')}\nEntrega: ${getValue('checkoutDelivery')}\nPago: ${getValue('checkoutPayment')}\nNotas: ${notes}`;
 }
 
 function setupCheckout() {

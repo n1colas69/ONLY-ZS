@@ -10,10 +10,7 @@ const getProductStockQty = (product) => product.stockQty || 1;
 
 const getCartSubtotal = () => cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
-const getCartTotal = () => {
-    const subtotal = getCartSubtotal();
-    return currentDiscount > 0 ? subtotal - (subtotal * currentDiscount) : subtotal;
-};
+const getCartTotal = () => getCartSubtotal();
 
 function bounceIcon(id) {
     const badge = document.getElementById(id);

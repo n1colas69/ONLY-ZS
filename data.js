@@ -175,6 +175,18 @@ const communityGalleryData = [
     {
         src: "assets/images/Productos/Galeria ZS/GALERIA-ZS-10.jpg",
         alt: "Galería ZS foto 10"
+    },
+    {
+        src: "assets/images/Productos/Galeria ZS/GALERIA-ZS-11.jpg",
+        alt: "Galería ZS foto 11"
+    },
+    {
+        src: "assets/images/Productos/Galeria ZS/GALERIA-ZS-12.jpg",
+        alt: "Galería ZS foto 12"
+    },
+    {
+        src: "assets/images/Productos/Galeria ZS/GALERIA-ZS-13.jpg",
+        alt: "Galería ZS foto 13"
     }
 ];
 

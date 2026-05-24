@@ -401,20 +401,7 @@
             <div class="collab-gallery-grid reveal" id="collabGalleryGrid"></div>
         </section>
 
-        <section class="newsletter reveal">
-            <div class="newsletter-content">
-                <span class="section-tag light">COMUNIDAD</span>
-                <h2>SUMATE A LA FAMILIA ZS</h2>
-                <p>Suscribite y recibí un <strong>10% de descuento</strong> en tu primera compra.</p>
-                <form id="newsletterForm" class="newsletter-form" novalidate>
-                    <div class="newsletter-input-wrap">
-                        <input type="email" id="newsletterEmail" placeholder="tu@email.com" required>
-                        <button type="submit" class="btn btn-dark">SUSCRIBIRME</button>
-                    </div>
-                </form>
-                <p id="newsletterMsg" class="success-msg"></p>
-            </div>
-        </section>
+        <!-- Newsletter removed -->
     </main>
 
     <footer id="footer">
@@ -686,21 +673,7 @@
             });
         }
 
-        function setupNewsletter() {
-            const form = document.getElementById('newsletterForm');
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const email = document.getElementById('newsletterEmail');
-                const msg = document.getElementById('newsletterMsg');
-                if (!form.checkValidity()) {
-                    form.reportValidity();
-                    return;
-                }
-                msg.innerText = `¡Gracias! Hemos enviado tu descuento a ${email.value}`;
-                email.value = '';
-                setTimeout(() => msg.innerText = '', 5000);
-            });
-        }
+        /* Newsletter removed */
 
         function setupFooterModals() {
             const modalOverlay = document.getElementById('modalOverlay');
@@ -759,7 +732,7 @@
             setupObservers();
             setupSearch();
             setupPageUI();
-            setupNewsletter();
+            /* Newsletter removed */
             setupFooterModals();
         });
     </script>
