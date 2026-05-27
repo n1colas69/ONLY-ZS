@@ -136,6 +136,19 @@ function setupProductModal() {
 
     closeBtn.addEventListener('click', closeProductModal);
 
+    // Soporte para Swipe en galería móvil
+    const modalImageContainer = document.querySelector('.product-modal-gallery');
+    if (modalImageContainer) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        modalImageContainer.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {passive: true});
+        modalImageContainer.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) updateProductPhoto(1);
+            if (touchEndX - touchStartX > 50) updateProductPhoto(-1);
+        }, {passive: true});
+    }
+
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) closeProductModal();
     });
@@ -163,6 +176,18 @@ function setupProductModal() {
     addBtn.addEventListener('click', () => {
         if (currentProductModal) {
             addToCart(currentProductModal);
+            
+            // Microinteracción visual al agregar carrito
+            const originalBg = addBtn.style.background;
+            addBtn.innerText = '¡AGREGADO ✓!';
+            addBtn.style.background = 'var(--color-success)';
+            
+            setTimeout(() => {
+                if (document.getElementById('productModalOverlay').classList.contains('active')) {
+                    addBtn.innerText = 'AGREGAR AL CARRITO';
+                    addBtn.style.background = originalBg;
+                }
+            }, 1500);
         }
     });
 
@@ -178,12 +203,19 @@ function setupProductModal() {
             const index = wishlist.indexOf(currentProductModal);
             if (index > -1) {
                 wishlist.splice(index, 1);
+                showToast("Removido de favoritos");
             } else {
                 wishlist.push(currentProductModal);
+                showToast("✓ Agregado a favoritos");
+                bounceIcon('wishlistCount');
             }
             localStorage.setItem('zs_wishlist', JSON.stringify(wishlist));
             updateCounters();
             updateProductModal();
+            renderWishlist();
+            const activeFilter = document.querySelector('.filter-btn.active');
+            const cat = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
+            renderProducts(cat === 'all' ? productsData : productsData.filter(p => p.category === cat));
         }
     });
 }
@@ -216,6 +248,9 @@ function renderCheckoutSummary() {
         <div class="checkout-summary-total">
             <span>Total productos</span>
             <strong>${formatMoney(getCartTotal())}</strong>
+        </div>
+        <div class="checkout-notice" style="margin-top: 16px;">
+            <i class="fas fa-info-circle"></i> El pedido no se reserva hasta confirmar el mensaje por WhatsApp.
         </div>
     `;
 }

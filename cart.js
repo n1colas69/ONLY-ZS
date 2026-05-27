@@ -37,6 +37,7 @@ function buyNow(id) {
     if (!existing) {
         cart.push({ ...product, qty: 1 });
         saveCart();
+        renderCart();
     }
     
     // Close product modal and open checkout
@@ -53,8 +54,22 @@ function updateQty(id, change) {
             showToast("No hay más unidades disponibles de esta pieza");
             return;
         }
-        item.qty += change;
-        if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+        if (nextQty <= 0) {
+            const itemNode = document.querySelector(`.cart-item[data-id="${id}"]`);
+            if (itemNode) {
+                itemNode.classList.add('removing');
+                setTimeout(() => {
+                    cart = cart.filter(i => i.id !== id);
+                    saveCart();
+                    renderCart();
+                }, 300);
+                return; // Pausamos para permitir la animación
+            } else {
+                cart = cart.filter(i => i.id !== id);
+            }
+        } else {
+            item.qty = nextQty;
+        }
         saveCart();
         renderCart();
     }
@@ -66,13 +81,19 @@ function renderCart() {
     const subtotal = getCartSubtotal();
 
     if (cart.length === 0) {
-        container.innerHTML = '<p class="empty-message"><i class="fas fa-shopping-cart" style="font-size:2rem;display:block;margin-bottom:10px;color:#ccc;"></i>Tu carrito está vacío.</p>';
+        container.innerHTML = `
+            <div class="empty-message">
+                <i class="fas fa-shopping-cart" style="font-size:2.5rem;display:block;margin-bottom:15px;color:var(--color-border);"></i>
+                <p style="margin-bottom:20px;">Tu carrito está vacío.</p>
+                <button class="btn btn-primary" onclick="closeCartUI(); window.scrollTo({top: document.querySelector('.products-compact') ? document.querySelector('.products-compact').offsetTop - 80 : 0, behavior: 'smooth'});">Seguir Comprando</button>
+            </div>
+        `;
     } else {
         cart.forEach(item => {
             const product = productsData.find(p => p.id === item.id) || item;
             const hasMaxQty = item.qty >= getProductStockQty(product);
             container.innerHTML += `
-                <div class="cart-item">
+                <div class="cart-item" data-id="${item.id}">
                     <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}" loading="lazy" decoding="async" width="65" height="65">
                     <div class="cart-item-details">
                         <p class="cart-item-title">${item.name}</p>
@@ -90,7 +111,6 @@ function renderCart() {
     }
 
     const totalNode    = document.getElementById('cartTotal');
-    const subtotalNode = document.getElementById('cartSubtotal');
     const originalRow  = document.getElementById('originalTotalRow');
 
     totalNode.innerText = formatMoney(subtotal);
