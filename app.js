@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             searchResults.innerHTML = matches.length ? matches.map(item => `
                 <a class="brand-search-result" href="javascript:void(0)" onclick="document.getElementById('searchOverlay').classList.remove('active'); openProductModal(${item.id})">
-                    <img src="${item.image}" alt="${item.name}" loading="lazy">
+                    <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}" loading="lazy" decoding="async" width="50" height="50">
                     <span><strong>${item.name}</strong><span>${item.category} &middot; $${item.price}</span></span>
                 </a>
             `).join('') : '<p style="color:rgba(255,255,255,0.6);font-size:0.9rem;">No hay resultados.</p>';

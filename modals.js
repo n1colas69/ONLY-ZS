@@ -199,6 +199,8 @@ function setupProductModal() {
             img.classList.remove('image-enter'); // Evita que la animación de entrada bloquee el zoom
         };
         zoomBox.addEventListener('click', (e) => {
+            // Desactivar en móviles para evitar conflictos táctiles y con el gesto de swipe
+            if (window.innerWidth <= 768) return;
             isZoomed = !isZoomed;
             if (isZoomed) applyZoom(e);
             else {
@@ -208,9 +210,10 @@ function setupProductModal() {
             }
         });
         zoomBox.addEventListener('mousemove', (e) => {
-            if (isZoomed) applyZoom(e);
+            if (isZoomed && window.innerWidth > 768) applyZoom(e);
         });
         zoomBox.addEventListener('mouseleave', () => {
+            if (window.innerWidth <= 768) return;
             isZoomed = false;
             const img = document.getElementById('productModalImage');
             img.style.transformOrigin = 'center center';
