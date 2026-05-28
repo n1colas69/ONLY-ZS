@@ -12,6 +12,45 @@
     <link rel="preload" as="image" href="assets/images/optimized/lg/assets/images/HERO-ZS.jpg" fetchpriority="high">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- UI/UX Enhancements Globales --- */
+        .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(13,13,13,0.98); backdrop-filter: blur(10px); z-index: 1000; justify-content: space-around; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+        .bottom-nav a, .bottom-nav button { color: rgba(255,255,255,0.6); font-size: 0.75rem; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 5px; text-decoration: none; cursor: pointer; }
+        .bottom-nav a.active, .bottom-nav button:hover { color: var(--color-accent); }
+        .bottom-nav i { font-size: 1.25rem; }
+        @media (max-width: 768px) {
+            .bottom-nav { display: flex; }
+            body { padding-bottom: 65px; }
+            .cart-drawer, .wishlist-drawer { padding-bottom: 75px; }
+            #navbar .nav-icons { display: none; }
+        }
+        /* Lupa (Zoom) */
+        .product-modal-image { overflow: hidden; position: relative; cursor: zoom-in; }
+        #productModalImage { transition: transform 0.2s ease-out; }
+        /* Hover 2da Imagen y Badge "Pieza Única" */
+        .product-card .product-image-container { position: relative; }
+        .product-card .hover-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.4s ease; z-index: 1; }
+        @media (hover: hover) { .product-card:hover .hover-img { opacity: 1; } }
+        .badge.unique-badge { background: var(--color-accent, #BFA16A); color: #000; position: absolute; top: 10px; left: 10px; z-index: 2; padding: 4px 8px; font-size: 0.7rem; font-weight: 700; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+        /* Deslizar Carrito */
+        .cart-item-wrapper { position: relative; overflow: hidden; margin-bottom: 15px; border-radius: 8px; }
+        .cart-item-bg-delete { position: absolute; right: 0; top: 0; height: 100%; width: 80px; background: #e74c3c; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px; z-index: 0; cursor: pointer; }
+        .cart-item.swipeable { position: relative; z-index: 1; background: var(--color-bg); transition: transform 0.3s ease; }
+        /* Búsqueda Predictiva */
+        .brand-search-results { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; text-align: left; max-height: 60vh; overflow-y: auto; }
+        .brand-search-result { display: flex; align-items: center; gap: 12px; padding: 10px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: inherit; text-decoration: none; background: rgba(255,255,255,0.05); }
+        .brand-search-result img { width: 50px; height: 50px; object-fit: cover; border-radius: 4px; }
+        .brand-search-result span strong { display: block; font-size: 0.95rem; }
+        .brand-search-result span span { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+        /* Opt. Tablets */
+        @media (min-width: 768px) and (max-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+        /* Persistencia Favoritos */
+        @keyframes pulseHeart { 0% { transform: scale(1); } 50% { transform: scale(1.3); color: var(--color-accent); } 100% { transform: scale(1); } }
+        .pulse-animation i { animation: pulseHeart 1.5s infinite; color: var(--color-accent); }
+        /* Filtro de Ordenamiento */
+        .sort-select { background: transparent; color: inherit; border: 1px solid var(--color-border); padding: 6px 12px; border-radius: 20px; font-family: inherit; font-size: 0.8rem; font-weight: 500; letter-spacing: 1px; cursor: pointer; outline: none; }
+        .sort-select option { background: var(--color-bg); color: var(--color-dark); }
+    </style>
 </head>
 <body>
     <div id="toast-container"></div>
@@ -22,6 +61,7 @@
             <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
             <p class="search-label">¿QUÉ ESTÁS BUSCANDO?</p>
             <input type="text" id="searchInput" placeholder="Remera, campera, accesorio...">
+            <div class="brand-search-results" id="indexSearchResults"></div>
         </div>
     </div>
  
@@ -200,6 +240,12 @@
                 <button class="filter-btn" data-filter="Remeras">REMERAS Y CHOMBAS</button>
                 <button class="filter-btn" data-filter="Camisas">CAMISAS</button>
                 <button class="filter-btn" data-filter="Pantalones">SHORT Y PANTALONES</button>
+                <select id="sortSelect" class="sort-select" aria-label="Ordenar productos">
+                    <option value="default">ORDENAR POR</option>
+                    <option value="price-asc">MENOR PRECIO</option>
+                    <option value="price-desc">MAYOR PRECIO</option>
+                    <option value="newest">ÚLTIMOS INGRESOS</option>
+                </select>
             </div>
             <div class="products-grid reveal" id="productsGrid"></div>
         </div>
@@ -353,6 +399,10 @@
                         <input type="text" id="checkoutAddress" name="address" autocomplete="street-address" required>
                     </label>
                     <label>
+                        Código Postal
+                        <input type="text" id="checkoutZip" name="zip" autocomplete="postal-code" required placeholder="Ej: 5300">
+                    </label>
+                    <label>
                         Forma de entrega
                         <select id="checkoutDelivery" name="delivery" required>
                             <option value="">Seleccionar</option>
@@ -439,5 +489,13 @@
     <script src="scroll.js"></script>
     <script src="ui.js"></script>
     <script src="app.js"></script>
+
+    <!-- Bottom Navigation Bar for Smartphone -->
+    <nav class="bottom-nav">
+        <a href="#hero" class="active"><i class="fas fa-house"></i><span>Inicio</span></a>
+        <button onclick="document.getElementById('searchBtn').click()"><i class="fas fa-search"></i><span>Buscar</span></button>
+        <button onclick="document.getElementById('wishlistBtn').click()"><i class="far fa-heart"></i><span>Favoritos</span></button>
+        <button onclick="document.getElementById('cartBtn').click()"><i class="fas fa-bag-shopping"></i><span>Carrito</span></button>
+    </nav>
 </body>
 </html>

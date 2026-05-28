@@ -117,6 +117,7 @@ const productsData = [
     {
         id: 7,
         name: "RALPH LAUREN 0XFORD STRIPED SHIRT",
+        name: "RALPH LAUREN OXFORD STRIPED SHIRT",
         category: "Camisas",
         price: 30000,
         originalPrice: null,

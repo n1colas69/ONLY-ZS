@@ -10,8 +10,26 @@
     <link rel="preload" as="image" href="assets/images/optimized/lg/assets/images/Productos/Galeria ZS/HERO-GALERIA-ZS.jpg" fetchpriority="high">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(13,13,13,0.98); backdrop-filter: blur(10px); z-index: 1000; justify-content: space-around; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+        .bottom-nav a, .bottom-nav button { color: rgba(255,255,255,0.6); font-size: 0.75rem; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 5px; text-decoration: none; cursor: pointer; }
+        .bottom-nav a.active, .bottom-nav button:hover { color: var(--color-accent); }
+        .bottom-nav i { font-size: 1.25rem; }
+        @media (max-width: 768px) { .bottom-nav { display: flex; } body { padding-bottom: 65px; } #navbar .nav-icons { display: none; } }
+        .btn-back-global { position: fixed; top: 20px; left: 20px; background: rgba(0,0,0,0.5); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; z-index: 900; backdrop-filter: blur(5px); display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .btn-back-global:hover { background: rgba(0,0,0,0.8); }
+        .brand-search-results { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; text-align: left; max-height: 60vh; overflow-y: auto; }
+        .brand-search-result { display: flex; align-items: center; gap: 12px; padding: 10px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: inherit; text-decoration: none; background: rgba(255,255,255,0.05); }
+        .brand-search-result img { width: 50px; height: 50px; object-fit: cover; border-radius: 4px; }
+        .brand-search-result span strong { display: block; font-size: 0.95rem; }
+        .brand-search-result span span { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr) !important; }
+        }
+    </style>
 </head>
 <body class="full-gallery-page">
+    <a href="index.html" class="btn-back-global"><i class="fas fa-arrow-left"></i> Volver</a>
     <div id="toast-container"></div>
 
     <div class="search-overlay" id="searchOverlay">
@@ -19,6 +37,7 @@
             <button class="close-search" id="closeSearch" aria-label="Cerrar búsqueda"><i class="fas fa-times"></i></button>
             <p class="search-label">¿QUÉ ESTÁS BUSCANDO?</p>
             <input type="text" id="searchInput" placeholder="Galería, productos, comunidad...">
+            <div class="brand-search-results" id="gallerySearchResults"></div>
         </div>
     </div>
 
@@ -191,10 +210,20 @@
             searchOverlay.addEventListener('click', (e) => {
                 if (e.target === searchOverlay) closeSearch();
             });
-            searchInput.addEventListener('input', (e) => {
-                if (e.target.value.trim()) {
-                    document.getElementById('galleryFull').scrollIntoView({ behavior: 'smooth' });
-                }
+        searchInput.addEventListener('input', () => {
+            const term = searchInput.value.trim().toLowerCase();
+            const results = document.getElementById('gallerySearchResults');
+            results.innerHTML = '';
+            if (!term) return;
+            const matches = productsData.filter(item => 
+                `${item.name} ${item.category}`.toLowerCase().includes(term)
+            ).slice(0, 6);
+            results.innerHTML = matches.length ? matches.map(item => `
+                <a class="brand-search-result" href="index.html#products">
+                    <img src="${item.image}" alt="${item.name}">
+                    <span><strong>${item.name}</strong><span>${item.category}</span></span>
+                </a>
+            `).join('') : '<p style="color:rgba(255,255,255,0.6);font-size:0.9rem;">No hay resultados.</p>';
             });
 
             const backToTop = document.getElementById('backToTop');
@@ -210,6 +239,7 @@
             function closeSearch() {
                 searchOverlay.classList.remove('active');
                 searchInput.value = '';
+            document.getElementById('gallerySearchResults').innerHTML = '';
             }
         }
 
@@ -261,5 +291,12 @@
             setupFooterModals();
         });
     </script>
+
+<nav class="bottom-nav">
+    <a href="index.html"><i class="fas fa-house"></i><span>Inicio</span></a>
+    <button onclick="document.getElementById('searchBtn').click()"><i class="fas fa-search"></i><span>Buscar</span></button>
+    <a href="#galleryFull" class="active"><i class="fas fa-camera"></i><span>Galería</span></a>
+    <a href="#footer"><i class="fas fa-envelope"></i><span>Contacto</span></a>
+</nav>
 </body>
 </html>

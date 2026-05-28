@@ -74,8 +74,18 @@ function updateProductModal() {
     const currentIndex = productsData.findIndex(p => p.id === currentProductModal);
     document.getElementById('productModalPrev').disabled = currentIndex === 0;
     document.getElementById('productModalNext').disabled = currentIndex === productsData.length - 1;
-    document.getElementById('productPhotoPrev').disabled = currentProductPhoto === 0;
-    document.getElementById('productPhotoNext').disabled = currentProductPhoto === photos.length - 1;
+
+    const photoPrevBtn = document.getElementById('productPhotoPrev');
+    const photoNextBtn = document.getElementById('productPhotoNext');
+    if (photos.length > 1) {
+        photoPrevBtn.disabled = false;
+        photoNextBtn.disabled = false;
+        photoPrevBtn.style.display = '';
+        photoNextBtn.style.display = '';
+    } else {
+        photoPrevBtn.style.display = 'none';
+        photoNextBtn.style.display = 'none';
+    }
 
     preloadImage(photos[currentProductPhoto - 1], 'lg');
     preloadImage(photos[currentProductPhoto + 1], 'lg');
@@ -85,11 +95,13 @@ function updateProductPhoto(direction) {
     const product = productsData.find(p => p.id === currentProductModal);
     if (!product) return;
     const photos = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
-    const newPhotoIndex = currentProductPhoto + direction;
-    if (newPhotoIndex >= 0 && newPhotoIndex < photos.length) {
-        currentProductPhoto = newPhotoIndex;
-        updateProductModal();
-    }
+    let newPhotoIndex = currentProductPhoto + direction;
+    
+    if (newPhotoIndex >= photos.length) newPhotoIndex = 0;
+    if (newPhotoIndex < 0) newPhotoIndex = photos.length - 1;
+    
+    currentProductPhoto = newPhotoIndex;
+    updateProductModal();
 }
 
 function setProductPhoto(index) {
@@ -141,9 +153,9 @@ function setupProductModal() {
     if (modalImageContainer) {
         let touchStartX = 0;
         let touchEndX = 0;
-        modalImageContainer.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {passive: true});
+        modalImageContainer.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].clientX, {passive: true});
         modalImageContainer.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
+            touchEndX = e.changedTouches[0].clientX;
             if (touchStartX - touchEndX > 50) updateProductPhoto(1);
             if (touchEndX - touchStartX > 50) updateProductPhoto(-1);
         }, {passive: true});
@@ -172,6 +184,39 @@ function setupProductModal() {
         if (e.key === 'ArrowLeft') updateProductPhoto(-1);
         if (e.key === 'ArrowRight') updateProductPhoto(1);
     });
+
+    // Lupa (Zoom) de Detalles de Prenda
+    const zoomBox = document.querySelector('.product-modal-image');
+    if (zoomBox) {
+        let isZoomed = false;
+        const applyZoom = (e) => {
+            const img = document.getElementById('productModalImage');
+            const { left, top, width, height } = zoomBox.getBoundingClientRect();
+            const x = ((e.clientX - left) / width) * 100;
+            const y = ((e.clientY - top) / height) * 100;
+            img.style.transformOrigin = `${x}% ${y}%`;
+            img.style.transform = 'scale(2.5)';
+            img.classList.remove('image-enter'); // Evita que la animación de entrada bloquee el zoom
+        };
+        zoomBox.addEventListener('click', (e) => {
+            isZoomed = !isZoomed;
+            if (isZoomed) applyZoom(e);
+            else {
+                const img = document.getElementById('productModalImage');
+                img.style.transformOrigin = 'center center';
+                img.style.transform = 'scale(1)';
+            }
+        });
+        zoomBox.addEventListener('mousemove', (e) => {
+            if (isZoomed) applyZoom(e);
+        });
+        zoomBox.addEventListener('mouseleave', () => {
+            isZoomed = false;
+            const img = document.getElementById('productModalImage');
+            img.style.transformOrigin = 'center center';
+            img.style.transform = 'scale(1)';
+        });
+    }
 
     addBtn.addEventListener('click', () => {
         if (currentProductModal) {
@@ -262,7 +307,7 @@ function buildCheckoutMessage() {
         .join('\n');
     const notes = getValue('checkoutNotes') || 'Sin notas';
 
-    return `Hola ONLY ZS! Quiero coordinar esta compra:\n\n${items}\nTotal productos: ${formatMoney(getCartTotal())}\n\nDatos de entrega:\nNombre: ${getValue('checkoutName')}\nTeléfono: ${getValue('checkoutPhone')}\nProvincia: ${getValue('checkoutProvince')}\nCiudad: ${getValue('checkoutCity')}\nDirección: ${getValue('checkoutAddress')}\nEntrega: ${getValue('checkoutDelivery')}\nPago: ${getValue('checkoutPayment')}\nNotas: ${notes}`;
+    return `Hola ONLY ZS! Quiero coordinar esta compra:\n\n${items}\nTotal productos: ${formatMoney(getCartTotal())}\n\nDatos de entrega:\nNombre: ${getValue('checkoutName')}\nTeléfono: ${getValue('checkoutPhone')}\nProvincia: ${getValue('checkoutProvince')}\nCiudad: ${getValue('checkoutCity')} (CP: ${getValue('checkoutZip')})\nDirección: ${getValue('checkoutAddress')}\nEntrega: ${getValue('checkoutDelivery')}\nPago: ${getValue('checkoutPayment')}\nNotas: ${notes}`;
 }
 
 function setupCheckout() {
@@ -290,6 +335,12 @@ function setupCheckout() {
             form.reportValidity();
             return;
         }
+
+    const zip = document.getElementById('checkoutZip');
+    if (zip && zip.value.trim().length < 4) {
+        errorNode.innerText = 'Por favor, ingresa un Código Postal válido (mínimo 4 caracteres).';
+        return;
+    }
 
         const message = buildCheckoutMessage();
         const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;

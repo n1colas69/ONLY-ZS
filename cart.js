@@ -3,6 +3,34 @@
    Funcionalidad del carrito
 ========================================================= */
 
+// Funciones globales para deslizar y eliminar
+let swipeStartX = 0;
+let currentSwipeItem = null;
+
+window.handleSwipeStart = function(e) {
+    if (e.touches.length > 1) return;
+    swipeStartX = e.touches[0].clientX;
+    currentSwipeItem = e.currentTarget;
+    currentSwipeItem.style.transition = 'none';
+};
+window.handleSwipeMove = function(e) {
+    if (!currentSwipeItem) return;
+    const diffX = e.touches[0].clientX - swipeStartX;
+    if (diffX < 0 && diffX > -90) currentSwipeItem.style.transform = `translateX(${diffX}px)`;
+};
+window.handleSwipeEnd = function(e, id) {
+    if (!currentSwipeItem) return;
+    const diffX = e.changedTouches[0].clientX - swipeStartX;
+    currentSwipeItem.style.transition = 'transform 0.3s ease';
+    if (diffX < -50) {
+        currentSwipeItem.style.transform = `translateX(-100%)`;
+        setTimeout(() => updateQty(id, -100), 300); // Remueve unidades
+    } else {
+        currentSwipeItem.style.transform = `translateX(0)`;
+    }
+    currentSwipeItem = null;
+};
+
 function addToCart(id) {
     const product = productsData.find(p => p.id === id);
     if (!product || !product.inStock) {
@@ -89,10 +117,11 @@ function renderCart() {
             </div>
         `;
     } else {
+        let cartHTML = '';
         cart.forEach(item => {
             const product = productsData.find(p => p.id === item.id) || item;
             const hasMaxQty = item.qty >= getProductStockQty(product);
-            container.innerHTML += `
+            cartHTML += `
                 <div class="cart-item" data-id="${item.id}">
                     <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}" loading="lazy" decoding="async" width="65" height="65">
                     <div class="cart-item-details">
@@ -108,6 +137,7 @@ function renderCart() {
                 </div>
             `;
         });
+        container.innerHTML = cartHTML;
     }
 
     const totalNode    = document.getElementById('cartTotal');
