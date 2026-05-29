@@ -25,7 +25,8 @@
             #navbar .nav-icons { display: none; }
         }
         /* Lupa (Zoom) */
-        .product-modal-image { overflow: hidden; position: relative; cursor: zoom-in; }
+        .product-modal-image { overflow: hidden; position: relative; }
+        @media (min-width: 769px) { .product-modal-image { cursor: zoom-in; } }
         #productModalImage { transition: transform 0.2s ease-out; }
         /* Hover 2da Imagen y Badge "Pieza Única" */
         .product-card .product-image-container { position: relative; }

@@ -2000,8 +2000,8 @@ body.night-mode .checkout-notice { color: var(--color-accent); }
     .product-modal-container { grid-template-columns: 1fr; gap: 20px; }
     .product-modal-image { max-height: 400px; }
     .product-modal-info { padding: 30px; }
-    .product-modal-prev { left: 10px; }
-    .product-modal-next { right: 10px; }
+        /* Ocultar flechas de producto en móvil para evitar solapamiento con flechas de fotos */
+        .product-modal-nav { display: none; }
 }
 @media (max-width: 600px) {
     .product-modal-container {
