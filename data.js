@@ -134,10 +134,10 @@ const productsData = [
         price: 30000,
         originalPrice: null,
         badge: null,
-        image: "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-.jpg",
+        image: "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-1.jpg",
         images: [
             "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-1.jpg",
-            "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-.jpg",
+            "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-2.jpg",
             "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-3.jpg",
             "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-4.jpg",
             "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-5.jpg"

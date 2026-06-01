@@ -5,6 +5,11 @@
 
 function openProductModal(productId) {
     currentProductModal = productId;
+    const product = productsData.find(p => p.id === productId);
+    if (product && product.isComingSoon) {
+        showToast('Producto no disponible');
+        return;
+    }
     currentProductPhoto = 0;
     updateProductModal();
     document.getElementById('productModalOverlay').classList.add('active');
@@ -72,8 +77,14 @@ function updateProductModal() {
 
     // Update navigation buttons
     const currentIndex = productsData.findIndex(p => p.id === currentProductModal);
-    document.getElementById('productModalPrev').disabled = currentIndex === 0;
-    document.getElementById('productModalNext').disabled = currentIndex === productsData.length - 1;
+    
+    let hasPrev = false;
+    for (let i = currentIndex - 1; i >= 0; i--) { if (!productsData[i].isComingSoon) { hasPrev = true; break; } }
+    let hasNext = false;
+    for (let i = currentIndex + 1; i < productsData.length; i++) { if (!productsData[i].isComingSoon) { hasNext = true; break; } }
+
+    document.getElementById('productModalPrev').disabled = !hasPrev;
+    document.getElementById('productModalNext').disabled = !hasNext;
 
     const photoPrevBtn = document.getElementById('productPhotoPrev');
     const photoNextBtn = document.getElementById('productPhotoNext');
@@ -127,6 +138,9 @@ function renderProductThumbs(photos, activeIndex) {
 function navigateProductModal(direction) {
     const currentIndex = productsData.findIndex(p => p.id === currentProductModal);
     let newIndex = currentIndex + direction;
+    while (newIndex >= 0 && newIndex < productsData.length && productsData[newIndex].isComingSoon) {
+        newIndex += direction;
+    }
     if (newIndex >= 0 && newIndex < productsData.length) {
         currentProductModal = productsData[newIndex].id;
         currentProductPhoto = 0;
@@ -339,11 +353,11 @@ function setupCheckout() {
             return;
         }
 
-    const zip = document.getElementById('checkoutZip');
-    if (zip && zip.value.trim().length < 4) {
-        errorNode.innerText = 'Por favor, ingresa un Código Postal válido (mínimo 4 caracteres).';
-        return;
-    }
+        const zip = document.getElementById('checkoutZip');
+        if (zip && zip.value.trim().length < 4) {
+            errorNode.innerText = 'Por favor, ingresa un Código Postal válido (mínimo 4 caracteres).';
+            return;
+        }
 
         const message = buildCheckoutMessage();
         const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;

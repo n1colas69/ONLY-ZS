@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!term) return;
             
             const matches = productsData.filter(item => 
-                `${item.name} ${item.category}`.toLowerCase().includes(term)
+                !item.isComingSoon && `${item.name} ${item.category}`.toLowerCase().includes(term)
             ).slice(0, 6);
             
             searchResults.innerHTML = matches.length ? matches.map(item => `
