@@ -12,12 +12,12 @@ const productsData = [
         price: 40000,
         originalPrice: null,
         badge: null,
-        image: "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-1.jpg",
+        image: "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-1.jpg",
         images: [
-            "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-1.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-2.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-3.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-4.jpg"
+            "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-4.jpg"
         ],
         description: "Short carpintero de jean bastante rigido, cuenta con varios bolsillos y un material super resistente, tag de cuero.\nTalle 40us(50🇦🇷): 60cm de cintura por 56cm de largo.\nEstado: 10/10.",
         isNew: false,
@@ -32,11 +32,11 @@ const productsData = [
         price: 25000,
         originalPrice: null,
         badge: null,
-        image: "assets/images/Productos/Remeras y Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-.jpg",
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-.jpg",
         images: [
-            "assets/images/Productos/Remeras y Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-1.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-2.jpg"
+            "assets/images/Productos/Remeras-Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-2.jpg"
         ],
         description: "Crewneck de algodón con logo en el frente, bastante liviano de media estación.\nTalle L: 68cm de largo x 60cm de ancho.\nEstado: 9/10 tiene un leve desgaste general.",
         isNew: false,
@@ -51,13 +51,13 @@ const productsData = [
         price: 50000,
         originalPrice: null,
         badge: null,
-        image: "assets/images/Productos/Remeras y Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-5.jpg",
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-5.jpg",
         images: [
-            "assets/images/Productos/Remeras y Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-5.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-4.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-2.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-3.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-1.jpg"
+            "assets/images/Productos/Remeras-Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-5.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-4.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/NAUTICA-ROJAS-X2/NAUTICAS-ROJA-1.jpg"
         ],
         description: "Remeras Nautica color rojo. Se venden juntas o separadas.\nAmbas talle: M\n$25.000 c/u\nEstado: 10/10",
         isNew: false,
@@ -72,11 +72,11 @@ const productsData = [
         price: 20000,
         originalPrice: null,
         badge: null,
-        image: "assets/images/Productos/Remeras y Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-1.jpg",
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-1.jpg",
         images: [
-            "assets/images/Productos/Remeras y Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-1.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-2.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-3.jpg"
+            "assets/images/Productos/Remeras-Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-3.jpg"
         ],
         description: "Merch oficial de los Baltimore Orioles al ganar la East Division Champions 2014.\nDiseño gráfico con la icónica mascota Oriole Bird y colores clásicos del equipo.\nTalle L: 75cm de largo por 55 cm de ancho.\nEstado: 10/10",
         isNew: false,
@@ -111,14 +111,14 @@ const productsData = [
         price: 50000,
         originalPrice: null,
         badge: null,
-        image: "assets/images/Productos/Remeras y Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-1.jpg",
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-1.jpg",
         images: [
-            "assets/images/Productos/Remeras y Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-1.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-2.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-3.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-4.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-5.jpg",
-            "assets/images/Productos/Remeras y Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-6.jpg"
+            "assets/images/Productos/Remeras-Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-4.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-5.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-6.jpg"
 
         ],
         description: "Polo Ralph Lauren Hi Tech long sleeve.\nInspirada en la línea outdoor de los 90s, pieza retro muy buscada dentro del universo Polo.\nTalle M: 74cm de largo por 55cm de ancho\nEstado: 10/10.",
@@ -134,13 +134,13 @@ const productsData = [
         price: 30000,
         originalPrice: null,
         badge: null,
-        image: "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-1.jpg",
+        image: "assets/images/Productos/Camisas/RALPH-LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-1.jpg",
         images: [
-            "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-1.jpg",
-            "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-2.jpg",
-            "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-3.jpg",
-            "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-4.jpg",
-            "assets/images/Productos/Camisas/RALPH LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-5.jpg"
+            "assets/images/Productos/Camisas/RALPH-LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-1.jpg",
+            "assets/images/Productos/Camisas/RALPH-LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-2.jpg",
+            "assets/images/Productos/Camisas/RALPH-LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-3.jpg",
+            "assets/images/Productos/Camisas/RALPH-LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-4.jpg",
+            "assets/images/Productos/Camisas/RALPH-LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-5.jpg"
         ],
         description: "Camisa Ralph Lauren de rayas finas azul y blanco, logo bordado chico, estética tipo old money.\nTalle L: 70cm (74 atras)de largo por 58cm de ancho.\nEstado: 9/10.",
         isNew: false,
@@ -155,14 +155,14 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-1.jpg",
+        image: "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-1.jpg",
         images: [
-            "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-1.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-2.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-3.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-4.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-5.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-6.jpg"
+            "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-5.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-6.jpg"
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,
@@ -178,14 +178,14 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Pantalones y Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-1.jpg",
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-1.jpg",
         images: [
-            "assets/images/Productos/Pantalones y Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-1.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-2.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-3.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-4.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-5.jpg",
-            "assets/images/Productos/Pantalones y Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-6.jpg"
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-5.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-6.jpg"
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,
@@ -221,12 +221,12 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Abrigos/Camperas/CAMPERA PUFF NAUTICA/CAMPERA-PUFFER-NAUTICA-1.jpg",
+        image: "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-1.jpg",
         images: [
-            "assets/images/Productos/Abrigos/Camperas/CAMPERA PUFF NAUTICA/CAMPERA-PUFFER-NAUTICA-1.jpg",
-            "assets/images/Productos/Abrigos/Camperas/CAMPERA PUFF NAUTICA/CAMPERA-PUFFER-NAUTICA-2.jpg",
-            "assets/images/Productos/Abrigos/Camperas/CAMPERA PUFF NAUTICA/CAMPERA-PUFFER-NAUTICA-3.jpg",
-            "assets/images/Productos/Abrigos/Camperas/CAMPERA PUFF NAUTICA/CAMPERA-PUFFER-NAUTICA-4.jpg"
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-1.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-2.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-3.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-4.jpg"
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,
@@ -242,11 +242,11 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Abrigos/Camperas/L.L. BEAN/CAMPERA-POLAR-L.L.BEAN-1.jpg",
+        image: "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-1.jpg",
         images: [
-            "assets/images/Productos/Abrigos/Camperas/L.L. BEAN/CAMPERA-POLAR-L.L.BEAN-1.jpg",
-            "assets/images/Productos/Abrigos/Camperas/L.L. BEAN/CAMPERA-POLAR-L.L.BEAN-2.jpg",
-            "assets/images/Productos/Abrigos/Camperas/L.L. BEAN/CAMPERA-POLAR-L.L.BEAN-3.jpg"
+            "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-1.jpg",
+            "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-2.jpg",
+            "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-3.jpg"
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,
@@ -303,11 +303,11 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Accesorios/Gorras/John Deere/GORRA-JOHN-DEERE-1.jpg",
+        image: "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-1.jpg",
         images: [
-            "assets/images/Productos/Accesorios/Gorras/John Deere/GORRA-JOHN-DEERE-1.jpg",
-            "assets/images/Productos/Accesorios/Gorras/John Deere/GORRA-JOHN-DEERE-2.jpg",
-            "assets/images/Productos/Accesorios/Gorras/John Deere/GORRA-JOHN-DEERE-3.jpg"
+            "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-1.jpg",
+            "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-2.jpg",
+            "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-3.jpg"
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,
@@ -323,11 +323,11 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Accesorios/Pasamontañas/REAL TREE/PASAMONTAÑAS-REALTREE-1.jpg",
+        image: "assets/images/Productos/Accesorios/Pasamontañas/REAL-TREE/PASAMONTAÑAS-REALTREE-1.jpg",
         images: [
-            "assets/images/Productos/Accesorios/Pasamontañas/REAL TREE/PASAMONTAÑAS-REALTREE-1.jpg",
-            "assets/images/Productos/Accesorios/Pasamontañas/REAL TREE/PASAMONTAÑAS-REALTREE-2.jpg",
-            "assets/images/Productos/Accesorios/Pasamontañas/REAL TREE/PASAMONTAÑAS-REALTREE-3.jpg"
+            "assets/images/Productos/Accesorios/Pasamontañas/REAL-TREE/PASAMONTAÑAS-REALTREE-1.jpg",
+            "assets/images/Productos/Accesorios/Pasamontañas/REAL-TREE/PASAMONTAÑAS-REALTREE-2.jpg",
+            "assets/images/Productos/Accesorios/Pasamontañas/REAL-TREE/PASAMONTAÑAS-REALTREE-3.jpg"
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,
@@ -364,14 +364,14 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta Alemania/CAMISETA-ALEMANIA-1.jpg",
+        image: "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-1.jpg",
         images: [
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta Alemania/CAMISETA-ALEMANIA-1.jpg",
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta Alemania/CAMISETA-ALEMANIA-2.jpg",
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta Alemania/CAMISETA-ALEMANIA-3.jpg",
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta Alemania/CAMISETA-ALEMANIA-4.jpg",
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta Alemania/CAMISETA-ALEMANIA-5.jpg",
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta Alemania/CAMISETA-ALEMANIA-6.jpg"
+            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-1.jpg",
+            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-2.jpg",
+            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-3.jpg",
+            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-4.jpg",
+            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-5.jpg",
+            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-6.jpg"
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,
@@ -387,12 +387,12 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Remeras y Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
+        image: "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
         images: [
-            "assets/images/Productos/Remeras y Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
-            "assets/images/Productos/Remeras y Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-2.jpg",
-            "assets/images/Productos/Remeras y Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-3.jpg",
-            "assets/images/Productos/Remeras y Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-4.jpg"
+            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-4.jpg"
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,
