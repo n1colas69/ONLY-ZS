@@ -483,6 +483,7 @@
     <script src="config.js"></script>
     <script src="data.js"></script>
     <script src="utils.js"></script>
+    <script src="scroll.js"></script>
     <script>
         let activeBrand = null;
         let activeGalleryIndex = 0;
@@ -599,7 +600,7 @@
                     title: item.name,
                     subtitle: item.category,
                     image: item.image,
-                    href: 'index.html#products'
+                    href: `index.html?producto=${item.id}`
                 }))
             ];
 
@@ -745,7 +746,6 @@
             setupFooterModals();
         });
     </script>
-    <script src="scroll.js"></script>
 
 <nav class="bottom-nav">
     <a href="index.html"><i class="fas fa-house"></i><span>Inicio</span></a>

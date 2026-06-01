@@ -304,7 +304,7 @@ function renderCheckoutSummary() {
 }
 
 function buildCheckoutMessage() {
-    const getValue = (id) => document.getElementById(id).value.trim();
+    const getValue = (id) => (document.getElementById(id)?.value || '').trim();
     const items = cart
         .map(item => `- ${item.qty} x ${item.name} (${formatMoney(item.price * item.qty)})`)
         .join('\n');

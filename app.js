@@ -37,6 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
         setProductsPanelOpen(true);
     }
 
+    // Abrir producto específico desde la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productoId = urlParams.get('producto');
+    if (productoId && !isNaN(parseInt(productoId))) {
+        setProductsPanelOpen(true);
+        setTimeout(() => openProductModal(parseInt(productoId)), 400); // Dar un poco de tiempo para cargar todo el UI
+    }
+
     // 1. Persistencia Inteligente de Favoritos
     if (wishlist.length > 0) {
         const wishBtn = document.getElementById('wishlistBtn');
@@ -96,12 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const id = parseInt(card.getAttribute('data-id'));
                 const product = productsData.find(p => p.id === id);
                 if (product) {
-                    const imgContainer = card.querySelector('.product-image-container') || card.querySelector('.product-img') || card;
+                    const imgContainer = card.querySelector('.product-image-wrap') || card.querySelector('.product-image-container') || card.querySelector('.product-img') || card;
                     imgContainer.style.position = 'relative';
                     
                     if (product.images && product.images.length > 1) {
                         const hoverImg = document.createElement('img');
-                        hoverImg.src = product.images[1]; // Requiere misma ruta relativa
+                        hoverImg.src = getOptimizedImage(product.images[1], 'sm');
+                        hoverImg.setAttribute('data-fallback-src', product.images[1]);
                         hoverImg.className = 'hover-img';
                         hoverImg.loading = 'lazy';
                         imgContainer.appendChild(hoverImg);

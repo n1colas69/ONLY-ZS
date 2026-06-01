@@ -339,7 +339,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
 .hero {
     height: 100vh;
     min-height: 600px;
-    background-image: url('assets/images/optimized/lg/assets/images/HERO-ZS.jpg');
+    background-image: url('../assets/images/optimized/lg/assets/images/HERO-ZS.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -825,6 +825,11 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .product-card:hover .product-image { transform: scale(1.06); }
+.img-coming-soon {
+    filter: blur(8px) contrast(1.1) brightness(0.85);
+    transform: scale(1.08);
+}
+.product-card:hover .img-coming-soon { transform: scale(1.14); }
 .product-badge {
     position: absolute;
     top: 12px;
@@ -841,6 +846,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
 .badge-oferta { background-color: var(--color-danger); }
 .badge-nuevo { background-color: var(--color-dark); }
 .badge-agotado { background-color: #9B9B9B; }
+.badge-proximamente { background-color: var(--color-accent); color: var(--color-dark); }
 .wishlist-icon {
     position: absolute;
     top: 12px;
@@ -995,7 +1001,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
     align-items: flex-end;
     position: relative;
     color: #fff;
-    background: linear-gradient(180deg, rgba(0,0,0,0.24), rgba(0,0,0,0.82)), url('assets/images/optimized/lg/assets/images/Productos/Galeria ZS/HERO-GALERIA-ZS.jpg') center/cover no-repeat;
+    background: linear-gradient(180deg, rgba(0,0,0,0.24), rgba(0,0,0,0.82)), url('../assets/images/optimized/lg/assets/images/Productos/Galeria ZS/HERO-GALERIA-ZS.jpg') center/cover no-repeat;
 }
 .gallery-page-hero-content {
     position: relative;
@@ -2167,11 +2173,11 @@ body.night-mode .checkout-notice { color: var(--color-accent); }
 
 @media (max-width: 768px), (prefers-reduced-motion: reduce) {
     .hero {
-        background-image: url('assets/images/optimized/sm/assets/images/HERO-ZS.jpg');
+        background-image: url('../assets/images/optimized/sm/assets/images/HERO-ZS.jpg');
         background-attachment: scroll;
     }
     .gallery-page-hero {
-        background-image: linear-gradient(180deg, rgba(0,0,0,0.24), rgba(0,0,0,0.82)), url('assets/images/optimized/sm/assets/images/Productos/Galeria ZS/HERO-GALERIA-ZS.jpg');
+        background-image: linear-gradient(180deg, rgba(0,0,0,0.24), rgba(0,0,0,0.82)), url('../assets/images/optimized/sm/assets/images/Productos/Galeria ZS/HERO-GALERIA-ZS.jpg');
     }
 }
 

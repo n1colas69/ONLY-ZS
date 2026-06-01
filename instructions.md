@@ -23,18 +23,25 @@ ONLY-ZS-v3/
 ├── index.html          (Página principal)
 ├── gallery.html        (Galería de comunidad)
 ├── brand.html          (Detalle de colaboración)
-├── app.js             (Lógica principal)
-├── data.js            (Datos de productos y colaboraciones)
-├── config.js          (Configuración global)
-├── styles.css         (Estilos)
-├── ui.js              (Interacciones UI)
-├── modals.js          (Modales)
-├── cart.js            (Carrito)
-├── products.js        (Gestión de productos)
-├── utils.js           (Utilidades)
-├── scroll.js          (Efectos de scroll)
-├── wishlist.js        (Lista de deseos)
-├── gallery.js         (Gestión de galería)
+├── css/
+│   └── styles.css      (Estilos globales)
+├── js/
+│   ├── config.js       (Configuración global)
+│   ├── data.js         (Datos de productos y colaboraciones)
+│   ├── utils.js        (Utilidades)
+│   ├── app.js          (Lógica principal)
+│   ├── ui.js           (Interacciones UI)
+│   ├── scroll.js       (Efectos de scroll)
+│   └── components/     (Módulos específicos)
+│       ├── products.js (Gestión de productos)
+│       ├── cart.js     (Carrito)
+│       ├── wishlist.js (Lista de deseos)
+│       ├── modals.js   (Modales)
+│       └── gallery.js  (Gestión de galería)
+├── docs/
+│   ├── instructions.md (Este manual)
+│   ├── STRUCTURE.md    (Documentación de arquitectura)
+│   └── README.txt      (Notas y pendientes)
 ├── assets/
 │   └── images/
 │       ├── optimized/
@@ -107,6 +114,14 @@ Encontrar el array `productsData` y agregar un nuevo objeto:
 - Eliminar el objeto completo del array `productsData` en `data.js`
 - O cambiar `inStock: false` si quieres ocultarlo
 
+### 4. Productos "Próximamente"
+
+Para mostrar un producto en la tienda pero sin permitir que se pueda clickear ni comprar:
+- Agrega al objeto del producto la propiedad: `isComingSoon: true`
+- Cambia la etiqueta a: `badge: "PRÓXIMAMENTE"`
+- Cambia el stock a: `inStock: false`
+*(La imagen original se mostrará con un efecto de desenfoque/distorsión para generar expectativa. Al quitar esta propiedad, se verá normalmente).*
+
 ---
 
 ## 🖼️ Gestionar Imágenes
@@ -126,6 +141,9 @@ Encontrar el array `productsData` y agregar un nuevo objeto:
 | Remeras | optimized/sm/assets/images/Productos/Remeras y Chombas/ | 600px | 400px | 80KB |
 | Camisas | optimized/sm/assets/images/Productos/Camisas/ | 600px | 400px | 80KB |
 | Pantalones | optimized/sm/assets/images/Productos/Pantalones/ | 600px | 400px | 80KB |
+| Abrigos | optimized/sm/assets/images/Productos/Abrigos/ | 600px | 400px | 80KB |
+| Camisetas | optimized/sm/assets/images/Productos/Camisetas/ | 600px | 400px | 80KB |
+| Accesorios | optimized/sm/assets/images/Productos/Accesorios/ | 600px | 400px | 80KB |
 
 #### Imágenes de Colaboraciones (brand.html)
 | Elemento | Ubicación | Ancho | Alto | Tamaño máximo |
@@ -291,7 +309,7 @@ Esto ocultará el botón "PRÓXIMA COLABORACIÓN" automáticamente.
 - **Blanco:** `#FFFFFF`
 - **Gris Neutral:** `#6B6B6B`
 
-Para cambiar paleta de colores, actualizar variables CSS en `styles.css`:
+Para cambiar paleta de colores, actualizar variables CSS en `css/styles.css`:
 ```css
 :root {
     --color-accent: #BFA16A;        /* Dorado */

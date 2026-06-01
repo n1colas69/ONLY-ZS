@@ -219,8 +219,8 @@
                 `${item.name} ${item.category}`.toLowerCase().includes(term)
             ).slice(0, 6);
             results.innerHTML = matches.length ? matches.map(item => `
-                <a class="brand-search-result" href="index.html#products">
-                    <img src="${item.image}" alt="${item.name}">
+                <a class="brand-search-result" href="index.html?producto=${item.id}">
+                    <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}">
                     <span><strong>${item.name}</strong><span>${item.category}</span></span>
                 </a>
             `).join('') : '<p style="color:rgba(255,255,255,0.6);font-size:0.9rem;">No hay resultados.</p>';

@@ -14,36 +14,43 @@ function renderProducts(products) {
         const isWishlisted = wishlist.includes(prod.id);
         const cardImage = getOptimizedImage(prod.image, 'sm');
         const badgeHTML = prod.badge
-            ? `<span class="product-badge badge-${prod.badge.toLowerCase()}">${prod.badge}</span>` : '';
+            ? `<span class="product-badge badge-${prod.badge.toLowerCase().replace('ó', 'o')}">${prod.badge}</span>` : '';
         const priceHTML = prod.originalPrice
             ? `<span class="price-current">${formatMoney(prod.price)}</span> <span class="price-old">${formatMoney(prod.originalPrice)}</span>`
             : `<span class="price-current">${formatMoney(prod.price)}</span>`;
-        const btnHTML = prod.inStock
-            ? `<div class="product-actions">
-                    <button class="buy-now" type="button" onclick="buyNow(${prod.id})">Comprar ahora</button>
-                    <button class="add-to-cart" type="button" onclick="addToCart(${prod.id})">Agregar al Carrito</button>
-               </div>`
-            : `<button class="add-to-cart" style="background:#777;" disabled>Agotado</button>`;
+
+        let btnHTML = '';
+        if (prod.isComingSoon) {
+            btnHTML = `<button class="add-to-cart" style="background:#333;" disabled>Próximamente</button>`;
+        } else if (prod.inStock) {
+            btnHTML = `<div class="product-actions">
+                            <button class="buy-now" type="button" onclick="buyNow(${prod.id})">Comprar ahora</button>
+                            <button class="add-to-cart" type="button" onclick="addToCart(${prod.id})">Agregar al Carrito</button>
+                       </div>`;
+        } else {
+            btnHTML = `<button class="add-to-cart" style="background:#777;" disabled>Agotado</button>`;
+        }
 
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
             <div class="product-image-wrap">
                 ${badgeHTML}
-                <img src="${cardImage}"${getImageFallbackAttr(prod.image)} alt="${prod.name}" class="product-image" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" fetchpriority="${index < 2 ? 'high' : 'auto'}" width="720" height="900">
+                <img src="${cardImage}"${getImageFallbackAttr(prod.image)} alt="${prod.name}" class="product-image ${prod.isComingSoon ? 'img-coming-soon' : ''}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" fetchpriority="${index < 2 ? 'high' : 'auto'}" width="720" height="900">
+                ${!prod.isComingSoon ? `
                 <button class="wishlist-icon ${isWishlisted ? 'active' : ''}" onclick="toggleWishlist(${prod.id}, this)">
                     <i class="${isWishlisted ? 'fas' : 'far'} fa-heart"></i>
-                </button>
+                </button>` : ''}
             </div>
             <div class="product-info">
                 <p class="product-category">${prod.category}</p>
                 <h3 class="product-title">${prod.name}</h3>
-                <div class="product-prices">${priceHTML}</div>
+                <div class="product-prices">${prod.isComingSoon ? '<span class="price-current" style="color:var(--color-gray)">-</span>' : priceHTML}</div>
                 ${btnHTML}
             </div>
         `;
         card.addEventListener('click', (e) => {
-            if (e.target.tagName !== 'BUTTON' && !e.target.closest('button')) {
+            if (!prod.isComingSoon && e.target.tagName !== 'BUTTON' && !e.target.closest('button')) {
                 openProductModal(prod.id);
             }
         });

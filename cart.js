@@ -122,17 +122,22 @@ function renderCart() {
             const product = productsData.find(p => p.id === item.id) || item;
             const hasMaxQty = item.qty >= getProductStockQty(product);
             cartHTML += `
-                <div class="cart-item" data-id="${item.id}">
-                    <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}" loading="lazy" decoding="async" width="65" height="65">
-                    <div class="cart-item-details">
-                        <p class="cart-item-title">${item.name}</p>
-                        <p class="cart-item-price">${formatMoney(item.price)}</p>
-                        <div class="qty-controls">
-                            <button class="qty-btn" onclick="updateQty(${item.id}, -1)">-</button>
-                            <span>${item.qty}</span>
-                            <button class="qty-btn" onclick="updateQty(${item.id}, 1)" ${hasMaxQty ? 'disabled title="Sin más stock"' : ''}>+</button>
+                <div class="cart-item-wrapper">
+                    <div class="cart-item-bg-delete" onclick="updateQty(${item.id}, -${item.qty})">
+                        <i class="fas fa-trash"></i>
+                    </div>
+                    <div class="cart-item swipeable" data-id="${item.id}" ontouchstart="handleSwipeStart(event)" ontouchmove="handleSwipeMove(event)" ontouchend="handleSwipeEnd(event, ${item.id})">
+                        <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}" loading="lazy" decoding="async" width="65" height="65">
+                        <div class="cart-item-details">
+                            <p class="cart-item-title">${item.name}</p>
+                            <p class="cart-item-price">${formatMoney(item.price)}</p>
+                            <div class="qty-controls">
+                                <button class="qty-btn" onclick="updateQty(${item.id}, -1)">-</button>
+                                <span>${item.qty}</span>
+                                <button class="qty-btn" onclick="updateQty(${item.id}, 1)" ${hasMaxQty ? 'disabled title="Sin más stock"' : ''}>+</button>
+                            </div>
+                            <button class="remove-item" onclick="updateQty(${item.id}, -${item.qty})">Eliminar</button>
                         </div>
-                        <button class="remove-item" onclick="updateQty(${item.id}, -${item.qty})">Eliminar</button>
                     </div>
                 </div>
             `;
