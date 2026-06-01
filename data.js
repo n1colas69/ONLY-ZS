@@ -323,11 +323,11 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Accesorios/Pasamontañas/REAL-TREE/PASAMONTAÑAS-REALTREE-1.jpg",
+        image: "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-1.jpg",
         images: [
-            "assets/images/Productos/Accesorios/Pasamontañas/REAL-TREE/PASAMONTAÑAS-REALTREE-1.jpg",
-            "assets/images/Productos/Accesorios/Pasamontañas/REAL-TREE/PASAMONTAÑAS-REALTREE-2.jpg",
-            "assets/images/Productos/Accesorios/Pasamontañas/REAL-TREE/PASAMONTAÑAS-REALTREE-3.jpg"
+            "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-1.jpg",
+            "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-2.jpg",
+            "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-3.jpg"
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,
@@ -364,14 +364,14 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-1.jpg",
+        image: "assets/images/Productos/Remeras-Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-1.jpg",
         images: [
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-1.jpg",
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-2.jpg",
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-3.jpg",
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-4.jpg",
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-5.jpg",
-            "assets/images/Productos/Remeras y Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-6.jpg"
+            "assets/images/Productos/Remeras-Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-4.jpg",
+            "assets/images/Productos/Remeras-Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-5.jpg",
+            "assets/images/Productos/Remeras-Chombas/Camisetas/Camiseta-Alemania/CAMISETA-ALEMANIA-6.jpg"
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,
