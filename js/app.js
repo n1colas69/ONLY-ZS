@@ -1,4 +1,4 @@
-﻿/* =========================================================
+﻿﻿/* =========================================================
    ONLY ZS — app.js
    Inicialización principal de la aplicación
 ========================================================= */
@@ -15,6 +15,11 @@ const upcomingCollaborationAvailable = false; // Cambiar a true cuando una colab
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
+    // PWA: Registro del Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').catch(err => console.log('SW Falló:', err));
+    }
+
     // Render inicial
     renderProducts(productsData);
     updateCounters();
@@ -127,6 +132,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         observer.observe(productsGrid, { childList: true, subtree: true });
     }
+
+    // 5. Swipe-to-Close en Drawers
+    const setupSwipeToClose = (drawerId, closeBtnId) => {
+        const drawer = document.getElementById(drawerId);
+        if (!drawer) return;
+        let startX = 0;
+        drawer.addEventListener('touchstart', e => startX = e.changedTouches[0].clientX, { passive: true });
+        drawer.addEventListener('touchend', e => {
+            let endX = e.changedTouches[0].clientX;
+            if (endX - startX > 80) document.getElementById(closeBtnId)?.click();
+        }, { passive: true });
+    };
+    setupSwipeToClose('cartDrawer', 'closeCart');
+    setupSwipeToClose('wishlistDrawer', 'closeWishlist');
+
+    // 6. Toasts Interactivos & Estados Vacíos Ilustrados (MutationObserver)
+    const bodyObserver = new MutationObserver((mutations) => {
+        mutations.forEach(m => {
+            // Toasts Interactivos
+            if (m.addedNodes.length && m.target.id === 'toast-container') {
+                m.addedNodes.forEach(toast => {
+                    if (toast.innerText?.toLowerCase().includes('agregado') && !toast.querySelector('.toast-view-cart')) {
+                        const btn = document.createElement('button');
+                        btn.className = 'toast-view-cart';
+                        btn.innerHTML = 'VER CARRITO <i class="fas fa-arrow-right"></i>';
+                        btn.onclick = () => document.getElementById('cartBtn')?.click();
+                        toast.appendChild(btn);
+                    }
+                });
+            }
+            // Estados vacíos (Carrito)
+            if (m.target.id === 'cartItems' && m.target.children.length === 0 && !m.target.querySelector('.empty-state-container')) {
+                m.target.innerHTML = `<div class="empty-state-container"><img src="assets/images/ONLY-ZS-LOGO.png" alt="Vacío"><h4>Tu carrito está vacío</h4><p>¡Explorá nuestro catálogo y sumá prendas únicas!</p><button class="btn btn-primary btn-sm" onclick="document.getElementById('closeCart').click()">IR A COMPRAR</button></div>`;
+            }
+            // Estados vacíos (Favoritos)
+            if (m.target.id === 'wishlistItems' && m.target.children.length === 0 && !m.target.querySelector('.empty-state-container')) {
+                m.target.innerHTML = `<div class="empty-state-container"><img src="assets/images/ONLY-ZS-LOGO.png" alt="Vacío"><h4>No hay favoritos</h4><p>Guardá las piezas que más te gusten para no perderlas.</p><button class="btn btn-primary btn-sm" onclick="document.getElementById('closeWishlist').click()">VER PRODUCTOS</button></div>`;
+            }
+        });
+    });
+    bodyObserver.observe(document.body, { childList: true, subtree: true });
+
+    // 7. Paginación / Cargar Más
+    let currentItemsShown = 12;
+    const updateLoadMore = () => {
+        const grid = document.getElementById('productsGrid');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const container = document.getElementById('loadMoreContainer');
+        if (!grid || !loadMoreBtn || !container) return;
+        
+        const cards = Array.from(grid.children);
+        cards.forEach((card, index) => {
+            if (index >= currentItemsShown) card.classList.add('product-hidden');
+            else card.classList.remove('product-hidden');
+        });
+        
+        container.style.display = cards.length > currentItemsShown ? 'block' : 'none';
+    };
+    
+    document.getElementById('loadMoreBtn')?.addEventListener('click', () => { currentItemsShown += 12; updateLoadMore(); });
+    
+    const originalRender = typeof renderProducts === 'function' ? renderProducts : null;
+    if (originalRender) { window.renderProducts = function(data) { currentItemsShown = 12; originalRender(data); updateLoadMore(); }; }
 });
 
 // Función para bloquear/desbloquear la próxima colaboración
@@ -149,4 +217,3 @@ function initCollaborationLock() {
         });
     }
 }
-

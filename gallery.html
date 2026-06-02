@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería ZS | ONLY ZS</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
@@ -11,6 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        body { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .gallery-item img { background: url('assets/images/ONLY-ZS-LOGO.png') center/30% no-repeat #1a1a1a; animation: pulseSkeleton 1.5s infinite alternate; }
+        @keyframes pulseSkeleton { 0% { background-color: #111; } 100% { background-color: #222; } }
         .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(13,13,13,0.98); backdrop-filter: blur(10px); z-index: 1000; justify-content: space-around; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.08); }
         .bottom-nav a, .bottom-nav button { color: rgba(255,255,255,0.6); font-size: 0.75rem; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 5px; text-decoration: none; cursor: pointer; }
         .bottom-nav a.active, .bottom-nav button:hover { color: var(--color-accent); }
@@ -300,6 +305,3 @@
 </nav>
 </body>
 </html>
-
-
-

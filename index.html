@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONLY ZS | Vintage & Second Hand</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="assets/images/ONLY-ZS-LOGO.png">
     <link rel="apple-touch-icon" href="assets/images/ONLY-ZS-LOGO.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +14,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* Animación de Transición entre Páginas */
+        body { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* Bloqueo de scroll para modales */
+        body.no-scroll { overflow: hidden; }
+        /* Microinteracciones en botones */
+        .btn { transition: transform 0.15s ease, box-shadow 0.2s ease; }
+        .btn:active { transform: scale(0.95); }
+        /* Skeleton Loading / Blur-Up */
+        .product-card img, .gallery-item img, .brand-search-result img { background: url('assets/images/ONLY-ZS-LOGO.png') center/30% no-repeat #1a1a1a; animation: pulseSkeleton 1.5s infinite alternate; }
+        @keyframes pulseSkeleton { 0% { background-color: #111; } 100% { background-color: #222; } }
+        /* Empty States Ilustrados */
+        .empty-state-container { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; text-align: center; gap: 15px; color: var(--color-gray); }
+        .empty-state-container img { width: 80px; opacity: 0.3; filter: grayscale(100%); animation: pulseSkeleton 2s infinite alternate; }
+        /* Toasts Interactivos */
+        .toast-view-cart { margin-left: 12px; background: var(--color-accent); color: #000; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
+        /* Botón Cargar Más */
+        .load-more-container { text-align: center; margin-top: 30px; display: none; width: 100%; }
+        .product-hidden { display: none !important; }
         /* --- UI/UX Enhancements Globales --- */
         .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(13,13,13,0.98); backdrop-filter: blur(10px); z-index: 1000; justify-content: space-around; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.08); }
         .bottom-nav a, .bottom-nav button { color: rgba(255,255,255,0.6); font-size: 0.75rem; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 5px; text-decoration: none; cursor: pointer; }
@@ -160,6 +180,7 @@
         <div class="marquee-content" aria-hidden="true">
             CARHARTT <span class="dot">·</span> CHAPS <span class="dot">·</span> DICKIES <span class="dot">·</span> JANSPORT <span class="dot">·</span> NAUTICA <span class="dot">·</span> POLO RALPH LAUREN <span class="dot">·</span> REAL TREE <span class="dot">·</span> RUSSELL <span class="dot">·</span>
             CARHARTT <span class="dot">·</span> CHAPS <span class="dot">·</span> DICKIES <span class="dot">·</span> JANSPORT <span class="dot">·</span> NAUTICA <span class="dot">·</span> POLO RALPH LAUREN <span class="dot">·</span> REAL TREE <span class="dot">·</span> RUSSELL <span class="dot">·</span>
+            CARHARTT <span class="dot">·</span> CHAPS <span class="dot">·</span> DICKIES <span class="dot">·</span> JANSPORT <span class="dot">·</span> NAUTICA <span class="dot">·</span> POLO RALPH LAUREN <span class="dot">·</span> REAL TREE <span class="dot">·</span> RUSSELL <span class="dot">·</span>
         </div>
     </div>
  
@@ -270,6 +291,9 @@
                 </select>
             </div>
             <div class="products-grid reveal" id="productsGrid"></div>
+            <div class="load-more-container" id="loadMoreContainer">
+                <button class="btn btn-outline" id="loadMoreBtn">CARGAR MÁS PRODUCTOS</button>
+            </div>
         </div>
     </section>
 
@@ -519,7 +543,3 @@
     </nav>
 </body>
 </html>
-
-
-
-

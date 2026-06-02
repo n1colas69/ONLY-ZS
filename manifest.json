@@ -1,0 +1,16 @@
+{
+  "name": "ONLY ZS",
+  "short_name": "ONLY ZS",
+  "description": "Vintage & Second Hand de primer nivel.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#0D0D0D",
+  "icons": [
+    {
+      "src": "assets/images/ONLY-ZS-LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

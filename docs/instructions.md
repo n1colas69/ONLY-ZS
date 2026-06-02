@@ -6,6 +6,7 @@
 3. [Gestionar Imágenes](#gestionar-imágenes)
 4. [Administrar Colaboraciones](#administrar-colaboraciones)
 5. [Información de Contacto](#información-de-contacto)
+6. [Rendimiento - Imágenes Next-Gen](#rendimiento---imágenes-next-gen)
 
 ## Actualización de estructura - 2026-06-01
 
@@ -59,6 +60,8 @@ ONLY-ZS/
 │       ├── wishlist.js        (Lista de deseos)
 │       ├── modals.js          (Modales)
 │       └── gallery.js         (Gestión de galería)
+├── manifest.json              (Configuración PWA)
+├── sw.js                      (Service Worker)
 ├── docs/
 │   ├── instructions.md        (Este manual)
 │   ├── STRUCTURE.md           (Documentación de arquitectura)
@@ -397,8 +400,3 @@ Para consultas específicas sobre la estructura o cambios adicionales, contactar
 
 **Última actualización:** 2026
 **Versión:** 3.0
-
-
-
-
-

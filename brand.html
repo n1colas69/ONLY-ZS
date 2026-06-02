@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colaboración | ONLY ZS</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
@@ -12,7 +13,11 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <style>
-        body { background: var(--color-bg); }
+        body { background: var(--color-bg); animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .collab-gallery-item img { background: url('assets/images/ONLY-ZS-LOGO.png') center/30% no-repeat #1a1a1a; animation: pulseSkeleton 1.5s infinite alternate; }
+        @keyframes pulseSkeleton { 0% { background-color: #111; } 100% { background-color: #222; } }
+        .btn { transition: transform 0.15s ease, box-shadow 0.2s ease; } .btn:active { transform: scale(0.95); }
 
         .brand-page #navbar {
             background-color: rgba(13,13,13,0.92);
@@ -755,6 +760,3 @@
 </nav>
 </body>
 </html>
-
-
-

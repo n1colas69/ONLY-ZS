@@ -1,4 +1,4 @@
-﻿/* =========================================================
+﻿﻿/* =========================================================
    ONLY ZS — modals.js
    Modales de productos y checkout
 ========================================================= */
@@ -12,10 +12,12 @@ function openProductModal(productId) {
     }
     currentProductPhoto = 0;
     updateProductModal();
+    document.body.classList.add('no-scroll');
     document.getElementById('productModalOverlay').classList.add('active');
 }
 
 function closeProductModal() {
+    document.body.classList.remove('no-scroll');
     document.getElementById('productModalOverlay').classList.remove('active');
     currentProductModal = null;
     currentProductPhoto = 0;
@@ -286,12 +288,14 @@ function setupProductModal() {
 
 function openCheckoutModal() {
     renderCheckoutSummary();
+    document.body.classList.add('no-scroll');
     closeCartUI();
     document.getElementById('checkoutModalOverlay').classList.add('active');
     setTimeout(() => document.getElementById('checkoutName').focus(), 100);
 }
 
 function closeCheckoutModal() {
+    document.body.classList.remove('no-scroll');
     document.getElementById('checkoutModalOverlay').classList.remove('active');
     document.getElementById('checkoutError').innerText = '';
 }
@@ -365,4 +369,3 @@ function setupCheckout() {
         showToast('Pedido listo para enviar por WhatsApp');
     });
 }
-
