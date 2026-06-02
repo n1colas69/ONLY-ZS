@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="assets/images/optimized/lg/assets/images/Productos/Galeria ZS/HERO-GALERIA-ZS.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/images/optimized/lg/assets/images/Galeria-ZS/HERO-GALERIA-ZS.jpg" fetchpriority="high">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         .bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(13,13,13,0.98); backdrop-filter: blur(10px); z-index: 1000; justify-content: space-around; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.08); }
         .bottom-nav a, .bottom-nav button { color: rgba(255,255,255,0.6); font-size: 0.75rem; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 5px; text-decoration: none; cursor: pointer; }
@@ -181,10 +181,10 @@
         <button class="gallery-lightbox-nav gallery-lightbox-next" id="galleryLightboxNext" aria-label="Siguiente imagen"><i class="fas fa-chevron-right"></i></button>
     </div>
 
-    <script src="data.js"></script>
-    <script src="utils.js"></script>
-    <script src="gallery.js"></script>
-    <script src="scroll.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/components/gallery.js"></script>
+    <script src="js/scroll.js"></script>
     <script>
         let currentGalleryPhoto = 0;
 
@@ -300,3 +300,6 @@
 </nav>
 </body>
 </html>
+
+
+
