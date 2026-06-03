@@ -399,9 +399,53 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-
+    //JEAN DICKIES CARPINTERO
     {
         id: 20,
+        name: "Jean Dickies Carpintero",
+        category: "Pantalones",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-5.jpg"
+        ],
+        description: "Muy pronto en Only ZS.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //PANTALON L.L BEAN
+    {
+        id: 21,
+        name: "Pantalón L.L. Bean",
+        category: "Pantalones",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-5.jpg"
+        ],
+        description: "Muy pronto en Only ZS.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //PROXIMAMENTE
+    {
+        id: 22,
         name: "Proximamente",
         category: "",
         price: 0,
