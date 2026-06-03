@@ -164,16 +164,16 @@ const productsData = [
             "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-5.jpg",
             "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-6.jpg"
         ],
-        description: "Muy pronto en Only ZS.",
+        description: "Bermuda de jean gris dickies genuine, bolsillos extras por si fin workwear, material super resistente no tiene detalles ni desgastes\nTalle: 44us\n54 de cintura\n70 de largo\nEstado: 10/10.",
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //PANTALON LACOSTE-CORDERO
+    //PANTALON LACOSTE-CORDEROY
     {
         id: 9,
-        name: "Proximamente",
+        name: "Lacoste Corderoy",
         category: "Pantalones",
         price: 0,
         originalPrice: null,
@@ -187,7 +187,7 @@ const productsData = [
             "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-5.jpg",
             "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-6.jpg"
         ],
-        description: "Muy pronto en Only ZS.",
+        description: "Pantalon tipo corderoy abrigado original, posee detalle metalico sobre uno de sus bolsillos, cuenta con sus botones respectivos y libre de detalles y manchas, color crudo no blanco.\nTalle: 38us\n48 de Cintura\n108 de largo\nEstado: 10/10.",
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
@@ -196,7 +196,7 @@ const productsData = [
     //CAMISA CHAPS MANGALARGA ROJA
     {
         id: 10,
-        name: "Proximamente",
+        name: "Camisa Chaps Mangalarga Roja",
         category: "Camisas",
         price: 0,
         originalPrice: null,
@@ -207,7 +207,7 @@ const productsData = [
             "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-2.jpg",
             "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-3.jpg"
         ],
-        description: "Muy pronto en Only ZS.",
+        description: "Camisa de vestir con cuadrille combinando el azul rojo y blanco, posee botones originales y de respuesto, sin detalles ni manchas.\nTalle: XL (16)\n62cm de largo\n50cm de ancho\nEstado: 10/10.",
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
@@ -216,7 +216,7 @@ const productsData = [
     //CAMPERA PUFFER NAUTICA
     {
         id: 11,
-        name: "Proximamente",
+        name: "Campera Puffer Nautica",
         category: "Abrigos",
         price: 0,
         originalPrice: null,
@@ -228,7 +228,7 @@ const productsData = [
             "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-3.jpg",
             "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-4.jpg"
         ],
-        description: "Muy pronto en Only ZS.",
+        description: "Campera abrigada con spell out en la manga, tiene detalles en otros colores y posee reguladores funcionando al igual que los cierres.\nTalle: XL",
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
@@ -237,7 +237,7 @@ const productsData = [
     //CAMPERA L.L. BEAN
     {
         id: 12,
-        name: "Proximamente",
+        name: "Campera L.L. Bean",
         category: "Abrigos",
         price: 0,
         originalPrice: null,
@@ -248,7 +248,7 @@ const productsData = [
             "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-2.jpg",
             "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-3.jpg"
         ],
-        description: "Muy pronto en Only ZS.",
+        description: "Campera material polar con bolsillos y cierres, 3 bolsillos en total material abrigado spell out en el pecho\nTalle: M/L\n68cm de largo\n60cm de ancho\nEstado: 10/10.",
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
@@ -257,7 +257,7 @@ const productsData = [
     //SUETER DOCKERS
     {
         id: 13,
-        name: "Proximamente",
+        name: "Sueter Dockers",
         category: "Abrigos",
         price: 0,
         originalPrice: null,
@@ -269,7 +269,7 @@ const productsData = [
             "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-3.jpg",
             "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-4.jpg"
         ],
-        description: "Muy pronto en Only ZS.",
+        description: "Sueter de punto blanco marca Dockers con diseño impreso geometrico y navideño en el pecho con cuello redondo\nTalle: XL\nEstado: 10/10.",
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
@@ -278,7 +278,7 @@ const productsData = [
     //SUETER MISSONI
     {
         id: 14,
-        name: "Proximamente",
+        name: "Sueter Missoni",
         category: "Abrigos",
         price: 0,
         originalPrice: null,
@@ -289,7 +289,7 @@ const productsData = [
             "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-2.jpg",
             "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-3.jpg"
         ],
-        description: "Muy pronto en Only ZS.",
+        description: "Sueter con diseño de punto chevron.\nTalle: XL\nEstado: 10/10.",
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
@@ -298,7 +298,7 @@ const productsData = [
     //GORRA JOHN DEERE
     {
         id: 15,
-        name: "Proximamente",
+        name: "Gorra John Deere",
         category: "Accesorios",
         price: 0,
         originalPrice: null,
@@ -309,7 +309,7 @@ const productsData = [
             "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-2.jpg",
             "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-3.jpg"
         ],
-        description: "Muy pronto en Only ZS.",
+        description: "Logo bordado en frente de la marca con correa de tela ajustable en la parte trasera.\nTalle: Unico AC\nEstado: 10/10.",
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
@@ -318,7 +318,7 @@ const productsData = [
     //PASAMONTAÑAS REAL TREE
     {
         id: 16,
-        name: "Proximamente",
+        name: "Pasamontañas Real Tree",
         category: "Accesorios",
         price: 0,
         originalPrice: null,
@@ -329,7 +329,7 @@ const productsData = [
             "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-2.jpg",
             "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-3.jpg"
         ],
-        description: "Muy pronto en Only ZS.",
+        description: "Balaclava liviano camuflado tipe realtree\nTalle: Unico AC\nEstado: 10/10.",
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
@@ -338,7 +338,7 @@ const productsData = [
     //RELOJ CASIO
     {
         id: 17,
-        name: "Proximamente",
+        name: "Reloj Casio",
         category: "Accesorios",
         price: 0,
         originalPrice: null,
@@ -359,7 +359,7 @@ const productsData = [
     //CAMISETA ALEMANIA
     {
         id: 18,
-        name: "Proximamente",
+        name: "Camiseta Alemania",
         category: "Camisetas",
         price: 0,
         originalPrice: null,
@@ -381,7 +381,7 @@ const productsData = [
     //CHOMBA NAUTICA AZUL
     {
         id: 19,
-        name: "Proximamente",
+        name: "Chomba Nautica Azul",
         category: "Remeras",
         price: 0,
         originalPrice: null,
@@ -393,13 +393,13 @@ const productsData = [
             "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-3.jpg",
             "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-4.jpg"
         ],
-        description: "Muy pronto en Only ZS.",
+        description: "chomba de vestir a rayas de material liviano, conserva botones originales sin desgastes y detalle con el nombre en la manga",
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    }
+    },
 
-    /*PROXIMAMENTE
+
     {
         id: 20,
         name: "Proximamente",
@@ -407,7 +407,7 @@ const productsData = [
         price: 0,
         originalPrice: null,
         badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/",
+        image: "assets/images/ONLY-ZS-LOGO.png",
         images: [
 
         ],
@@ -415,8 +415,8 @@ const productsData = [
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    }, 
-    */
+    }
+
 ];
 
 const communityGalleryData = [
