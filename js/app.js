@@ -1,4 +1,4 @@
-﻿﻿﻿﻿/* =========================================================
+﻿﻿﻿﻿﻿﻿/* =========================================================
    ONLY ZS — app.js
    Inicialización principal de la aplicación
 ========================================================= */
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const imgContainer = card.querySelector('.product-image-wrap') || card.querySelector('.product-image-container') || card.querySelector('.product-img') || card;
                     imgContainer.style.position = 'relative';
                     
-                    if (product.images && product.images.length > 1) {
+                    if (product.images && product.images.length > 1 && !product.isComingSoon) {
                         const hoverImg = document.createElement('img');
                         hoverImg.src = getOptimizedImage(product.images[1], 'sm');
                         hoverImg.setAttribute('data-fallback-src', product.images[1]);
