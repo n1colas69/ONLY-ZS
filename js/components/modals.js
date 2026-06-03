@@ -1,4 +1,4 @@
-﻿﻿/* =========================================================
+﻿﻿﻿﻿/* =========================================================
    ONLY ZS — modals.js
    Modales de productos y checkout
 ========================================================= */
@@ -67,14 +67,29 @@ function updateProductModal() {
 
     // Update add to cart button
     const addBtn = document.getElementById('productModalAddBtn');
-    if (product.inStock) {
-        addBtn.disabled = false;
-        addBtn.style.background = '';
-        addBtn.innerText = 'AGREGAR AL CARRITO';
-    } else {
+    const isInCart = cart.some(item => item.id === product.id);
+
+    if (!product.inStock) {
         addBtn.disabled = true;
         addBtn.style.background = '#777';
         addBtn.innerText = 'AGOTADO';
+        addBtn.style.display = '';
+        addBtn.onmouseenter = null;
+        addBtn.onmouseleave = null;
+    } else if (isInCart) {
+        addBtn.disabled = false;
+        addBtn.style.background = 'var(--color-success, #28a745)';
+        addBtn.innerText = 'EN EL CARRITO ✓';
+        addBtn.style.display = '';
+        addBtn.onmouseenter = () => addBtn.innerText = 'QUITAR DEL CARRITO';
+        addBtn.onmouseleave = () => addBtn.innerText = 'EN EL CARRITO ✓';
+    } else {
+        addBtn.disabled = false;
+        addBtn.style.background = '';
+        addBtn.innerText = 'AGREGAR AL CARRITO';
+        addBtn.style.display = '';
+        addBtn.onmouseenter = null;
+        addBtn.onmouseleave = null;
     }
 
     // Update navigation buttons
@@ -239,19 +254,14 @@ function setupProductModal() {
 
     addBtn.addEventListener('click', () => {
         if (currentProductModal) {
-            addToCart(currentProductModal);
-            
-            // Microinteracción visual al agregar carrito
-            const originalBg = addBtn.style.background;
-            addBtn.innerText = '¡AGREGADO ✓!';
-            addBtn.style.background = 'var(--color-success)';
-            
-            setTimeout(() => {
-                if (document.getElementById('productModalOverlay').classList.contains('active')) {
-                    addBtn.innerText = 'AGREGAR AL CARRITO';
-                    addBtn.style.background = originalBg;
-                }
-            }, 1500);
+            const isInCart = cart.some(item => item.id === currentProductModal);
+            if (isInCart) {
+                removeFromCart(currentProductModal);
+            } else {
+                addToCart(currentProductModal);
+            }
+            // Actualizamos el modal para que el botón se bloquee inmediatamente
+            updateProductModal();
         }
     });
 

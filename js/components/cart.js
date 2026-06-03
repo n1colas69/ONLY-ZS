@@ -1,35 +1,7 @@
-﻿/* =========================================================
+﻿﻿/* =========================================================
    ONLY ZS — cart.js
    Funcionalidad del carrito
 ========================================================= */
-
-// Funciones globales para deslizar y eliminar
-let swipeStartX = 0;
-let currentSwipeItem = null;
-
-window.handleSwipeStart = function(e) {
-    if (e.touches.length > 1) return;
-    swipeStartX = e.touches[0].clientX;
-    currentSwipeItem = e.currentTarget;
-    currentSwipeItem.style.transition = 'none';
-};
-window.handleSwipeMove = function(e) {
-    if (!currentSwipeItem) return;
-    const diffX = e.touches[0].clientX - swipeStartX;
-    if (diffX < 0 && diffX > -90) currentSwipeItem.style.transform = `translateX(${diffX}px)`;
-};
-window.handleSwipeEnd = function(e, id) {
-    if (!currentSwipeItem) return;
-    const diffX = e.changedTouches[0].clientX - swipeStartX;
-    currentSwipeItem.style.transition = 'transform 0.3s ease';
-    if (diffX < -50) {
-        currentSwipeItem.style.transform = `translateX(-100%)`;
-        setTimeout(() => updateQty(id, -100), 300); // Remueve unidades
-    } else {
-        currentSwipeItem.style.transform = `translateX(0)`;
-    }
-    currentSwipeItem = null;
-};
 
 function addToCart(id) {
     const product = productsData.find(p => p.id === id);
@@ -51,6 +23,13 @@ function addToCart(id) {
     bounceIcon('cartCount');
     showToast(`✓ ${product.name} agregado al carrito`);
     renderCart();
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(i => i.id !== id);
+    saveCart();
+    renderCart();
+    showToast("Producto removido del carrito");
 }
 
 function buyNow(id) {
@@ -123,10 +102,7 @@ function renderCart() {
             const hasMaxQty = item.qty >= getProductStockQty(product);
             cartHTML += `
                 <div class="cart-item-wrapper">
-                    <div class="cart-item-bg-delete" onclick="updateQty(${item.id}, -${item.qty})">
-                        <i class="fas fa-trash"></i>
-                    </div>
-                    <div class="cart-item swipeable" data-id="${item.id}" ontouchstart="handleSwipeStart(event)" ontouchmove="handleSwipeMove(event)" ontouchend="handleSwipeEnd(event, ${item.id})">
+                    <div class="cart-item" data-id="${item.id}">
                         <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}" loading="lazy" decoding="async" width="65" height="65">
                         <div class="cart-item-details">
                             <p class="cart-item-title">${item.name}</p>
@@ -157,5 +133,7 @@ function renderCart() {
 function saveCart() {
     localStorage.setItem('zs_cart', JSON.stringify(cart));
     updateCounters();
+    if (typeof renderWishlist === 'function') renderWishlist();
+    if (typeof updateProductModal === 'function' && currentProductModal) updateProductModal();
+    if (typeof updateGridCartButtons === 'function') updateGridCartButtons();
 }
-

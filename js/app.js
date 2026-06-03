@@ -1,4 +1,4 @@
-﻿﻿/* =========================================================
+﻿﻿﻿﻿/* =========================================================
    ONLY ZS — app.js
    Inicialización principal de la aplicación
 ========================================================= */
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Hover de Segunda Imagen y Etiqueta Pieza Única (Observer)
+    // 4. Hover de Segunda Imagen (Observer)
     const productsGrid = document.getElementById('productsGrid');
     if (productsGrid) {
         const observer = new MutationObserver(() => {
@@ -119,13 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         hoverImg.className = 'hover-img';
                         hoverImg.loading = 'lazy';
                         imgContainer.appendChild(hoverImg);
-                    }
-                    
-                    if (product.inStock) { // Asume que todos en stock son únicas
-                        const badge = document.createElement('span');
-                        badge.className = 'badge unique-badge';
-                        badge.innerText = 'PIEZA ÚNICA';
-                        card.appendChild(badge);
                     }
                 }
             });

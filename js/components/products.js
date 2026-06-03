@@ -1,4 +1,4 @@
-﻿/* =========================================================
+﻿﻿/* =========================================================
    ONLY ZS — products.js
    Gestión de productos y galería comunitaria
 ========================================================= */
@@ -12,6 +12,7 @@ function renderProducts(products) {
     }
     products.forEach((prod, index) => {
         const isWishlisted = wishlist.includes(prod.id);
+        const isInCart = cart.some(item => item.id === prod.id);
         const cardImage = getOptimizedImage(prod.image, 'sm');
         const badgeHTML = prod.badge
             ? `<span class="product-badge badge-${prod.badge.toLowerCase().replace('ó', 'o')}">${prod.badge}</span>` : '';
@@ -23,9 +24,12 @@ function renderProducts(products) {
         if (prod.isComingSoon) {
             btnHTML = `<button class="add-to-cart" style="background:#333;" disabled>Próximamente</button>`;
         } else if (prod.inStock) {
+            let cartBtnHTML = isInCart 
+                ? `<button class="add-to-cart in-cart" type="button" onclick="removeFromCart(${prod.id})" onmouseenter="this.innerText='Quitar del carrito'" onmouseleave="this.innerText='En el carrito'" style="background: var(--color-success, #28a745); color: #fff;">En el carrito</button>`
+                : `<button class="add-to-cart" type="button" onclick="addToCart(${prod.id})">Agregar al Carrito</button>`;
             btnHTML = `<div class="product-actions">
                             <button class="buy-now" type="button" onclick="buyNow(${prod.id})">Comprar ahora</button>
-                            <button class="add-to-cart" type="button" onclick="addToCart(${prod.id})">Agregar al Carrito</button>
+                            ${cartBtnHTML}
                        </div>`;
         } else {
             btnHTML = `<button class="add-to-cart" style="background:#777;" disabled>Agotado</button>`;
@@ -33,6 +37,7 @@ function renderProducts(products) {
 
         const card = document.createElement('div');
         card.className = 'product-card';
+        card.dataset.id = prod.id;
         card.innerHTML = `
             <div class="product-image-wrap">
                 ${badgeHTML}
@@ -83,3 +88,30 @@ function filterByCategory(category) {
     document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
 }
 
+function updateGridCartButtons() {
+    document.querySelectorAll('.product-card').forEach(card => {
+        const id = parseInt(card.dataset.id);
+        if (!id) return;
+        const isInCart = cart.some(item => item.id === id);
+        const addToCartBtn = card.querySelector('.add-to-cart');
+        if (addToCartBtn && !addToCartBtn.disabled) {
+            if (isInCart) {
+                addToCartBtn.classList.add('in-cart');
+                addToCartBtn.style.background = 'var(--color-success, #28a745)';
+                addToCartBtn.style.color = '#fff';
+                addToCartBtn.innerText = 'En el carrito';
+                addToCartBtn.setAttribute('onclick', `removeFromCart(${id})`);
+                addToCartBtn.setAttribute('onmouseenter', `this.innerText='Quitar del carrito'`);
+                addToCartBtn.setAttribute('onmouseleave', `this.innerText='En el carrito'`);
+            } else {
+                addToCartBtn.classList.remove('in-cart');
+                addToCartBtn.style.background = '';
+                addToCartBtn.style.color = '';
+                addToCartBtn.innerText = 'Agregar al Carrito';
+                addToCartBtn.setAttribute('onclick', `addToCart(${id})`);
+                addToCartBtn.removeAttribute('onmouseenter');
+                addToCartBtn.removeAttribute('onmouseleave');
+            }
+        }
+    });
+}
