@@ -7,7 +7,7 @@ const productsData = [
     //SHORT CARHARTT
     {
         id: 1,
-        name: "Short Carhartt",
+        name: "Bermuda Carhartt",
         category: "Pantalones",
         price: 40000,
         originalPrice: null,
@@ -19,7 +19,7 @@ const productsData = [
             "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-3.jpg",
             "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-4.jpg"
         ],
-        description: "Short carpintero de jean bastante rigido, cuenta con varios bolsillos y un material super resistente, tag de cuero.\nTalle 40us(50AR): 60cm de cintura por 56cm de largo.\nEstado: 10/10.",
+        description: "Bermuda carpintero de jean bastante rigido, cuenta con varios bolsillos y un material super resistente, tag de cuero.\nTalle 40us(50AR): 60cm de cintura por 56cm de largo.\nEstado: 10/10.",
         isNew: false,
         inStock: true
     },
@@ -27,7 +27,7 @@ const productsData = [
     //REMERA MANGALARGA VERDE REAL TREE
     {
         id: 2,
-        name: "REAL TREE",
+        name: "Remera Real-Tree",
         category: "Remeras",
         price: 25000,
         originalPrice: null,
@@ -46,7 +46,7 @@ const productsData = [
     //REMERAS NAUTICA X2 ROJAS
     {
         id: 3,
-        name: "Nautica",
+        name: "Nautica X2",
         category: "Remeras",
         price: 50000,
         originalPrice: null,
@@ -67,7 +67,7 @@ const productsData = [
     //REMERA RUSSELL CHAMPIONS 2014
     {
         id: 4,
-        name: "Remera RUSSELL",
+        name: "Remera Russell Champions 2014",
         category: "Remeras",
         price: 20000,
         originalPrice: null,
@@ -86,7 +86,7 @@ const productsData = [
     //CAMISA CHAPS ROJA MANGACORTA
     {
         id: 5,
-        name: "Camisa Chaps",
+        name: "Camisa Chaps Roja Manga Corta",
         category: "Camisas",
         price: 15000,
         originalPrice: null,
@@ -106,7 +106,7 @@ const productsData = [
     //POLO Ralph Lauren H1 TECH
     {
         id: 6,
-        name: "Polo Ralph Lauren",
+        name: "Polo Ralph Lauren H1 Tech",
         category: "Remeras",
         price: 50000,
         originalPrice: null,
@@ -129,7 +129,7 @@ const productsData = [
     //CAMISA RALPH LAUREN OXFORD STRIPED
     {
         id: 7,
-        name: "RALPH LAUREN OXFORD STRIPED SHIRT",
+        name: "Ralph Lauren Oxford Striped",
         category: "Camisas",
         price: 30000,
         originalPrice: null,
@@ -150,7 +150,7 @@ const productsData = [
     //SHORT DICKIES GRIS
     {
         id: 8,
-        name: "Short Dickies",
+        name: "Bermuda Dickies",
         category: "Pantalones",
         price: 0,
         originalPrice: null,
@@ -196,7 +196,7 @@ const productsData = [
     //CAMISA CHAPS MANGALARGA ROJA
     {
         id: 10,
-        name: "Camisa Chaps Mangalarga Roja",
+        name: "Camisa Chaps Manga larga",
         category: "Camisas",
         price: 0,
         originalPrice: null,
@@ -443,9 +443,68 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
+    //REMERA GILDAN BROCKPORT ML
+    {
+        id: 23,
+        name: "Remera Gildan Brockport ML",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-3.jpg"
+        ],
+        description: "Muy pronto en Only ZS.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //MUSCULOSA NIKE GRIS
+    {
+        id: 24,
+        name: "Musculosa Nike Gris",
+        category: "Pantalones",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-2.jpg"
+        ],
+        description: "Muy pronto en Only ZS.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //REMERA GOODYEAR MC RAYAS
+    {
+        id: 25,
+        name: "Remera Goodyear",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-3.jpg"
+        ],
+        description: "Muy pronto en Only ZS.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
     //PROXIMAMENTE
     {
-        id: 22,
+        id: 26,
         name: "Proximamente",
         category: "",
         price: 0,
