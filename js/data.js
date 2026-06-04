@@ -3,6 +3,8 @@
    Datos de productos y galería
 ========================================================= */
 
+    //PRODUCTOS
+
 const productsData = [
     //SHORT CARHARTT
     {
@@ -522,6 +524,8 @@ const productsData = [
 
 ];
 
+    //GALERIA ZS
+
 const communityGalleryData = [
     {
         src: "assets/images/Galeria-ZS/GALERIA-ZS-1.jpg",
@@ -657,7 +661,11 @@ const communityGalleryData = [
     }
 ];
 
+    //COLLABORATIONS
+
 const collaborationsData = [
+
+    //CULTO A LAS CALLES
     {
         key: "culto-a-las-calles",
         title: "Culto A Las Calles",
@@ -676,6 +684,24 @@ const collaborationsData = [
             "assets/images/Brand/Culto-A-Las-Calles/CULTO-A-LAS-CALLES-4.jpg"
         ]
     },
+
+    //DEEP INDUMENTARIA
+    {
+        key: "Deep-Indumentaria",
+        title: "Deep Indumentaria",
+        tagline: "Lugar preparado para la segunda marca.",
+        description: "Este espacio queda reservado para sumar la próxima colaboración. La página ya mantiene la misma estructura visual: portada, información de marca, redes, contacto y galería.",
+        website: "index.html#collaborations",
+        instagram: "https://www.instagram.com/only_zonasur/",
+        youtube: "",
+        latestVideoTitle: "",
+        latestVideo: "",
+        heroImage: "assets/images/HERO-ZS.png",
+        gallery: [
+            "assets/images/HERO-ZS.png"
+        ]
+    },
+
     {
         key: "proxima-colaboracion",
         title: "Próxima Colaboración",
@@ -691,6 +717,7 @@ const collaborationsData = [
             "assets/images/HERO-ZS.png"
         ]
     }
+    
 ];
 
 

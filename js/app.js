@@ -13,6 +13,7 @@ let currentGalleryPhoto = 0;
 // Configuración de Colaboraciones
 const upcomingCollaborationAvailable = false; // Cambiar a true cuando una colaboración esté disponible
 
+
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
     // PWA: Registro del Service Worker
