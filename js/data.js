@@ -6,9 +6,190 @@
     //PRODUCTOS
 
 const productsData = [
-    //SHORT CARHARTT
+
+        //JEAN DICKIES CARPINTERO - PUBLICADO - NUEVO
     {
         id: 1,
+        name: "Jean Dickies Carpintero",
+        category: "Pantalones",
+        price: 45000,
+        badge: "NUEVO",
+        originalPrice: null,
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-5.jpg"
+        ],
+        description: "Modelo Slim fit trabajado con pintura de tela sobre la misma tela aun a estrenar, posee todas sus etiquetas lit sin uso.\nTalle: 36us\n46 de cintura\n104 de largo\nEstado: 10/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+        //PASAMONTAÑAS REAL TREE - PUBLICADO - NUEVO - VENDIDO
+    {
+        id: 2,
+        name: "Pasamontañas Real Tree",
+        category: "Accesorios",
+        price: null,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-1.jpg",
+        images: [
+            "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-1.jpg",
+            "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-2.jpg",
+            "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-3.jpg"
+        ],
+        description: "Balaclava liviano camuflado tipe realtree\nTalle: Unico AC\nEstado: 10/10.",
+        isNew: true,
+        inStock: false,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+        //SUETER DOCKERS - PUBLICADO - NUEVO
+    {
+        id: 3,
+        name: "Sueter Dockers",
+        category: "Abrigos",
+        price: 20000,
+        badge: "NUEVO",
+        originalPrice: null,
+        image: "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-1.jpg",
+        images: [
+            "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-1.jpg",
+            "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-2.jpg",
+            "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-3.jpg",
+            "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-4.jpg"
+        ],
+        description: "Sueter de punto blanco marca Dockers con diseño impreso geometrico y navideño en el pecho con cuello redondo\nTalle: XL\nEstado: 10/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+        //CAMPERA L.L. BEAN - PUBLICADA - NUEVO - VENDIDO
+    {
+        id: 4,
+        name: "Campera L.L. Bean",
+        category: "Abrigos",
+        price: null,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-1.jpg",
+        images: [
+            "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-1.jpg",
+            "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-2.jpg",
+            "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-3.jpg"
+        ],
+        description: "Campera material polar con bolsillos y cierres, 3 bolsillos en total material abrigado spell out en el pecho\nTalle: M/L\n68cm de largo\n60cm de ancho\nEstado: 10/10.",
+        isNew: true,
+        inStock: false,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //MUSCULOSA NIKE GRIS - PUBLICADA - NUEVO
+    {
+        id: 5,
+        name: "Musculosa Nike Gris",
+        category: "Pantalones",
+        price: 15000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-2.jpg"
+        ],
+        description: "Musculosa deportiva original, basica color gris sin desgastes\nTalle: L\n74x52\nEstado: 10/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+        //SUETER MISSONI - PUBLICADO NUEVO
+    {
+        id: 6,
+        name: "Sueter Missoni",
+        category: "Abrigos",
+        price: 35000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-1.jpg",
+        images: [
+            "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-1.jpg",
+            "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-2.jpg",
+            "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-3.jpg"
+        ],
+        description: "Sueter con diseño de punto chevron.\nTalle: XL\nEstado: 10/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //REMERA GOODYEAR MC RAYAS - PUBLICADA - NUEVO
+    {
+        id: 7,
+        name: "Remera Goodyear",
+        category: "Remeras",
+        price: 18000,
+        originalPrice: null,
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-3.jpg"
+        ],
+        description: "Remera a rayas, sin detalles. De algodon.\nTalle: L\n75x61\nEstado: 10/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //REMERA ADIDAS MC NARANJA - PUBLICADA - NUEVO
+    {
+        id: 8,
+        name: "Remera Adidas",
+        category: "Remeras",
+        price: 20000,
+        originalPrice: null,
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-ADIDAS-MC-NARANJA/REMERA-ADIDAS-MC-NARANJA-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-ADIDAS-MC-NARANJA/REMERA-ADIDAS-MC-NARANJA-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-ADIDAS-MC-NARANJA/REMERA-ADIDAS-MC-NARANJA-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-ADIDAS-MC-NARANJA/REMERA-ADIDAS-MC-NARANJA-3.jpg"
+        ],
+        description: "Remera de algodon con estampado original en su torso, no tiene desgastes en el estampado pero si un poco en la tela, detalles\nTalle: L\nEstado: 9/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+        //SUETER VINTAGE - PUBLICADA - NUEVO
+    {
+        id: 9,
+        name: "Sueter Vintage",
+        category: "Abrigos",
+        price: 35000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Abrigos/Sueter/VINTAGE/SUETER-VINTAGE-1.jpg",
+        images: [
+            "assets/images/Productos/Abrigos/Sueter/VINTAGE/SUETER-VINTAGE-1.jpg",
+            "assets/images/Productos/Abrigos/Sueter/VINTAGE/SUETER-VINTAGE-2.jpg",
+            "assets/images/Productos/Abrigos/Sueter/VINTAGE/SUETER-VINTAGE-3.jpg"
+        ],
+        description: "Tipo vintage, tramado clasico con colores aun bastante conservados\nEstado: 10/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //SHORT CARHARTT - PUBLICADO
+    {
+        id: 10,
         name: "Bermuda Carhartt",
         category: "Pantalones",
         price: 40000,
@@ -26,9 +207,9 @@ const productsData = [
         inStock: true
     },
 
-    //REMERA MANGALARGA VERDE REAL TREE
+    //REMERA MANGALARGA VERDE REAL TREE - PUBLICADO
     {
-        id: 2,
+        id: 11,
         name: "Remera Real-Tree",
         category: "Remeras",
         price: 25000,
@@ -45,9 +226,9 @@ const productsData = [
         inStock: true
     },
 
-    //REMERAS NAUTICA X2 ROJAS
+    //REMERAS NAUTICA X2 ROJAS - PUBLICADO
     {
-        id: 3,
+        id: 12,
         name: "Nautica X2",
         category: "Remeras",
         price: 50000,
@@ -66,9 +247,9 @@ const productsData = [
         inStock: true
     },
 
-    //REMERA RUSSELL CHAMPIONS 2014
+    //REMERA RUSSELL CHAMPIONS 2014 - PUBLICADO
     {
-        id: 4,
+        id: 13,
         name: "Remera Russell Champions 2014",
         category: "Remeras",
         price: 20000,
@@ -85,9 +266,9 @@ const productsData = [
         inStock: true
     },
 
-    //CAMISA CHAPS ROJA MANGACORTA
+    //CAMISA CHAPS ROJA MANGACORTA - PUBLICADO
     {
-        id: 5,
+        id: 14,
         name: "Camisa Chaps Roja Manga Corta",
         category: "Camisas",
         price: 15000,
@@ -105,9 +286,9 @@ const productsData = [
         inStock: true
     },
 
-    //POLO Ralph Lauren H1 TECH
+    //POLO Ralph Lauren H1 TECH - PUBLICADO
     {
-        id: 6,
+        id: 15,
         name: "Polo Ralph Lauren H1 Tech",
         category: "Remeras",
         price: 50000,
@@ -128,9 +309,9 @@ const productsData = [
         inStock: true
     },
 
-    //CAMISA RALPH LAUREN OXFORD STRIPED
+    //CAMISA RALPH LAUREN OXFORD STRIPED - PUBLICADO
     {
-        id: 7,
+        id: 16,
         name: "Ralph Lauren Oxford Striped",
         category: "Camisas",
         price: 30000,
@@ -149,14 +330,13 @@ const productsData = [
         inStock: true
     },
 
-    //SHORT DICKIES GRIS
+    //SHORT DICKIES GRIS - NO PUBLICADO
     {
-        id: 8,
+        id: 17,
         name: "Bermuda Dickies",
         category: "Pantalones",
         price: 0,
         originalPrice: null,
-        badge: "PRÓXIMAMENTE",
         image: "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-1.jpg",
         images: [
             "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-1.jpg",
@@ -172,9 +352,9 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //PANTALON LACOSTE-CORDEROY
+    //PANTALON LACOSTE-CORDEROY - NO PUBLICADO
     {
-        id: 9,
+        id: 18,
         name: "Lacoste Corderoy",
         category: "Pantalones",
         price: 0,
@@ -195,9 +375,9 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CAMISA CHAPS MANGALARGA ROJA
+    //CAMISA CHAPS MANGALARGA ROJA - NO PUBLICADA
     {
-        id: 10,
+        id: 19,
         name: "Camisa Chaps Manga larga",
         category: "Camisas",
         price: 0,
@@ -210,14 +390,14 @@ const productsData = [
             "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-3.jpg"
         ],
         description: "Camisa de vestir con cuadrille combinando el azul rojo y blanco, posee botones originales y de respuesto, sin detalles ni manchas.\nTalle: XL (16)\n62cm de largo\n50cm de ancho\nEstado: 10/10.",
-        isNew: false,
+        isNew: true,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CAMPERA PUFFER NAUTICA
+    //CAMPERA PUFFER NAUTICA - NO PUBLICADA
     {
-        id: 11,
+        id: 20,
         name: "Campera Puffer Nautica",
         category: "Abrigos",
         price: 0,
@@ -236,70 +416,9 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CAMPERA L.L. BEAN
+    //GORRA JOHN DEERE - NO PUBLICADA
     {
-        id: 12,
-        name: "Campera L.L. Bean",
-        category: "Abrigos",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-1.jpg",
-        images: [
-            "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-1.jpg",
-            "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-2.jpg",
-            "assets/images/Productos/Abrigos/Camperas/L-L-BEAN/CAMPERA-POLAR-L-L-BEAN-3.jpg"
-        ],
-        description: "Campera material polar con bolsillos y cierres, 3 bolsillos en total material abrigado spell out en el pecho\nTalle: M/L\n68cm de largo\n60cm de ancho\nEstado: 10/10.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //SUETER DOCKERS
-    {
-        id: 13,
-        name: "Sueter Dockers",
-        category: "Abrigos",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-1.jpg",
-        images: [
-            "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-1.jpg",
-            "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-2.jpg",
-            "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-3.jpg",
-            "assets/images/Productos/Abrigos/Sueter/DOCKERS/SUETER-DOCKERS-4.jpg"
-        ],
-        description: "Sueter de punto blanco marca Dockers con diseño impreso geometrico y navideño en el pecho con cuello redondo\nTalle: XL\nEstado: 10/10.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //SUETER MISSONI
-    {
-        id: 14,
-        name: "Sueter Missoni",
-        category: "Abrigos",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-1.jpg",
-        images: [
-            "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-1.jpg",
-            "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-2.jpg",
-            "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-3.jpg"
-        ],
-        description: "Sueter con diseño de punto chevron.\nTalle: XL\nEstado: 10/10.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //GORRA JOHN DEERE
-    {
-        id: 15,
+        id: 21,
         name: "Gorra John Deere",
         category: "Accesorios",
         price: 0,
@@ -317,29 +436,9 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //PASAMONTAÑAS REAL TREE
+    //RELOJ CASIO - NO PUBLICADO
     {
-        id: 16,
-        name: "Pasamontañas Real Tree",
-        category: "Accesorios",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-1.jpg",
-        images: [
-            "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-1.jpg",
-            "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-2.jpg",
-            "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-3.jpg"
-        ],
-        description: "Balaclava liviano camuflado tipe realtree\nTalle: Unico AC\nEstado: 10/10.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //RELOJ CASIO
-    {
-        id: 17,
+        id: 22,
         name: "Reloj Casio",
         category: "Accesorios",
         price: 0,
@@ -358,9 +457,9 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CAMISETA ALEMANIA
+    //CAMISETA ALEMANIA - NO PUBLICADA
     {
-        id: 18,
+        id: 23,
         name: "Camiseta Alemania",
         category: "Camisetas",
         price: 0,
@@ -380,9 +479,9 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CHOMBA NAUTICA AZUL
+    //CHOMBA NAUTICA AZUL - NO PUBLICADA
     {
-        id: 19,
+        id: 24,
         name: "Chomba Nautica Azul",
         category: "Remeras",
         price: 0,
@@ -401,31 +500,9 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //JEAN DICKIES CARPINTERO
+    //PANTALON L.L BEAN - NO PUBLICADO
     {
-        id: 20,
-        name: "Jean Dickies Carpintero",
-        category: "Pantalones",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-1.jpg",
-        images: [
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-1.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-2.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-3.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-4.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-5.jpg"
-        ],
-        description: "Muy pronto en Only ZS.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //PANTALON L.L BEAN
-    {
-        id: 21,
+        id: 25,
         name: "Pantalón L.L. Bean",
         category: "Pantalones",
         price: 0,
@@ -445,9 +522,9 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //REMERA GILDAN BROCKPORT ML
+    //REMERA GILDAN BROCKPORT ML - NO PUBLICADA
     {
-        id: 23,
+        id: 26,
         name: "Remera Gildan Brockport ML",
         category: "Remeras",
         price: 0,
@@ -458,63 +535,6 @@ const productsData = [
             "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-1.jpg",
             "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-2.jpg",
             "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-3.jpg"
-        ],
-        description: "Muy pronto en Only ZS.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //MUSCULOSA NIKE GRIS
-    {
-        id: 24,
-        name: "Musculosa Nike Gris",
-        category: "Pantalones",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-1.jpg",
-        images: [
-            "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-1.jpg",
-            "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-2.jpg"
-        ],
-        description: "Muy pronto en Only ZS.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //REMERA GOODYEAR MC RAYAS
-    {
-        id: 25,
-        name: "Remera Goodyear",
-        category: "Remeras",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-1.jpg",
-        images: [
-            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-1.jpg",
-            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-2.jpg",
-            "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-GOODYEAR-MC/REMERA-GOODYEAR-MC-3.jpg"
-        ],
-        description: "Muy pronto en Only ZS.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //PROXIMAMENTE
-    {
-        id: 26,
-        name: "Proximamente",
-        category: "",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/ONLY-ZS-LOGO.png",
-        images: [
-
         ],
         description: "Muy pronto en Only ZS.",
         isNew: false,

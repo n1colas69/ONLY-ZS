@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿/* =========================================================
+﻿﻿﻿﻿﻿﻿﻿﻿/* =========================================================
    ONLY ZS — app.js
    Inicialización principal de la aplicación
 ========================================================= */
@@ -61,6 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Filtros Avanzados y Ordenamiento
+    const filterContainer = document.querySelector('.filter-btn')?.parentElement;
+    if (filterContainer && !document.querySelector('.filter-btn[data-filter="all"]')) {
+        const resetFilterBtn = document.createElement('button');
+        resetFilterBtn.className = 'filter-btn';
+        resetFilterBtn.dataset.filter = 'all';
+        resetFilterBtn.innerText = 'Quitar filtro';
+        resetFilterBtn.onclick = () => filterByCategory('all');
+        filterContainer.appendChild(resetFilterBtn);
+    }
+
     const sortSelect = document.getElementById('sortSelect');
     if (sortSelect) {
         sortSelect.addEventListener('change', (e) => {
@@ -69,6 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const activeFilter = document.querySelector('.filter-btn.active[data-filter]');
             if (activeFilter && activeFilter.dataset.filter !== 'all') {
                 filtered = filtered.filter(p => p.category === activeFilter.dataset.filter);
+            }
+            
+            if (val === 'price-asc' || val === 'price-desc' || val === 'newest') {
+                filtered = filtered.filter(p => !p.isComingSoon);
             }
             
             if (val === 'price-asc') filtered.sort((a,b) => a.price - b.price);
@@ -147,11 +161,17 @@ document.addEventListener('DOMContentLoaded', () => {
             // Toasts Interactivos
             if (m.addedNodes.length && m.target.id === 'toast-container') {
                 m.addedNodes.forEach(toast => {
-                    if (toast.innerText?.toLowerCase().includes('agregado') && !toast.querySelector('.toast-view-cart')) {
+                    const text = toast.innerText?.toLowerCase() || '';
+                    if (text.includes('agregado') && !toast.querySelector('.toast-view-cart')) {
                         const btn = document.createElement('button');
                         btn.className = 'toast-view-cart';
-                        btn.innerHTML = 'VER CARRITO <i class="fas fa-arrow-right"></i>';
-                        btn.onclick = () => document.getElementById('cartBtn')?.click();
+                        if (text.includes('favorito')) {
+                            btn.innerHTML = 'VER FAVORITOS <i class="fas fa-arrow-right"></i>';
+                            btn.onclick = () => document.getElementById('wishlistBtn')?.click();
+                        } else {
+                            btn.innerHTML = 'VER CARRITO <i class="fas fa-arrow-right"></i>';
+                            btn.onclick = () => document.getElementById('cartBtn')?.click();
+                        }
                         toast.appendChild(btn);
                     }
                 });
@@ -177,18 +197,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!grid || !loadMoreBtn || !container) return;
         
         const cards = Array.from(grid.children);
+        
+        // Asegurar que el botón tenga los estilos principales de la página
+        loadMoreBtn.classList.add('btn', 'btn-primary');
+        
         cards.forEach((card, index) => {
             if (index >= currentItemsShown) card.classList.add('product-hidden');
             else card.classList.remove('product-hidden');
         });
         
-        container.style.display = cards.length > currentItemsShown ? 'block' : 'none';
+        container.style.display = cards.length > currentItemsShown ? 'flex' : 'none';
+        container.style.justifyContent = 'center';
     };
     
     document.getElementById('loadMoreBtn')?.addEventListener('click', () => { currentItemsShown += 12; updateLoadMore(); });
     
     const originalRender = typeof renderProducts === 'function' ? renderProducts : null;
     if (originalRender) { window.renderProducts = function(data) { currentItemsShown = 12; originalRender(data); updateLoadMore(); }; }
+    
+    updateLoadMore();
 });
 
 // Función para bloquear/desbloquear la próxima colaboración

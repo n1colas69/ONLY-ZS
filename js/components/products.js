@@ -1,4 +1,4 @@
-﻿﻿/* =========================================================
+﻿﻿﻿﻿/* =========================================================
    ONLY ZS — products.js
    Gestión de productos y galería comunitaria
 ========================================================= */
@@ -14,8 +14,14 @@ function renderProducts(products) {
         const isWishlisted = wishlist.includes(prod.id);
         const isInCart = cart.some(item => item.id === prod.id);
         const cardImage = getOptimizedImage(prod.image, 'sm');
-        const badgeHTML = prod.badge
-            ? `<span class="product-badge badge-${prod.badge.toLowerCase().replace('ó', 'o')}">${prod.badge}</span>` : '';
+        
+        let badgeHTML = '';
+        if (!prod.inStock && !prod.isComingSoon) {
+            badgeHTML = `<span class="product-badge badge-agotado" style="background: var(--color-gray, #777); color: #fff;">AGOTADO</span>`;
+        } else if (prod.badge) {
+            badgeHTML = `<span class="product-badge badge-${prod.badge.toLowerCase().replace('ó', 'o')}">${prod.badge}</span>`;
+        }
+
         const priceHTML = prod.originalPrice
             ? `<span class="price-current">${formatMoney(prod.price)}</span> <span class="price-old">${formatMoney(prod.originalPrice)}</span>`
             : `<span class="price-current">${formatMoney(prod.price)}</span>`;
@@ -32,7 +38,7 @@ function renderProducts(products) {
                             ${cartBtnHTML}
                        </div>`;
         } else {
-            btnHTML = `<button class="add-to-cart" style="background:#777;" disabled>Agotado</button>`;
+            btnHTML = '';
         }
 
         const card = document.createElement('div');
@@ -50,7 +56,7 @@ function renderProducts(products) {
             <div class="product-info">
                 <p class="product-category">${prod.category}</p>
                 <h3 class="product-title">${prod.name}</h3>
-                <div class="product-prices">${prod.isComingSoon ? '<span class="price-current" style="color:var(--color-gray)">-</span>' : priceHTML}</div>
+                <div class="product-prices">${prod.isComingSoon ? '<span class="price-current" style="color:var(--color-gray)">-</span>' : (prod.inStock ? priceHTML : '<span class="price-current" style="color:var(--color-gray)">Agotado</span>')}</div>
                 ${btnHTML}
             </div>
         `;
@@ -81,7 +87,7 @@ function filterByCategory(category) {
         btn.classList.remove('active');
         if (btn.getAttribute('data-filter') === category) btn.classList.add('active');
     });
-    const filtered = productsData.filter(p => p.category === category);
+    const filtered = category === 'all' ? productsData : productsData.filter(p => p.category === category);
     const grid = document.getElementById('productsGrid');
     grid.style.opacity = 0;
     setTimeout(() => { renderProducts(filtered); grid.style.opacity = 1; }, 300);

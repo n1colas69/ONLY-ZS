@@ -1,16 +1,40 @@
 {
-  "name": "ONLY ZS",
+  "name": "ONLY ZS - Tienda de Vintage y Second Hand",
   "short_name": "ONLY ZS",
-  "description": "Vintage & Second Hand de primer nivel.",
-  "start_url": "/index.html",
+  "description": "Tienda de vintage y second hand seleccionado a mano. Prendas únicas de primer nivel.",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0D0D0D",
+  "orientation": "portrait-primary",
   "theme_color": "#0D0D0D",
+  "background_color": "#FAFAFA",
   "icons": [
     {
       "src": "assets/images/ONLY-ZS-LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/ONLY-ZS-LOGO.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/ONLY-ZS-LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["shopping"],
+  "screenshots": [
+    {
+      "src": "assets/images/optimized/lg/assets/images/HERO-ZS.jpg",
+      "sizes": "540x720",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
     }
   ]
 }

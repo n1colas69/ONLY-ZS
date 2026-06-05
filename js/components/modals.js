@@ -1,4 +1,4 @@
-﻿﻿﻿﻿/* =========================================================
+﻿﻿﻿﻿﻿﻿/* =========================================================
    ONLY ZS — modals.js
    Modales de productos y checkout
 ========================================================= */
@@ -47,7 +47,7 @@ function updateProductModal() {
     modalImage.classList.add('image-enter');
     document.getElementById('productModalCategory').innerText = product.category;
     document.getElementById('productModalName').innerText = product.name;
-    document.getElementById('productModalPrices').innerHTML = priceHTML;
+    document.getElementById('productModalPrices').innerHTML = product.inStock ? priceHTML : '';
     document.getElementById('productModalStock').innerText = product.inStock ? '✓ En stock' : '✗ Agotado';
     document.getElementById('productModalStock').classList.toggle('out-of-stock', !product.inStock);
     document.getElementById('productModalDescription').innerText = product.description || 'Descripción no disponible.';
@@ -67,20 +67,18 @@ function updateProductModal() {
 
     // Update add to cart button
     const addBtn = document.getElementById('productModalAddBtn');
+    const buyBtn = document.getElementById('productModalBuyBtn');
     const isInCart = cart.some(item => item.id === product.id);
 
     if (!product.inStock) {
-        addBtn.disabled = true;
-        addBtn.style.background = '#777';
-        addBtn.innerText = 'AGOTADO';
-        addBtn.style.display = '';
-        addBtn.onmouseenter = null;
-        addBtn.onmouseleave = null;
+        addBtn.style.display = 'none';
+        if (buyBtn) buyBtn.style.display = 'none';
     } else if (isInCart) {
         addBtn.disabled = false;
         addBtn.style.background = 'var(--color-success, #28a745)';
         addBtn.innerText = 'EN EL CARRITO ✓';
         addBtn.style.display = '';
+        if (buyBtn) buyBtn.style.display = '';
         addBtn.onmouseenter = () => addBtn.innerText = 'QUITAR DEL CARRITO';
         addBtn.onmouseleave = () => addBtn.innerText = 'EN EL CARRITO ✓';
     } else {
@@ -88,6 +86,7 @@ function updateProductModal() {
         addBtn.style.background = '';
         addBtn.innerText = 'AGREGAR AL CARRITO';
         addBtn.style.display = '';
+        if (buyBtn) buyBtn.style.display = '';
         addBtn.onmouseenter = null;
         addBtn.onmouseleave = null;
     }

@@ -38,7 +38,7 @@ function renderWishlist() {
                 <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}" loading="lazy" decoding="async" width="65" height="65">
                 <div class="wishlist-item-info">
                     <p class="wishlist-item-title">${item.name}</p>
-                    <p class="wishlist-item-price">${formatMoney(item.price)}</p>
+                    <p class="wishlist-item-price">${item.inStock ? formatMoney(item.price) : ''}</p>
                     <div class="wishlist-item-actions">
                         ${inCart 
                             ? `<button class="wishlist-add-btn in-cart" onclick="removeFromCart(${item.id})" onmouseenter="this.innerText='Quitar del carrito'" onmouseleave="this.innerText='En el carrito'" style="background: var(--color-success, #28a745); color: #fff;">En el carrito</button>`
