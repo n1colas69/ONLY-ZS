@@ -139,7 +139,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); letter-spacing: 1px; }
 }
 .btn-outline {
     background-color: transparent;
-    color: #fff;
+    color: #000000;
     border: 1.5px solid rgba(255,255,255,0.6);
 }
 .btn-outline:hover {
