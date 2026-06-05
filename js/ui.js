@@ -127,8 +127,7 @@ function initFooterLinks() {
         linkDevoluciones: {
             title: 'CAMBIOS Y DEVOLUCIONES',
             body: `
-                <p>Los cambios o devoluciones se gestionan previo contacto por WhatsApp con nuestro equipo.</p>
-                <p>Por favor envíanos el número de pedido y una breve descripción del problema para que podamos ayudarte rápidamente.</p>
+                <p>No se realizan cambios o devoluciones.</p>
             `
         },
         linkFaq: {
@@ -136,9 +135,8 @@ function initFooterLinks() {
             body: `
                 <p><strong>¿Las prendas están lavadas?</strong><br>Sí, todas pasan por un proceso de lavado y desinfección antes de ser publicadas.</p>
                 <p><strong>¿Puedo ver la prenda en persona?</strong><br>Podés coordinar un encuentro en La Rioja. Contactanos por WhatsApp.</p>
-                <p><strong>¿Cómo pago?</strong><br>Aceptamos transferencia bancaria, MercadoPago, efectivo en persona, Visa y Mastercard.</p>
-                <p><strong>¿Las prendas son originales?</strong><br>Sí. Cada pieza es cuidadosamente verificada antes de publicarse.</p>
-            `
+                <p><strong>¿Cómo pago?</strong><br>Aceptamos transferencia bancaria, MercadoPago y efectivo en persona.</p>
+                `
         }
 
     };
