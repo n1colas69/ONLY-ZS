@@ -29,12 +29,32 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-        //PASAMONTAÑAS REAL TREE - PUBLICADO - NUEVO - VENDIDO
+        //GORRA JOHN DEERE - PUBLICADA NUEVA
     {
         id: 2,
+        name: "Gorra John Deere",
+        category: "Accesorios",
+        price: 60000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-1.jpg",
+        images: [
+            "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-1.jpg",
+            "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-2.jpg",
+            "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-3.jpg"
+        ],
+        description: "Logo bordado en frente de la marca con correa de tela ajustable en la parte trasera.\nTalle: Unico AC (Apto Cabezones)\nEstado: 10/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+        //PASAMONTAÑAS REAL TREE - PUBLICADO - NUEVO
+    {
+        id: 3,
         name: "Pasamontañas Real Tree",
         category: "Accesorios",
-        price: null,
+        price: 55000,
         originalPrice: null,
         badge: "NUEVO",
         image: "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-1.jpg",
@@ -43,15 +63,15 @@ const productsData = [
             "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-2.jpg",
             "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-3.jpg"
         ],
-        description: "Balaclava liviano camuflado tipe realtree\nTalle: Unico AC\nEstado: 10/10.",
+        description: "Balaclava liviano camuflado (sin desgaste)\nTalle: Unico AC (Apto Cabezones)\nEstado: 9.5/10.",
         isNew: true,
-        inStock: false,
+        inStock: true,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
         //SUETER DOCKERS - PUBLICADO - NUEVO
     {
-        id: 3,
+        id: 4,
         name: "Sueter Dockers",
         category: "Abrigos",
         price: 20000,
@@ -72,7 +92,7 @@ const productsData = [
 
         //CAMPERA L.L. BEAN - PUBLICADA - NUEVO - VENDIDO
     {
-        id: 4,
+        id: 5,
         name: "Campera L.L. Bean",
         category: "Abrigos",
         price: null,
@@ -92,7 +112,7 @@ const productsData = [
 
     //MUSCULOSA NIKE GRIS - PUBLICADA - NUEVO
     {
-        id: 5,
+        id: 6,
         name: "Musculosa Nike Gris",
         category: "Pantalones",
         price: 15000,
@@ -111,7 +131,7 @@ const productsData = [
 
         //SUETER MISSONI - PUBLICADO NUEVO
     {
-        id: 6,
+        id: 7,
         name: "Sueter Missoni",
         category: "Abrigos",
         price: 35000,
@@ -129,9 +149,30 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
+        //RELOJ CASIO - PUBLICADO NUEVO
+    {
+        id: 8,
+        name: "Reloj Casio",
+        category: "Accesorios",
+        price: 18000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-1.jpg",
+        images: [
+            "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-1.jpg",
+            "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-2.jpg",
+            "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-3.jpg",
+            "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-4.jpg"
+        ],
+        description: "Reloj casio edifice modelo de la formula 1 (no.tiene pilas anda perfecto)\nEstado: 9.5/10.",
+        isNew: false,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
     //REMERA GOODYEAR MC RAYAS - PUBLICADA - NUEVO
     {
-        id: 7,
+        id: 9,
         name: "Remera Goodyear",
         category: "Remeras",
         price: 18000,
@@ -150,7 +191,7 @@ const productsData = [
 
     //REMERA ADIDAS MC NARANJA - PUBLICADA - NUEVO
     {
-        id: 8,
+        id: 10,
         name: "Remera Adidas",
         category: "Remeras",
         price: 20000,
@@ -169,7 +210,7 @@ const productsData = [
 
         //SUETER VINTAGE - PUBLICADA - NUEVO
     {
-        id: 9,
+        id: 11,
         name: "Sueter Vintage",
         category: "Abrigos",
         price: 35000,
@@ -189,7 +230,7 @@ const productsData = [
 
     //SHORT CARHARTT - PUBLICADO
     {
-        id: 10,
+        id: 12,
         name: "Bermuda Carhartt",
         category: "Pantalones",
         price: 40000,
@@ -209,7 +250,7 @@ const productsData = [
 
     //BUZO VERDE REAL TREE - PUBLICADO
     {
-        id: 11,
+        id: 13,
         name: "Buzo Real-Tree",
         category: "Abrigos",
         price: 25000,
@@ -228,7 +269,7 @@ const productsData = [
 
     //REMERAS NAUTICA X2 ROJAS - PUBLICADO
     {
-        id: 12,
+        id: 14,
         name: "Nautica X2",
         category: "Remeras",
         price: 50000,
@@ -249,7 +290,7 @@ const productsData = [
 
     //REMERA RUSSELL CHAMPIONS 2014 - PUBLICADO
     {
-        id: 13,
+        id: 15,
         name: "Remera Russell Champions 2014",
         category: "Remeras",
         price: 20000,
@@ -268,7 +309,7 @@ const productsData = [
 
     //CAMISA CHAPS ROJA MANGACORTA - PUBLICADO
     {
-        id: 14,
+        id: 16,
         name: "Camisa Chaps Roja Manga Corta",
         category: "Camisas",
         price: 15000,
@@ -288,7 +329,7 @@ const productsData = [
 
     //POLO Ralph Lauren H1 TECH - PUBLICADO
     {
-        id: 15,
+        id: 17,
         name: "Polo Ralph Lauren H1 Tech",
         category: "Remeras",
         price: 50000,
@@ -311,7 +352,7 @@ const productsData = [
 
     //CAMISA RALPH LAUREN OXFORD STRIPED - PUBLICADO
     {
-        id: 16,
+        id: 18,
         name: "Ralph Lauren Oxford Striped",
         category: "Camisas",
         price: 30000,
@@ -332,7 +373,7 @@ const productsData = [
 
     //SHORT DICKIES GRIS - NO PUBLICADO
     {
-        id: 17,
+        id: 19,
         name: "Bermuda Dickies",
         category: "Pantalones",
         price: 0,
@@ -354,7 +395,7 @@ const productsData = [
 
     //PANTALON LACOSTE-CORDEROY - NO PUBLICADO
     {
-        id: 18,
+        id: 20,
         name: "Lacoste Corderoy",
         category: "Pantalones",
         price: 0,
@@ -377,7 +418,7 @@ const productsData = [
 
     //CAMISA CHAPS MANGALARGA ROJA - NO PUBLICADA
     {
-        id: 19,
+        id: 21,
         name: "Camisa Chaps Manga larga",
         category: "Camisas",
         price: 0,
@@ -397,7 +438,7 @@ const productsData = [
 
     //CAMPERA PUFFER NAUTICA - NO PUBLICADA
     {
-        id: 20,
+        id: 22,
         name: "Campera Puffer Nautica",
         category: "Abrigos",
         price: 0,
@@ -416,46 +457,9 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //GORRA JOHN DEERE - NO PUBLICADA
-    {
-        id: 21,
-        name: "Gorra John Deere",
-        category: "Accesorios",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-1.jpg",
-        images: [
-            "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-1.jpg",
-            "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-2.jpg",
-            "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-3.jpg"
-        ],
-        description: "Logo bordado en frente de la marca con correa de tela ajustable en la parte trasera.\nTalle: Unico AC\nEstado: 10/10.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
 
-    //RELOJ CASIO - NO PUBLICADO
-    {
-        id: 22,
-        name: "Reloj Casio",
-        category: "Accesorios",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-1.jpg",
-        images: [
-            "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-1.jpg",
-            "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-2.jpg",
-            "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-3.jpg",
-            "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-4.jpg"
-        ],
-        description: "Muy pronto en Only ZS.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
+
+
 
     //CAMISETA ALEMANIA - NO PUBLICADA
     {
