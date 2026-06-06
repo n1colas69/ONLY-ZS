@@ -207,11 +207,11 @@ const productsData = [
         inStock: true
     },
 
-    //REMERA MANGALARGA VERDE REAL TREE - PUBLICADO
+    //BUZO VERDE REAL TREE - PUBLICADO
     {
         id: 11,
-        name: "Remera Real-Tree",
-        category: "Remeras",
+        name: "Buzo Real-Tree",
+        category: "Abrigos",
         price: 25000,
         originalPrice: null,
         badge: null,
@@ -221,7 +221,7 @@ const productsData = [
             "assets/images/Productos/Remeras-Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-1.jpg",
             "assets/images/Productos/Remeras-Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-2.jpg"
         ],
-        description: "Crewneck de algodón con logo en el frente, bastante liviano de media estación.\nTalle L: 68cm de largo x 60cm de ancho.\nEstado: 9/10 tiene un leve desgaste general.",
+        description: "Crewneck de algodón con logo en el frente, bastante liviano de media estación. Sin capucha.\nTalle L: 68cm de largo x 60cm de ancho.\nEstado: 9/10 tiene un leve desgaste general.",
         isNew: false,
         inStock: true
     },
