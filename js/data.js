@@ -114,7 +114,7 @@ const productsData = [
     {
         id: "musculosa-nike-gris",
         name: "Musculosa Nike Gris",
-        category: "Pantalones",
+        category: "Remeras",
         price: 15000,
         originalPrice: null,
         badge: "NUEVO",
@@ -129,7 +129,29 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-        //MUSCULOSA NIKE GRIS - PUBLICADA - NUEVO
+    //PANTALON NAUTICA CHINO BEIGE - PUBLICADA - NUEVO
+    {
+        id: "pantalon-nautica-chino",
+        name: "Pantalon Nautica",
+        category: "Pantalones",
+        price: 30000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-NAUTICA-CHINO-BEIGE/PANTALON-NAUTICA-CHINO-BEIGE-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-NAUTICA-CHINO-BEIGE/PANTALON-NAUTICA-CHINO-BEIGE-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-NAUTICA-CHINO-BEIGE/PANTALON-NAUTICA-CHINO-BEIGE-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-NAUTICA-CHINO-BEIGE/PANTALON-NAUTICA-CHINO-BEIGE-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-NAUTICA-CHINO-BEIGE/PANTALON-NAUTICA-CHINO-BEIGE-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-NAUTICA-CHINO-BEIGE/PANTALON-NAUTICA-CHINO-BEIGE-5.jpg"
+        ],
+        description: "Pantalon de vestir original clasico sin bolsillos extras, y color beige\nTalle: 38us\nEstado: 10/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //CAMISETA BOCA - PUBLICADA - NUEVO
     {
         id: "camiseta-nike-boca",
         name: "Camiseta Boca Juniors 07/08",
@@ -259,7 +281,7 @@ const productsData = [
         category: "Remeras",
         price: 25000,
         originalPrice: null,
-        badge: "NUEVA",
+        badge: "NUEVO",
         image: "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
         images: [
             "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
@@ -526,6 +548,7 @@ const productsData = [
         category: "Pantalones",
         price: 0,
         originalPrice: null,
+        badge: "PRÓXIMAMENTE",
         image: "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-1.jpg",
         images: [
             "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-DICKIES-GRIS/SHORT-JEAN-DICKIES-GENUINE-1.jpg",
