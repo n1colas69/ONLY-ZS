@@ -1,12 +1,18 @@
-﻿﻿﻿﻿﻿﻿﻿﻿/* =========================================================
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿/* =========================================================
    ONLY ZS — modals.js
    Modales de productos y checkout
 ========================================================= */
 
 function openProductModal(productId) {
-    currentProductModal = productId;
-    const product = productsData.find(p => p.id === productId);
-    if (product && product.isComingSoon) {
+    currentProductModal = String(productId);
+    const product = productsData.find(p => String(p.id) === currentProductModal);
+    
+    if (!product) {
+        if (typeof showToast === 'function') showToast('El producto no existe o fue retirado');
+        return;
+    }
+
+    if (product.isComingSoon) {
         showToast('Producto no disponible');
         return;
     }
@@ -24,7 +30,7 @@ function closeProductModal() {
 }
 
 function updateProductModal() {
-    const product = productsData.find(p => p.id === currentProductModal);
+    const product = productsData.find(p => String(p.id) === currentProductModal);
     if (!product) return;
 
     const photos = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
@@ -68,7 +74,7 @@ function updateProductModal() {
     // Update add to cart button
     const addBtn = document.getElementById('productModalAddBtn');
     const buyBtn = document.getElementById('productModalBuyBtn');
-    const isInCart = cart.some(item => item.id === product.id);
+    const isInCart = cart.some(item => String(item.id) === String(product.id));
 
     if (!product.inStock) {
         addBtn.style.display = 'none';
@@ -92,7 +98,7 @@ function updateProductModal() {
     }
 
     // Update navigation buttons
-    const currentIndex = productsData.findIndex(p => p.id === currentProductModal);
+    const currentIndex = productsData.findIndex(p => String(p.id) === currentProductModal);
     
     let hasPrev = false;
     for (let i = currentIndex - 1; i >= 0; i--) { if (!productsData[i].isComingSoon) { hasPrev = true; break; } }
@@ -119,7 +125,7 @@ function updateProductModal() {
 }
 
 function updateProductPhoto(direction) {
-    const product = productsData.find(p => p.id === currentProductModal);
+    const product = productsData.find(p => String(p.id) === currentProductModal);
     if (!product) return;
     const photos = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
     let newPhotoIndex = currentProductPhoto + direction;
@@ -132,7 +138,7 @@ function updateProductPhoto(direction) {
 }
 
 function setProductPhoto(index) {
-    const product = productsData.find(p => p.id === currentProductModal);
+    const product = productsData.find(p => String(p.id) === currentProductModal);
     if (!product) return;
     const photos = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
     if (index >= 0 && index < photos.length) {
@@ -152,7 +158,7 @@ function renderProductThumbs(photos, activeIndex) {
 }
 
 function navigateProductModal(direction) {
-    const currentIndex = productsData.findIndex(p => p.id === currentProductModal);
+    const currentIndex = productsData.findIndex(p => String(p.id) === currentProductModal);
     let newIndex = currentIndex + direction;
     while (newIndex >= 0 && newIndex < productsData.length && productsData[newIndex].isComingSoon) {
         newIndex += direction;
@@ -254,7 +260,7 @@ function setupProductModal() {
 
     addBtn.addEventListener('click', () => {
         if (currentProductModal) {
-            const isInCart = cart.some(item => item.id === currentProductModal);
+            const isInCart = cart.some(item => String(item.id) === currentProductModal);
             if (isInCart) {
                 removeFromCart(currentProductModal);
             } else {
@@ -276,11 +282,11 @@ function setupProductModal() {
             e.stopPropagation();
             if (!currentProductModal) return;
             
-            const product = productsData.find(p => p.id === currentProductModal);
+            const product = productsData.find(p => String(p.id) === currentProductModal);
             if (!product) return;
 
             // URL única que redirige a la página principal y abre el modal automáticamente
-            const productUrl = `${window.location.origin}${window.location.pathname}?producto=${product.id}`;
+            const productUrl = `${window.location.origin}${window.location.pathname}?producto=${encodeURIComponent(product.id)}`;
             const shareData = {
                 title: `${product.name} | ONLY ZS`,
                 text: `¡Mirá esta prenda en ONLY ZS: ${product.name}!`,
