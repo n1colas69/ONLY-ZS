@@ -7,7 +7,7 @@
 
 const productsData = [
 
-        //JEAN DICKIES CARPINTERO - PUBLICADO - NUEVO
+    //JEAN DICKIES CARPINTERO - PUBLICADO - NUEVO
     {
         id: "jean-dickies-carpintero",
         name: "Jean Dickies Carpintero",
@@ -29,7 +29,7 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-        //GORRA JOHN DEERE - PUBLICADA NUEVA
+    //GORRA JOHN DEERE - PUBLICADA NUEVA
     {
         id: "gorra-john-deere",
         name: "Gorra John Deere",
@@ -49,7 +49,7 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-        //PASAMONTAÑAS REAL TREE - PUBLICADO - NUEVO
+    //PASAMONTAÑAS REAL TREE - PUBLICADO - NUEVO
     {
         id: "pasamontanas-realtree",
         name: "Pasamontañas Real Tree",
@@ -69,7 +69,7 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-        //SUETER DOCKERS - PUBLICADO - NUEVO
+    //SUETER DOCKERS - PUBLICADO - NUEVO
     {
         id: "sueter-dockers",
         name: "Sueter Dockers",
@@ -90,7 +90,7 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-        //CAMPERA L.L. BEAN - PUBLICADA - NUEVO - VENDIDO
+    //CAMPERA L.L. BEAN - PUBLICADA - NUEVO - VENDIDO
     {
         id: "campera-ll-bean",
         name: "Campera L.L. Bean",
@@ -129,7 +129,30 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-        //SUETER MISSONI - PUBLICADO NUEVO
+        //MUSCULOSA NIKE GRIS - PUBLICADA - NUEVO
+    {
+        id: "camiseta-nike-boca",
+        name: "Camiseta Boca Juniors 07/08",
+        category: "Remeras",
+        price: 35000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Remeras-Chombas/Camisetas/CAMISETA-BOCA-07-08/CAMISETA-BOCA-07-08-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Camisetas/CAMISETA-BOCA-07-08/CAMISETA-BOCA-07-08-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Camisetas/CAMISETA-BOCA-07-08/CAMISETA-BOCA-07-08-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Camisetas/CAMISETA-BOCA-07-08/CAMISETA-BOCA-07-08-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Camisetas/CAMISETA-BOCA-07-08/CAMISETA-BOCA-07-08-4.jpg",
+            "assets/images/Productos/Remeras-Chombas/Camisetas/CAMISETA-BOCA-07-08/CAMISETA-BOCA-07-08-5.jpg",
+            "assets/images/Productos/Remeras-Chombas/Camisetas/CAMISETA-BOCA-07-08/CAMISETA-BOCA-07-08-6.jpg"
+        ],
+        description: "Camiseta alternativa, excelente calidad. Temporada 07/08, la que uso Boca cuando gano la Libertadores.\nTalle: M",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //SUETER MISSONI - PUBLICADO NUEVO
     {
         id: "sueter-missoni",
         name: "Sueter Missoni",
@@ -149,7 +172,28 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-        //RELOJ CASIO - PUBLICADO NUEVO
+    //PANTALON L.L BEAN - PUBLICADO - NUEVO
+    {
+        id: "pantalon-ll-bean",
+        name: "Pantalón L.L. Bean",
+        category: "Pantalones",
+        price: 45000,
+        originalPrice: null,
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-5.jpg"
+        ],
+        description: "Pantalon de vestir a estrenar, con etiquetas.\nTalle: 36us\nEstado: 10/10",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //RELOJ CASIO - PUBLICADO NUEVO
     {
         id: "reloj-casio",
         name: "Reloj Casio",
@@ -208,7 +252,69 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-        //SUETER VINTAGE - PUBLICADA - NUEVO
+    //CHOMBA NAUTICA AZUL - PUBLICADA - NUEVA
+    {
+        id: "chomba-nautica-azul",
+        name: "Chomba Nautica Azul",
+        category: "Remeras",
+        price: 25000,
+        originalPrice: null,
+        badge: "NUEVA",
+        image: "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-4.jpg"
+        ],
+        description: "chomba de vestir a rayas de material liviano, conserva botones originales sin desgastes y detalle con el nombre en la manga\nTalle: XL\nEstado: 9.5/10",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //PANTALON LACOSTE-CORDEROY - PUBLICADO NUEVO
+    {
+        id: "lacoste-corderoy",
+        name: "Lacoste Corderoy",
+        category: "Pantalones",
+        price: 35000,
+        originalPrice: null,
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-5.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-6.jpg"
+        ],
+        description: "Pantalon tipo corderoy abrigado original, posee detalle metalico sobre uno de sus bolsillos, cuenta con sus botones respectivos y libre de detalles y manchas, color crudo no blanco.\nTalle: 38us\n48 de Cintura\n108 de largo\nEstado: 10/10.",
+        isNew: true,
+        inStock: true,
+    },
+
+    //CAMPERA PUFFER NAUTICA - PUBLICADA
+    {
+        id: "campera-puffer-nautica",
+        name: "Campera Puffer Nautica",
+        category: "Abrigos",
+        price: 65000,
+        originalPrice: null,
+        image: "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-1.jpg",
+        images: [
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-1.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-2.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-3.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-4.jpg"
+        ],
+        description: "Campera abrigada con spell out en la manga, tiene detalles en otros colores y posee reguladores funcionando al igual que los cierres.\nTalle: M\nEstado: 8.5/10",
+        isNew: false,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //SUETER VINTAGE - PUBLICADA - NUEVO
     {
         id: "sueter-vintage",
         name: "Sueter Vintage",
@@ -246,6 +352,26 @@ const productsData = [
         description: "Bermuda carpintero de jean bastante rigido, cuenta con varios bolsillos y un material super resistente, tag de cuero.\nTalle 40us(50AR): 60cm de cintura por 56cm de largo.\nEstado: 10/10.",
         isNew: false,
         inStock: true
+    },
+
+    //REMERA GILDAN BROCKPORT ML - PUBLICADA - VENDIDA
+    {
+        id: "remera-gildan-brockport-ml",
+        name: "Remera Gildan Brockport ML",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-3.jpg"
+        ],
+        description: "Remera Gildan Brockport mangalarga\nTalle: L\nEstado: 10/10",
+        isNew: true,
+        inStock: false,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
     //BUZO VERDE REAL TREE - PUBLICADO
@@ -305,6 +431,24 @@ const productsData = [
         description: "Merch oficial de los Baltimore Orioles al ganar la East Division Champions 2014.\nDiseño gráfico con la icónica mascota Oriole Bird y colores clásicos del equipo.\nTalle L: 75cm de largo por 55 cm de ancho.\nEstado: 10/10",
         isNew: false,
         inStock: true
+    },
+
+    //CAMISA CHAPS MANGALARGA ROJA - PUBLICADA
+    {
+        id: "camisa-chaps-mangalarga",
+        name: "Camisa Chaps Manga larga",
+        category: "Camisas",
+        price: 15000,
+        originalPrice: null,
+        image: "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-1.jpg",
+        images: [
+            "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-1.jpg",
+            "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-2.jpg",
+            "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-3.jpg"
+        ],
+        description: "Camisa de vestir con cuadrille combinando el azul rojo y blanco, posee botones originales y de respuesto, sin detalles ni manchas.\nTalle: XL (16)\n62cm de largo\n50cm de ancho\nEstado: 10/10.",
+        isNew: false,
+        inStock: true,
     },
 
     //CAMISA CHAPS ROJA MANGACORTA - PUBLICADO
@@ -371,6 +515,10 @@ const productsData = [
         inStock: true
     },
 
+
+/*-------------------------------------------------------------------------*/
+
+
     //SHORT DICKIES GRIS - NO PUBLICADO
     {
         id: "bermuda-dickies-gris",
@@ -393,74 +541,6 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //PANTALON LACOSTE-CORDEROY - NO PUBLICADO
-    {
-        id: "lacoste-corderoy",
-        name: "Lacoste Corderoy",
-        category: "Pantalones",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-1.jpg",
-        images: [
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-1.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-2.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-3.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-4.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-5.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-6.jpg"
-        ],
-        description: "Pantalon tipo corderoy abrigado original, posee detalle metalico sobre uno de sus bolsillos, cuenta con sus botones respectivos y libre de detalles y manchas, color crudo no blanco.\nTalle: 38us\n48 de Cintura\n108 de largo\nEstado: 10/10.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //CAMISA CHAPS MANGALARGA ROJA - NO PUBLICADA
-    {
-        id: "camisa-chaps-mangalarga",
-        name: "Camisa Chaps Manga larga",
-        category: "Camisas",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-1.jpg",
-        images: [
-            "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-1.jpg",
-            "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-2.jpg",
-            "assets/images/Productos/Camisas/CHAPS/CAMISA-CHAPS-MANGALARGA-3.jpg"
-        ],
-        description: "Camisa de vestir con cuadrille combinando el azul rojo y blanco, posee botones originales y de respuesto, sin detalles ni manchas.\nTalle: XL (16)\n62cm de largo\n50cm de ancho\nEstado: 10/10.",
-        isNew: true,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //CAMPERA PUFFER NAUTICA - NO PUBLICADA
-    {
-        id: "campera-puffer-nautica",
-        name: "Campera Puffer Nautica",
-        category: "Abrigos",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-1.jpg",
-        images: [
-            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-1.jpg",
-            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-2.jpg",
-            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-3.jpg",
-            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-4.jpg"
-        ],
-        description: "Campera abrigada con spell out en la manga, tiene detalles en otros colores y posee reguladores funcionando al igual que los cierres.\nTalle: XL",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-
-
-
-
     //CAMISETA ALEMANIA - NO PUBLICADA
     {
         id: "camiseta-alemania",
@@ -481,72 +561,13 @@ const productsData = [
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //CHOMBA NAUTICA AZUL - NO PUBLICADA
-    {
-        id: "chomba-nautica-azul",
-        name: "Chomba Nautica Azul",
-        category: "Remeras",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
-        images: [
-            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-2.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-3.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-4.jpg"
-        ],
-        description: "chomba de vestir a rayas de material liviano, conserva botones originales sin desgastes y detalle con el nombre en la manga",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //PANTALON L.L BEAN - NO PUBLICADO
-    {
-        id: "pantalon-ll-bean",
-        name: "Pantalón L.L. Bean",
-        category: "Pantalones",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-1.jpg",
-        images: [
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-1.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-2.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-3.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-4.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-5.jpg"
-        ],
-        description: "Muy pronto en Only ZS.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //REMERA GILDAN BROCKPORT ML - NO PUBLICADA
-    {
-        id: "remera-gildan-brockport-ml",
-        name: "Remera Gildan Brockport ML",
-        category: "Remeras",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-1.jpg",
-        images: [
-            "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-1.jpg",
-            "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-2.jpg",
-            "assets/images/Productos/Remeras-Chombas/Remeras/GILDAN-BROCKPORT-ML/GILDAN-BROCKPORT-ML-3.jpg"
-        ],
-        description: "Muy pronto en Only ZS.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     }
 
 ];
+
+
+/*--------------------------------------------------------------------------*/
+
 
     //GALERIA ZS
 
@@ -684,6 +705,10 @@ const communityGalleryData = [
         alt: "Galería ZS foto 33"
     }
 ];
+
+
+/*---------------------------------------------------------------------*/
+
 
     //COLLABORATIONS
 
