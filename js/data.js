@@ -441,7 +441,7 @@ const productsData = [
         id: "remera-russell-champions-2014",
         name: "Remera Russell Champions 2014",
         category: "Remeras",
-        price: 20000,
+        price: 0,
         originalPrice: null,
         badge: null,
         image: "assets/images/Productos/Remeras-Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-1.jpg",
@@ -452,7 +452,7 @@ const productsData = [
         ],
         description: "Merch oficial de los Baltimore Orioles al ganar la East Division Champions 2014.\nDiseño gráfico con la icónica mascota Oriole Bird y colores clásicos del equipo.\nTalle L: 75cm de largo por 55 cm de ancho.\nEstado: 10/10",
         isNew: false,
-        inStock: true
+        inStock: false
     },
 
     //CAMISA CHAPS MANGALARGA ROJA - PUBLICADA
