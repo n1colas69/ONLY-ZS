@@ -1,4 +1,4 @@
-﻿﻿/* =========================================================
+﻿﻿﻿﻿/* =========================================================
    ONLY ZS — wishlist.js
    Funcionalidad de favoritos
 ========================================================= */
@@ -41,11 +41,11 @@ function renderWishlist() {
                     <p class="wishlist-item-price">${item.inStock ? formatMoney(item.price) : ''}</p>
                     <div class="wishlist-item-actions">
                         ${inCart 
-                            ? `<button class="wishlist-add-btn in-cart" onclick="removeFromCart(${item.id})" onmouseenter="this.innerText='Quitar del carrito'" onmouseleave="this.innerText='En el carrito'" style="background: var(--color-success, #28a745); color: #fff;">En el carrito</button>`
+                            ? `<button class="wishlist-add-btn in-cart" onclick="removeFromCart('${item.id}')" onmouseenter="this.innerText='Quitar del carrito'" onmouseleave="this.innerText='En el carrito'" style="background: var(--color-success, #28a745); color: #fff;">En el carrito</button>`
                             : (item.inStock
-                                ? `<button class="wishlist-add-btn" onclick="addToCartFromWishlist(${item.id})">+ AL CARRITO</button>`
+                                ? `<button class="wishlist-add-btn" onclick="addToCartFromWishlist('${item.id}')">+ AL CARRITO</button>`
                                 : `<span style="font-size:0.75rem;color:#aaa;">Agotado</span>`)}
-                        <button class="wishlist-remove-btn" onclick="removeFromWishlist(${item.id})">Quitar</button>
+                        <button class="wishlist-remove-btn" onclick="removeFromWishlist('${item.id}')">Quitar</button>
                     </div>
                 </div>
             </div>

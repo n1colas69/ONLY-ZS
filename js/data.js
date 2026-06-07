@@ -9,7 +9,7 @@ const productsData = [
 
         //JEAN DICKIES CARPINTERO - PUBLICADO - NUEVO
     {
-        id: 1,
+        id: "jean-dickies-carpintero",
         name: "Jean Dickies Carpintero",
         category: "Pantalones",
         price: 45000,
@@ -31,7 +31,7 @@ const productsData = [
 
         //GORRA JOHN DEERE - PUBLICADA NUEVA
     {
-        id: 2,
+        id: "gorra-john-deere",
         name: "Gorra John Deere",
         category: "Accesorios",
         price: 60000,
@@ -51,7 +51,7 @@ const productsData = [
 
         //PASAMONTAÑAS REAL TREE - PUBLICADO - NUEVO
     {
-        id: 3,
+        id: "pasamontanas-realtree",
         name: "Pasamontañas Real Tree",
         category: "Accesorios",
         price: 55000,
@@ -71,7 +71,7 @@ const productsData = [
 
         //SUETER DOCKERS - PUBLICADO - NUEVO
     {
-        id: 4,
+        id: "sueter-dockers",
         name: "Sueter Dockers",
         category: "Abrigos",
         price: 20000,
@@ -92,7 +92,7 @@ const productsData = [
 
         //CAMPERA L.L. BEAN - PUBLICADA - NUEVO - VENDIDO
     {
-        id: 5,
+        id: "campera-ll-bean",
         name: "Campera L.L. Bean",
         category: "Abrigos",
         price: null,
@@ -112,7 +112,7 @@ const productsData = [
 
     //MUSCULOSA NIKE GRIS - PUBLICADA - NUEVO
     {
-        id: 6,
+        id: "musculosa-nike-gris",
         name: "Musculosa Nike Gris",
         category: "Pantalones",
         price: 15000,
@@ -131,7 +131,7 @@ const productsData = [
 
         //SUETER MISSONI - PUBLICADO NUEVO
     {
-        id: 7,
+        id: "sueter-missoni",
         name: "Sueter Missoni",
         category: "Abrigos",
         price: 35000,
@@ -151,7 +151,7 @@ const productsData = [
 
         //RELOJ CASIO - PUBLICADO NUEVO
     {
-        id: 8,
+        id: "reloj-casio",
         name: "Reloj Casio",
         category: "Accesorios",
         price: 180000,
@@ -172,7 +172,7 @@ const productsData = [
 
     //REMERA GOODYEAR MC RAYAS - PUBLICADA - NUEVO
     {
-        id: 9,
+        id: "remera-goodyear-mc",
         name: "Remera Goodyear",
         category: "Remeras",
         price: 18000,
@@ -191,7 +191,7 @@ const productsData = [
 
     //REMERA ADIDAS MC NARANJA - PUBLICADA - NUEVO
     {
-        id: 10,
+        id: "remera-adidas-mc-naranja",
         name: "Remera Adidas",
         category: "Remeras",
         price: 20000,
@@ -210,7 +210,7 @@ const productsData = [
 
         //SUETER VINTAGE - PUBLICADA - NUEVO
     {
-        id: 11,
+        id: "sueter-vintage",
         name: "Sueter Vintage",
         category: "Abrigos",
         price: 35000,
@@ -230,7 +230,7 @@ const productsData = [
 
     //SHORT CARHARTT - PUBLICADO
     {
-        id: 12,
+        id: "bermuda-carhartt",
         name: "Bermuda Carhartt",
         category: "Pantalones",
         price: 40000,
@@ -250,7 +250,7 @@ const productsData = [
 
     //BUZO VERDE REAL TREE - PUBLICADO
     {
-        id: 13,
+        id: "buzo-real-tree",
         name: "Buzo Real-Tree",
         category: "Abrigos",
         price: 25000,
@@ -269,7 +269,7 @@ const productsData = [
 
     //REMERAS NAUTICA X2 ROJAS - PUBLICADO
     {
-        id: 14,
+        id: "remeras-nautica-x2",
         name: "Nautica X2",
         category: "Remeras",
         price: 50000,
@@ -290,7 +290,7 @@ const productsData = [
 
     //REMERA RUSSELL CHAMPIONS 2014 - PUBLICADO
     {
-        id: 15,
+        id: "remera-russell-champions-2014",
         name: "Remera Russell Champions 2014",
         category: "Remeras",
         price: 20000,
@@ -309,7 +309,7 @@ const productsData = [
 
     //CAMISA CHAPS ROJA MANGACORTA - PUBLICADO
     {
-        id: 16,
+        id: "camisa-chaps-roja-mc",
         name: "Camisa Chaps Roja Manga Corta",
         category: "Camisas",
         price: 15000,
@@ -329,7 +329,7 @@ const productsData = [
 
     //POLO Ralph Lauren H1 TECH - PUBLICADO
     {
-        id: 17,
+        id: "polo-ralph-lauren-h1-tech",
         name: "Polo Ralph Lauren H1 Tech",
         category: "Remeras",
         price: 50000,
@@ -352,7 +352,7 @@ const productsData = [
 
     //CAMISA RALPH LAUREN OXFORD STRIPED - PUBLICADO
     {
-        id: 18,
+        id: "ralph-lauren-oxford-striped",
         name: "Ralph Lauren Oxford Striped",
         category: "Camisas",
         price: 30000,
@@ -373,7 +373,7 @@ const productsData = [
 
     //SHORT DICKIES GRIS - NO PUBLICADO
     {
-        id: 19,
+        id: "bermuda-dickies-gris",
         name: "Bermuda Dickies",
         category: "Pantalones",
         price: 0,
@@ -395,7 +395,7 @@ const productsData = [
 
     //PANTALON LACOSTE-CORDEROY - NO PUBLICADO
     {
-        id: 20,
+        id: "lacoste-corderoy",
         name: "Lacoste Corderoy",
         category: "Pantalones",
         price: 0,
@@ -418,7 +418,7 @@ const productsData = [
 
     //CAMISA CHAPS MANGALARGA ROJA - NO PUBLICADA
     {
-        id: 21,
+        id: "camisa-chaps-mangalarga",
         name: "Camisa Chaps Manga larga",
         category: "Camisas",
         price: 0,
@@ -438,7 +438,7 @@ const productsData = [
 
     //CAMPERA PUFFER NAUTICA - NO PUBLICADA
     {
-        id: 22,
+        id: "campera-puffer-nautica",
         name: "Campera Puffer Nautica",
         category: "Abrigos",
         price: 0,
@@ -463,7 +463,7 @@ const productsData = [
 
     //CAMISETA ALEMANIA - NO PUBLICADA
     {
-        id: 23,
+        id: "camiseta-alemania",
         name: "Camiseta Alemania",
         category: "Camisetas",
         price: 0,
@@ -485,7 +485,7 @@ const productsData = [
 
     //CHOMBA NAUTICA AZUL - NO PUBLICADA
     {
-        id: 24,
+        id: "chomba-nautica-azul",
         name: "Chomba Nautica Azul",
         category: "Remeras",
         price: 0,
@@ -506,7 +506,7 @@ const productsData = [
 
     //PANTALON L.L BEAN - NO PUBLICADO
     {
-        id: 25,
+        id: "pantalon-ll-bean",
         name: "Pantalón L.L. Bean",
         category: "Pantalones",
         price: 0,
@@ -528,7 +528,7 @@ const productsData = [
 
     //REMERA GILDAN BROCKPORT ML - NO PUBLICADA
     {
-        id: 26,
+        id: "remera-gildan-brockport-ml",
         name: "Remera Gildan Brockport ML",
         category: "Remeras",
         price: 0,
@@ -743,8 +743,3 @@ const collaborationsData = [
     }
     
 ];
-
-
-
-
-

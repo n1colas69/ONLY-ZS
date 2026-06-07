@@ -1,4 +1,4 @@
-﻿﻿﻿﻿/* =========================================================
+﻿﻿﻿﻿﻿﻿/* =========================================================
    ONLY ZS — products.js
    Gestión de productos y galería comunitaria
 ========================================================= */
@@ -31,10 +31,10 @@ function renderProducts(products) {
             btnHTML = `<button class="add-to-cart" style="background:#333;" disabled>Próximamente</button>`;
         } else if (prod.inStock) {
             let cartBtnHTML = isInCart 
-                ? `<button class="add-to-cart in-cart" type="button" onclick="removeFromCart(${prod.id})" onmouseenter="this.innerText='Quitar del carrito'" onmouseleave="this.innerText='En el carrito'" style="background: var(--color-success, #28a745); color: #fff;">En el carrito</button>`
-                : `<button class="add-to-cart" type="button" onclick="addToCart(${prod.id})">Agregar al Carrito</button>`;
+                ? `<button class="add-to-cart in-cart" type="button" onclick="removeFromCart('${prod.id}')" onmouseenter="this.innerText='Quitar del carrito'" onmouseleave="this.innerText='En el carrito'" style="background: var(--color-success, #28a745); color: #fff;">En el carrito</button>`
+                : `<button class="add-to-cart" type="button" onclick="addToCart('${prod.id}')">Agregar al Carrito</button>`;
             btnHTML = `<div class="product-actions">
-                            <button class="buy-now" type="button" onclick="buyNow(${prod.id})">Comprar ahora</button>
+                            <button class="buy-now" type="button" onclick="buyNow('${prod.id}')">Comprar ahora</button>
                             ${cartBtnHTML}
                        </div>`;
         } else {
@@ -49,7 +49,7 @@ function renderProducts(products) {
                 ${badgeHTML}
                 <img src="${cardImage}"${getImageFallbackAttr(prod.image)} alt="${prod.name}" class="product-image ${prod.isComingSoon ? 'img-coming-soon' : ''}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" fetchpriority="${index < 2 ? 'high' : 'auto'}" width="720" height="900">
                 ${!prod.isComingSoon ? `
-                <button class="wishlist-icon ${isWishlisted ? 'active' : ''}" onclick="toggleWishlist(${prod.id}, this)">
+                <button class="wishlist-icon ${isWishlisted ? 'active' : ''}" onclick="toggleWishlist('${prod.id}', this)">
                     <i class="${isWishlisted ? 'fas' : 'far'} fa-heart"></i>
                 </button>` : ''}
             </div>
@@ -96,9 +96,9 @@ function filterByCategory(category) {
 
 function updateGridCartButtons() {
     document.querySelectorAll('.product-card').forEach(card => {
-        const id = parseInt(card.dataset.id);
+        const id = card.dataset.id;
         if (!id) return;
-        const isInCart = cart.some(item => item.id === id);
+        const isInCart = cart.some(item => String(item.id) === String(id));
         const addToCartBtn = card.querySelector('.add-to-cart');
         if (addToCartBtn && !addToCartBtn.disabled) {
             if (isInCart) {
@@ -106,7 +106,7 @@ function updateGridCartButtons() {
                 addToCartBtn.style.background = 'var(--color-success, #28a745)';
                 addToCartBtn.style.color = '#fff';
                 addToCartBtn.innerText = 'En el carrito';
-                addToCartBtn.setAttribute('onclick', `removeFromCart(${id})`);
+                addToCartBtn.setAttribute('onclick', `removeFromCart('${id}')`);
                 addToCartBtn.setAttribute('onmouseenter', `this.innerText='Quitar del carrito'`);
                 addToCartBtn.setAttribute('onmouseleave', `this.innerText='En el carrito'`);
             } else {
@@ -114,7 +114,7 @@ function updateGridCartButtons() {
                 addToCartBtn.style.background = '';
                 addToCartBtn.style.color = '';
                 addToCartBtn.innerText = 'Agregar al Carrito';
-                addToCartBtn.setAttribute('onclick', `addToCart(${id})`);
+                addToCartBtn.setAttribute('onclick', `addToCart('${id}')`);
                 addToCartBtn.removeAttribute('onmouseenter');
                 addToCartBtn.removeAttribute('onmouseleave');
             }

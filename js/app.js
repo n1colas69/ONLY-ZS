@@ -10,6 +10,10 @@ let currentProductModal = null;
 let currentProductPhoto = 0;
 let currentGalleryPhoto = 0;
 
+// Migración automática: convertimos IDs viejos a strings para no perder carritos previos
+cart.forEach(item => item.id = String(item.id));
+wishlist = wishlist.map(String);
+
 // Configuración de Colaboraciones
 const upcomingCollaborationAvailable = false; // Cambiar a true cuando una colaboración esté disponible
 
@@ -46,9 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Abrir producto específico desde la URL
     const urlParams = new URLSearchParams(window.location.search);
     const productoId = urlParams.get('producto');
-    if (productoId && !isNaN(parseInt(productoId))) {
+    if (productoId) {
         setProductsPanelOpen(true);
-        setTimeout(() => openProductModal(parseInt(productoId)), 400); // Dar un poco de tiempo para cargar todo el UI
+        setTimeout(() => openProductModal(productoId), 400); // Dar un poco de tiempo para cargar todo el UI
     }
 
     // 1. Persistencia Inteligente de Favoritos
@@ -87,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (val === 'price-asc') filtered.sort((a,b) => a.price - b.price);
             else if (val === 'price-desc') filtered.sort((a,b) => b.price - a.price);
-            else if (val === 'newest') filtered.sort((a,b) => b.id - a.id);
+            else if (val === 'newest') filtered.sort((a,b) => productsData.indexOf(a) - productsData.indexOf(b)); // Ordena según la posición en la lista (los de arriba primero)
             
             if (typeof renderProducts === 'function') renderProducts(filtered);
         });
@@ -107,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ).slice(0, 6);
             
             searchResults.innerHTML = matches.length ? matches.map(item => `
-                <a class="brand-search-result" href="javascript:void(0)" onclick="document.getElementById('searchOverlay').classList.remove('active'); openProductModal(${item.id})">
+                <a class="brand-search-result" href="javascript:void(0)" onclick="document.getElementById('searchOverlay').classList.remove('active'); openProductModal('${item.id}')">
                     <img src="${getOptimizedImage(item.image, 'sm')}"${getImageFallbackAttr(item.image)} alt="${item.name}" loading="lazy" decoding="async" width="50" height="50">
                     <span><strong>${item.name}</strong><span>${item.category} &middot; $${item.price}</span></span>
                 </a>
@@ -121,8 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const observer = new MutationObserver(() => {
             document.querySelectorAll('.product-card:not(.enhanced)').forEach(card => {
                 card.classList.add('enhanced');
-                const id = parseInt(card.getAttribute('data-id'));
-                const product = productsData.find(p => p.id === id);
+                const id = card.getAttribute('data-id');
+                const product = productsData.find(p => String(p.id) === String(id));
                 if (product) {
                     const imgContainer = card.querySelector('.product-image-wrap') || card.querySelector('.product-image-container') || card.querySelector('.product-img') || card;
                     imgContainer.style.position = 'relative';
@@ -133,7 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         hoverImg.setAttribute('data-fallback-src', product.images[1]);
                         hoverImg.className = 'hover-img';
                         hoverImg.loading = 'lazy';
-                        imgContainer.appendChild(hoverImg);
+                        
+                        const wishlistBtn = imgContainer.querySelector('.wishlist-icon');
+                        if (wishlistBtn) {
+                            imgContainer.insertBefore(hoverImg, wishlistBtn);
+                        } else {
+                            imgContainer.appendChild(hoverImg);
+                        }
                     }
                 }
             });

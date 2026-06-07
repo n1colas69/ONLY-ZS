@@ -1,4 +1,4 @@
-﻿﻿/* =========================================================
+﻿﻿﻿﻿/* =========================================================
    ONLY ZS — cart.js
    Funcionalidad del carrito
 ========================================================= */
@@ -108,11 +108,11 @@ function renderCart() {
                             <p class="cart-item-title">${item.name}</p>
                             <p class="cart-item-price">${formatMoney(item.price)}</p>
                             <div class="qty-controls">
-                                <button class="qty-btn" onclick="updateQty(${item.id}, -1)">-</button>
+                                <button class="qty-btn" onclick="updateQty('${item.id}', -1)">-</button>
                                 <span>${item.qty}</span>
-                                <button class="qty-btn" onclick="updateQty(${item.id}, 1)" ${hasMaxQty ? 'disabled title="Sin más stock"' : ''}>+</button>
+                                <button class="qty-btn" onclick="updateQty('${item.id}', 1)" ${hasMaxQty ? 'disabled title="Sin más stock"' : ''}>+</button>
                             </div>
-                            <button class="remove-item" onclick="updateQty(${item.id}, -${item.qty})">Eliminar</button>
+                            <button class="remove-item" onclick="updateQty('${item.id}', -${item.qty})">Eliminar</button>
                         </div>
                     </div>
                 </div>
