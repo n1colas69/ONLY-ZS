@@ -154,7 +154,7 @@ const productsData = [
         id: 8,
         name: "Reloj Casio",
         category: "Accesorios",
-        price: 18000,
+        price: 180000,
         originalPrice: null,
         badge: "NUEVO",
         image: "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-1.jpg",

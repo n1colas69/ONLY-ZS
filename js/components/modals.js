@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿/* =========================================================
+﻿﻿﻿﻿﻿﻿﻿﻿/* =========================================================
    ONLY ZS — modals.js
    Modales de productos y checkout
 ========================================================= */
@@ -172,6 +172,7 @@ function setupProductModal() {
     const addBtn = document.getElementById('productModalAddBtn');
     const buyBtn = document.getElementById('productModalBuyBtn');
     const wishlistBtn = document.getElementById('productModalWishlist');
+    const shareBtn = document.getElementById('productModalShareBtn');
     const photoPrevBtn = document.getElementById('productPhotoPrev');
     const photoNextBtn = document.getElementById('productPhotoNext');
     const thumbsContainer = document.getElementById('productModalThumbs');
@@ -269,6 +270,40 @@ function setupProductModal() {
             buyNow(currentProductModal);
         }
     });
+
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            if (!currentProductModal) return;
+            
+            const product = productsData.find(p => p.id === currentProductModal);
+            if (!product) return;
+
+            // URL única que redirige a la página principal y abre el modal automáticamente
+            const productUrl = `${window.location.origin}${window.location.pathname}?producto=${product.id}`;
+            const shareData = {
+                title: `${product.name} | ONLY ZS`,
+                text: `¡Mirá esta prenda en ONLY ZS: ${product.name}!`,
+                url: productUrl
+            };
+
+            const fallbackShare = () => {
+                navigator.clipboard.writeText(productUrl).then(() => {
+                    if (typeof showToast === 'function') showToast('¡Enlace copiado al portapapeles!');
+                }).catch(err => console.error('Error al copiar: ', err));
+            };
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    if (err.name !== 'AbortError') fallbackShare();
+                }
+            } else {
+                fallbackShare();
+            }
+        });
+    }
 
     wishlistBtn.addEventListener('click', (e) => {
         e.stopPropagation();

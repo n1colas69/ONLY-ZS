@@ -508,7 +508,10 @@
             <div class="product-modal-info">
                 <div class="product-modal-header">
                     <span class="product-modal-category" id="productModalCategory"></span>
-                    <button class="product-modal-wishlist" id="productModalWishlist"><i class="far fa-heart"></i></button>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <button class="product-modal-wishlist" id="productModalShareBtn" aria-label="Compartir producto" title="Compartir"><i class="fas fa-share-nodes"></i></button>
+                        <button class="product-modal-wishlist" id="productModalWishlist" aria-label="Agregar a favoritos" title="Favoritos"><i class="far fa-heart"></i></button>
+                    </div>
                 </div>
                 <h2 id="productModalName"></h2>
                 <div class="product-modal-prices" id="productModalPrices"></div>
