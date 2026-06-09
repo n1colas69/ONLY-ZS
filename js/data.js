@@ -174,6 +174,116 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
+    //CAMPERA PUFFER NAUTICA MULTICOLOR - NO PUBLICADO
+    {
+        id: "campera-nautica-multicolor",
+        name: "Campera Nautica Multicolor",
+        category: "Abrigos",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-1.jpg",
+        images: [
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-1.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-2.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-3.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-4.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-5.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-6.jpg",
+            "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-7.jpg"
+        ],
+        description: "Campera puffer nautica expedition.\nTalle: XL\n80 atras 75 adelante x 60 de ancho\nEstado: 9/10.",
+        isNew: true,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //BUZO NIKE MARRON - NO PUBLICADO
+    {
+        id: "buzo-nike-capucha",
+        name: "Buzo Nike Center Swoosh",
+        category: "Abrigos",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Abrigos/Buzos/BUZO-NIKE-C-CAPUCHA/BUZO-NIKE-C-CAPUCHA-1.jpg",
+        images: [
+            "assets/images/Productos/Abrigos/Buzos/BUZO-NIKE-C-CAPUCHA/BUZO-NIKE-C-CAPUCHA-1.jpg",
+            "assets/images/Productos/Abrigos/Buzos/BUZO-NIKE-C-CAPUCHA/BUZO-NIKE-C-CAPUCHA-2.jpg",
+            "assets/images/Productos/Abrigos/Buzos/BUZO-NIKE-C-CAPUCHA/BUZO-NIKE-C-CAPUCHA-3.jpg",
+            "assets/images/Productos/Abrigos/Buzos/BUZO-NIKE-C-CAPUCHA/BUZO-NIKE-C-CAPUCHA-4.jpg"
+        ],
+        description: "Buzo nike de material tipo felpa color marron. Original con etiquetas.\nTalle: M pero va para L/XL\nMedidas: 70x64\nEstado: 10/10.",
+        isNew: true,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //CHOMBA POLO AZUL LISA - NO PUBLICADO
+    {
+        id: "chomba-polo-azul-lisa",
+        name: "Chomba Polo Azul Lisa",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-4.jpg"
+        ],
+        description: "Chomba polo azul pique.\nTalle: L\nMedidas: 75 atras x 68 adelante x 60 de ancho.\nEstado: 9.5/10",
+        isNew: true,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //CHOMBA POLO GOLF AZUL A RAYAS - NO PUBLICADO
+    {
+        id: "chomba-polo-golf-rayas",
+        name: "Chomba Polo Golf Rayada",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-4.jpg"
+        ],
+        description: "Chomba polo golf rayada.\nTalle: XL\nMedidas: 80 atras x 73 adelante x 60 de ancho.\nEstado: 9/10",
+        isNew: true,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //CHOMBA POLO VERDE MANGA LARGA - NO PUBLICADO
+    {
+        id: "chomba-polo-verda-ml",
+        name: "Chomba Polo Manga Larga Verde",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-4.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-5.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-6.jpg"
+        ],
+        description: "Chomba polo verde pique manga larga.\nTalle: XL\nMedidas: 80 atras x 75 adelante x 60 de ancho. 65cm de manga\nEstado: 10/10",
+        isNew: true,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
     //SUETER MISSONI - PUBLICADO NUEVO
     {
         id: "sueter-missoni",
