@@ -224,7 +224,7 @@ const productsData = [
         id: "chomba-polo-azul-lisa",
         name: "Chomba Polo Azul Lisa",
         category: "Remeras",
-        price: 30000,
+        price: 0,
         originalPrice: null,
         badge: "NUEVO",
         image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-1.jpg",
@@ -236,7 +236,7 @@ const productsData = [
         ],
         description: "Chomba polo azul pique.\nTalle: L\nMedidas: 75 atras x 68 adelante x 60 de ancho.\nEstado: 9.5/10",
         isNew: true,
-        inStock: true,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
@@ -245,7 +245,7 @@ const productsData = [
         id: "chomba-polo-golf-rayas",
         name: "Chomba Polo Golf Rayada",
         category: "Remeras",
-        price: 20000,
+        price: 0,
         originalPrice: null,
         badge: "NUEVO",
         image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-1.jpg",
@@ -257,7 +257,7 @@ const productsData = [
         ],
         description: "Chomba polo golf rayada.\nTalle: XL\nMedidas: 80 atras x 73 adelante x 60 de ancho.\nEstado: 9/10",
         isNew: true,
-        inStock: true,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
@@ -266,7 +266,7 @@ const productsData = [
         id: "chomba-polo-verda-ml",
         name: "Chomba Polo Manga Larga Verde",
         category: "Remeras",
-        price: 45000,
+        price: 0,
         originalPrice: null,
         badge: "NUEVO",
         image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-1.jpg",
@@ -280,7 +280,7 @@ const productsData = [
         ],
         description: "Chomba polo verde pique manga larga.\nTalle: XL\nMedidas: 80 atras x 75 adelante x 60 de ancho. 65cm de manga\nEstado: 10/10",
         isNew: true,
-        inStock: true,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
