@@ -240,6 +240,28 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
+    //HOODIE SPELL OUT CHAMPIONS NEGRO - NO PUBLICADA
+    {
+        id: "hoodie-spell-out-champions",
+        name: "Hoodie Spell Out Champions",
+        category: "Buzos",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-1.jpg",
+        images: [
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-1.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-2.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-3.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-4.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-5.jpg"
+        ],
+        description: "buzo con capucha original, tiene detalle bordado en su manga y spell out en su frente, a estrenar no tiene rastros de desgaste ni detalles, puños poco estirados.\nTalle: 2XL\nLargo: 64cm\nAncho: 64cm\nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
     //CHOMBA POLO GOLF AZUL A RAYAS - PUBLICADO - NUEVO
     {
         id: "chomba-polo-golf-rayas",
@@ -259,6 +281,29 @@ const productsData = [
         isNew: true,
         inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //HOODIE BASIC CHAMPIONS AZUL - NO PUBLICADA
+    {
+        id: "hoodie-basic-champions",
+        name: "Hoodie Basic Champions Azul",
+        category: "Buzos",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-AZUL/HOODIE-CHAMPIONS-AZUL-1.jpg",
+        
+        images: [
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-AZUL/HOODIE-CHAMPIONS-AZUL-1.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-AZUL/HOODIE-CHAMPIONS-AZUL-2.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-AZUL/HOODIE-CHAMPIONS-AZUL-3.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-AZUL/HOODIE-CHAMPIONS-AZUL-4.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-AZUL/HOODIE-CHAMPIONS-AZUL-5.jpg"
+        ],
+        description: "Buzo con capucha original, tiene detalle bordado en su manga y extremos metalicos en los cordones, no posee desgastes ni detalles, color bastante buscado combinable\nTalle: L\nLargo: 68cm\nAncho: 60cm\nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
     //CHOMBA POLO VERDE MANGA LARGA - PUBLICADO - NUEVO
@@ -346,6 +391,27 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
+        //CARHARTT CARPENTER JEAN - NO PUBLICADA
+    {
+        id: "carhartt-carpenter-jean",
+        name: "Carhartt Carpenter Jean",
+        category: "Pantalones",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-4.jpg"
+        ],
+        description: "Jean carpintero rigido, de materiales bastante resistentes a trabajos y esfuerzos duros, tag de cuero en la parte de atras y color sin desgastes ni detalles, talle bastante pedido/buscado mas en estas condiciones.\nTalle: 36us\nCintura: 46cm\nLargo: 114cm\nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
     //REMERA GOODYEAR MC RAYAS - PUBLICADA - NUEVO
     {
         id: "remera-goodyear-mc",
@@ -426,6 +492,29 @@ const productsData = [
         inStock: true,
     },
 
+        //WRANGLER WORKWEAR CARPENTER - NO PUBLICADA
+    {
+        id: "wrangler-workwear-carpenter",
+        name: "Wrangler Workwear Carpenter",
+        category: "Pantalones",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/WRANGLER-WORKWEAR/WRANGLER-WORKWEAR-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/WRANGLER-WORKWEAR/WRANGLER-WORKWEAR-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/WRANGLER-WORKWEAR/WRANGLER-WORKWEAR-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/WRANGLER-WORKWEAR/WRANGLER-WORKWEAR-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/WRANGLER-WORKWEAR/WRANGLER-WORKWEAR-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/WRANGLER-WORKWEAR/WRANGLER-WORKWEAR-5.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/WRANGLER-WORKWEAR/WRANGLER-WORKWEAR-6.jpg"
+        ],
+        description: "Carpintero tipo workwear, prenda creada para resistir esfuerzos duros en trabajos que requieren prendas resistentes y de buena calidad, duraderas. Color original tiene algunos bolsillos extras y tiras carpinteras para colgar herramientas\nTalle: 40us\nCintura: 50cm\nLargo: 112cm\nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
     //CAMPERA PUFFER NAUTICA - PUBLICADA
     {
         id: "campera-puffer-nautica",
@@ -444,6 +533,29 @@ const productsData = [
         isNew: false,
         inStock: true,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //DICKIES CARGO BEIGE - NO PUBLICADA
+    {
+        id: "dickies-cargo",
+        name: "Dickies Cargo",
+        category: "Pantalones",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-5.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-6.jpg"
+        ],
+        description: "Basico workwear color beige con bolsillos extras en sus costados, material super resistente y costuras reforzadas para trabajos duros, color intacto sin desgastes ni detalles.\nTalle: 38us\nCintura: 48cm\nLargo: 110cm\nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
     //SUETER VINTAGE - PUBLICADA - NUEVO
@@ -648,8 +760,115 @@ const productsData = [
     },
 
 
-/*-------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
 
+    //REMERA VINTAGE MAC DEMARCO - NO PUBLICADA
+    {
+        id: "remera-vintage",
+        name: "Remera Vintage",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: 
+        images: [
+
+        ],
+        description: "Remera vintage de algodon con estampado, sin manchas ni roturas.\nTalle: L\nCintura: \nLargo: \nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+    
+    //HOODIE REAL TREE - NO PUBLICADA
+    {
+        id: "hoodie-realtree",
+        name: "Hoodie Real Tree",
+        category: "Buzos",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: 
+        images: [
+
+        ],
+        description: "Buzo con capucha real tree por dentro, color intacto y estampados tmb\nTalle: XL\nCintura: \nLargo: \nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //REMERA CHAPS - NO PUBLICADA
+    {
+        id: "remera-chaps",
+        name: "Remera Chaps",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: 
+        images: [
+
+        ],
+        description: "Remera tipo polo original, cuenta con su logo bordado en el pecho y un corte americano, a estrenar!\nTalle: XL\nCintura: \nLargo: \nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //CHOMBA LACOSTE - NO PUBLICADA
+    {
+        id: "chomba-lacoste",
+        name: "Chomba Lacoste",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: 
+        images: [
+
+        ],
+        description: "Chomba mangas largas vintage original. Color salmon intacto muy clasico de hace unos años.\nTalle: XL\nCintura: \nLargo: \nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //JEAN CARPENTER - NO PUBLICADA
+    {
+        id: "jean-carpenter",
+        name: "Jean Carpenter",
+        category: "Pantalones",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: 
+        images: [
+
+        ],
+        description: "Carpintero de jean con un material muy resistente, pesado con bolsillos carpinteros, tag de cuero y color intacto.\nTalle: 36us\nCintura: \nLargo: \nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //REMERA NAUTICA - NO PUBLICADA
+    {
+        id: "remera-nautica",
+        name: "Remera Nautica",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: 
+        images: [
+
+        ],
+        description: "basica de Nautica con estampado en el frente, algodon de muy buena calidad, no tiene desgastes lit a estrenar\nTalle: M\nLargo: 64cm\nAncho: 56cm\nEstado: 10/10.",
+        isNew: false,
+        inStock: false,
+        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
+    },
 
     //SHORT DICKIES GRIS - NO PUBLICADO
     {
@@ -695,7 +914,7 @@ const productsData = [
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     }
-
+*/
 ];
 
 
