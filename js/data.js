@@ -49,6 +49,27 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
+        //CARHARTT CARPENTER JEAN - PUBLICADA
+    {
+        id: "carhartt-carpenter-jean",
+        name: "Carhartt Carpenter Jean",
+        category: "Pantalones",
+        price: 55000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-4.jpg"
+        ],
+        description: "Jean carpintero rigido, de materiales bastante resistentes a trabajos y esfuerzos duros, tag de cuero en la parte de atras y color sin desgastes ni detalles, talle bastante pedido/buscado mas en estas condiciones.\nTalle: 36us\nCintura: 46cm\nLargo: 114cm\nEstado: 10/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
     //PASAMONTAÑAS REAL TREE - PUBLICADO - NUEVO
     {
         id: "pasamontanas-realtree",
@@ -64,6 +85,29 @@ const productsData = [
             "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-3.jpg"
         ],
         description: "Balaclava liviano camuflado (sin desgaste)\nTalle: Unico AC (Apto Cabezones)\nEstado: 9.5/10.",
+        isNew: true,
+        inStock: true,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+    //DICKIES CARGO BEIGE - NO PUBLICADA
+    {
+        id: "dickies-cargo",
+        name: "Dickies Cargo",
+        category: "Pantalones",
+        price: 35000,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-1.jpg",
+        images: [
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-1.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-2.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-3.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-4.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-5.jpg",
+            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-6.jpg"
+        ],
+        description: "Basico workwear color beige con bolsillos extras en sus costados, material super resistente y costuras reforzadas para trabajos duros, color intacto sin desgastes ni detalles.\nTalle: 38us\nCintura: 48cm\nLargo: 110cm\nEstado: 10/10.",
         isNew: true,
         inStock: true,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
@@ -219,70 +263,6 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CHOMBA POLO AZUL LISA - PUBLICADO - NUEVO
-    {
-        id: "chomba-polo-azul-lisa",
-        name: "Chomba Polo Azul Lisa",
-        category: "Remeras",
-        price: 0,
-        originalPrice: null,
-        badge: "NUEVO",
-        image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-1.jpg",
-        images: [
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-1.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-2.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-3.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-4.jpg"
-        ],
-        description: "Chomba polo azul pique.\nTalle: L\nMedidas: 75 atras x 68 adelante x 60 de ancho.\nEstado: 9.5/10",
-        isNew: true,
-        inStock: false,
-        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //HOODIE SPELL OUT CHAMPIONS NEGRO - NO PUBLICADA
-    {
-        id: "hoodie-spell-out-champions",
-        name: "Hoodie Spell Out Champions",
-        category: "Buzos",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-1.jpg",
-        images: [
-            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-1.jpg",
-            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-2.jpg",
-            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-3.jpg",
-            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-4.jpg",
-            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-5.jpg"
-        ],
-        description: "buzo con capucha original, tiene detalle bordado en su manga y spell out en su frente, a estrenar no tiene rastros de desgaste ni detalles, puños poco estirados.\nTalle: 2XL\nLargo: 64cm\nAncho: 64cm\nEstado: 10/10.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //CHOMBA POLO GOLF AZUL A RAYAS - PUBLICADO - NUEVO
-    {
-        id: "chomba-polo-golf-rayas",
-        name: "Chomba Polo Golf Rayada",
-        category: "Remeras",
-        price: 0,
-        originalPrice: null,
-        badge: "NUEVO",
-        image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-1.jpg",
-        images: [
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-1.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-2.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-3.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-4.jpg"
-        ],
-        description: "Chomba polo golf rayada.\nTalle: XL\nMedidas: 80 atras x 73 adelante x 60 de ancho.\nEstado: 9/10",
-        isNew: true,
-        inStock: false,
-        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
-    },
-
     //HOODIE BASIC CHAMPIONS AZUL - NO PUBLICADA
     {
         id: "hoodie-basic-champions",
@@ -304,29 +284,6 @@ const productsData = [
         isNew: false,
         inStock: false,
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
-
-    //CHOMBA POLO VERDE MANGA LARGA - PUBLICADO - NUEVO
-    {
-        id: "chomba-polo-verda-ml",
-        name: "Chomba Polo Manga Larga Verde",
-        category: "Remeras",
-        price: 0,
-        originalPrice: null,
-        badge: "NUEVO",
-        image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-1.jpg",
-        images: [
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-1.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-2.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-3.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-4.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-5.jpg",
-            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-6.jpg"
-        ],
-        description: "Chomba polo verde pique manga larga.\nTalle: XL\nMedidas: 80 atras x 75 adelante x 60 de ancho. 65cm de manga\nEstado: 10/10",
-        isNew: true,
-        inStock: false,
-        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
     //SUETER MISSONI - PUBLICADO NUEVO
@@ -389,27 +346,6 @@ const productsData = [
         isNew: false,
         inStock: true,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
-    },
-
-        //CARHARTT CARPENTER JEAN - NO PUBLICADA
-    {
-        id: "carhartt-carpenter-jean",
-        name: "Carhartt Carpenter Jean",
-        category: "Pantalones",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-1.jpg",
-        images: [
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-1.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-2.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-3.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-4.jpg"
-        ],
-        description: "Jean carpintero rigido, de materiales bastante resistentes a trabajos y esfuerzos duros, tag de cuero en la parte de atras y color sin desgastes ni detalles, talle bastante pedido/buscado mas en estas condiciones.\nTalle: 36us\nCintura: 46cm\nLargo: 114cm\nEstado: 10/10.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
     //REMERA GOODYEAR MC RAYAS - PUBLICADA - NUEVO
@@ -535,28 +471,6 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //DICKIES CARGO BEIGE - NO PUBLICADA
-    {
-        id: "dickies-cargo",
-        name: "Dickies Cargo",
-        category: "Pantalones",
-        price: 0,
-        originalPrice: null,
-        badge: "PRÓXIMAMENTE",
-        image: "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-1.jpg",
-        images: [
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-1.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-2.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-3.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-4.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-5.jpg",
-            "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-6.jpg"
-        ],
-        description: "Basico workwear color beige con bolsillos extras en sus costados, material super resistente y costuras reforzadas para trabajos duros, color intacto sin desgastes ni detalles.\nTalle: 38us\nCintura: 48cm\nLargo: 110cm\nEstado: 10/10.",
-        isNew: false,
-        inStock: false,
-        isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
-    },
 
     //SUETER VINTAGE - PUBLICADA - NUEVO
     {
@@ -915,6 +829,95 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     }
 */
+/*----------------------------VENDIDOS---------------------------------------*/
+
+    //CHOMBA POLO AZUL LISA - PUBLICADO - VENDIDA
+    {
+        id: "chomba-polo-azul-lisa",
+        name: "Chomba Polo Azul Lisa",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-AZUL-LISA/CHOMBA-POLO-AZUL-LISA-4.jpg"
+        ],
+        description: "Chomba polo azul pique.\nTalle: L\nMedidas: 75 atras x 68 adelante x 60 de ancho.\nEstado: 9.5/10",
+        isNew: true,
+        inStock: false,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+        //HOODIE SPELL OUT CHAMPIONS NEGRO - VENDIDO
+    {
+        id: "hoodie-spell-out-champions",
+        name: "Hoodie Spell Out Champions",
+        category: "Buzos",
+        price: 0,
+        originalPrice: null,
+        badge: "PRÓXIMAMENTE",
+        image: "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-1.jpg",
+        images: [
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-1.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-2.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-3.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-4.jpg",
+            "assets/images/Productos/Abrigos/Buzos/HOODIE-CHAMPIONS-NEGRO/HOODIE-CHAMPIONS-NEGRO-5.jpg"
+        ],
+        description: "buzo con capucha original, tiene detalle bordado en su manga y spell out en su frente, a estrenar no tiene rastros de desgaste ni detalles, puños poco estirados.\nTalle: 2XL\nLargo: 64cm\nAncho: 64cm\nEstado: 10/10.",
+        isNew: true,
+        inStock: false,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+        //CHOMBA POLO GOLF AZUL A RAYAS - PUBLICADO - NUEVO
+    {
+        id: "chomba-polo-golf-rayas",
+        name: "Chomba Polo Golf Rayada",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-POLO-RAYADA/CHOMBA-POLO-RAYADA-4.jpg"
+        ],
+        description: "Chomba polo golf rayada.\nTalle: XL\nMedidas: 80 atras x 73 adelante x 60 de ancho.\nEstado: 9/10",
+        isNew: true,
+        inStock: false,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
+        //CHOMBA POLO VERDE MANGA LARGA - PUBLICADO - NUEVO
+    {
+        id: "chomba-polo-verda-ml",
+        name: "Chomba Polo Manga Larga Verde",
+        category: "Remeras",
+        price: 0,
+        originalPrice: null,
+        badge: "NUEVO",
+        image: "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-1.jpg",
+        images: [
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-1.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-2.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-3.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-4.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-5.jpg",
+            "assets/images/Productos/Remeras-Chombas/Chombas/CHOMBA-VERDE-ML/CHOMBA-VERDE-ML-6.jpg"
+        ],
+        description: "Chomba polo verde pique manga larga.\nTalle: XL\nMedidas: 80 atras x 75 adelante x 60 de ancho. 65cm de manga\nEstado: 10/10",
+        isNew: true,
+        inStock: false,
+        isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
+    },
+
 ];
 
 
