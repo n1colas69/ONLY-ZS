@@ -320,14 +320,14 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CAMPERA POLO RALPH LAUREN - PUBLICADA - NUEVO
+    //CAMPERA POLO RALPH LAUREN - PUBLICADA - VENDIDO
     {
         id: "campera-polo-ralph-lauren",
         name: "Campera Polo Ralph Lauren",
         category: "Abrigos",
-        price: 50000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Abrigos/Camperas/CAMPERA-POLO-AZUL/CAMPERA-POLO-AZUL-1.jpg",
         images: [
             "assets/images/Productos/Abrigos/Camperas/CAMPERA-POLO-AZUL/CAMPERA-POLO-AZUL-1.jpg",
@@ -337,8 +337,8 @@ const productsData = [
             "assets/images/Productos/Abrigos/Camperas/CAMPERA-POLO-AZUL/CAMPERA-POLO-AZUL-5.jpg"
         ],
         description: "Zip-up de algodon bastante pesado, color sin ningun tipo de desgaste.\nTalle: L\nLargo: 69cm\nAncho: 60cm\nEstado: 10/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
@@ -388,14 +388,14 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CAMISETA MANGAS LARGAS REAL TREE - PUBLICADA - NUEVO
+    //CAMISETA MANGAS LARGAS REAL TREE - PUBLICADA - VENDIDO
     {
         id: "camiseta-real-tree",
         name: "Camiseta Mangas Largas Real Tree",
         category: "Camisetas",
-        price: 20000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Remeras-Chombas/Camisetas/REAL-TREE-MANGAS-LARGAS/REAL-TREE-MANGAS-LARGAS-1.jpg",
         images: [
             "assets/images/Productos/Remeras-Chombas/Camisetas/REAL-TREE-MANGAS-LARGAS/REAL-TREE-MANGAS-LARGAS-1.jpg",
@@ -408,8 +408,8 @@ const productsData = [
             "assets/images/Productos/Remeras-Chombas/Camisetas/REAL-TREE-MANGAS-LARGAS/REAL-TREE-MANGAS-LARGAS-8.jpg"
         ],
         description: "Camiseta mangas largas con tecnología Scent Control, material liviano tipo deportivo y suave, secaso rápido , en el interior de las axilas con mallas para mejor ventilación.\nCamo MAX-7 XT\nTalle: S\nLargo: 66cm\nAncho 48cm\nMangas: 62cm\nEstado: 10/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
@@ -564,14 +564,14 @@ const productsData = [
         isComingSoon: true // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //REMERA NAUTICA ROJA - PUBLICADA
+    //REMERA NAUTICA ROJA - PUBLICADA - VENDIDO
     {
         id: "remera-nautica-roja",
         name: "Remera Nautica",
         category: "Remeras",
-        price: 15000,
+        price: null,
         originalPrice: null,
-        badge: null,
+        badge: "VENDIDO",
         image: "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-NAUTICA-ROJA/REMERA-NAUTICA-ROJA-1.jpg",
         images: [
             "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-NAUTICA-ROJA/REMERA-NAUTICA-ROJA-1.jpg",
@@ -582,18 +582,18 @@ const productsData = [
         ],
         description: "Remera de algodón original con estampado en el frente, practicamente a estrenar no tiene ninguna tipo de detalle ni desgaste.\nTalle: M\nLargo: 72cm\nAncho: 56cm\nEstado: 10/10.",
         isNew: false,
-        inStock: true,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //DICKIES CARGO BEIGE - PUBLICADA - NUEVO
+    //DICKIES CARGO BEIGE - PUBLICADA - VENDIDO
     {
         id: "dickies-cargo",
         name: "Dickies Cargo",
         category: "Pantalones",
-        price: 35000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-1.jpg",
         images: [
             "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-1.jpg",
@@ -603,19 +603,19 @@ const productsData = [
             "assets/images/Productos/Pantalones-Shorts/Pantalones/DICKIES-CARGO-BEIGE/DICKIES-CARGO-BEIGE-6.jpg"
         ],
         description: "Basico workwear color beige con bolsillos extras en sus costados, material super resistente y costuras reforzadas para trabajos duros, color intacto sin desgastes ni detalles.\nTalle: 38us\nCintura: 48cm\nLargo: 110cm\nEstado: 10/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CAMPERA PUFFER NAUTICA MULTICOLOR - PUBLICADO - NUEVO
+    //CAMPERA PUFFER NAUTICA MULTICOLOR - PUBLICADO - VENDIDO
     {
         id: "campera-nautica-multicolor",
         name: "Campera Nautica Multicolor",
         category: "Abrigos",
-        price: 100000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-1.jpg",
         images: [
             "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-1.jpg",
@@ -627,8 +627,8 @@ const productsData = [
             "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFFER-NAUTICA-MULTICOLOR/CAMPERA-PUFFER-NAUTICA-MULTICOLOR-7.jpg"
         ],
         description: "Campera puffer nautica expedition.\nTalle: XL\n80 atras 75 adelante x 60 de ancho\nEstado: 9/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
@@ -653,14 +653,14 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //SUETER MISSONI - PUBLICADO NUEVO
+    //SUETER MISSONI - PUBLICADO - VENDIDO
     {
         id: "sueter-missoni",
         name: "Sueter Missoni",
         category: "Abrigos",
-        price: 35000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-1.jpg",
         images: [
             "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-1.jpg",
@@ -668,18 +668,18 @@ const productsData = [
             "assets/images/Productos/Abrigos/Sueter/MISSONI/SUETER-MISSONI-3.jpg"
         ],
         description: "Sueter con diseño de punto chevron.\nTalle: XL\nEstado: 10/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //JEAN DICKIES CARPINTERO - PUBLICADO - NUEVO
+    //JEAN DICKIES CARPINTERO - PUBLICADO - VENDIDO
     {
         id: "jean-dickies-carpintero",
         name: "Jean Dickies Carpintero",
         category: "Pantalones",
-        price: 45000,
-        badge: "NUEVO",
+        price: null,
+        badge: "VENDIDO",
         originalPrice: null,
         image: "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-1.jpg",
         images: [
@@ -690,18 +690,19 @@ const productsData = [
             "assets/images/Productos/Pantalones-Shorts/Pantalones/JEAN-DICKIES-CARPINTERO/JEAN-DICKIES-CARPINTERO-5.jpg"
         ],
         description: "Modelo Slim fit trabajado con pintura de tela sobre la misma tela aun a estrenar, posee todas sus etiquetas lit sin uso.\nTalle: 36us\n46 de cintura\n104 de largo\nEstado: 10/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //PANTALON L.L BEAN - PUBLICADO - NUEVO
+    //PANTALON L.L BEAN - PUBLICADO - VENDIDO
     {
         id: "pantalon-ll-bean",
         name: "Pantalón L.L. Bean",
         category: "Pantalones",
-        price: 45000,
+        price: null,
         originalPrice: null,
+        badge: "VENDIDO",
         image: "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-1.jpg",
         images: [
             "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-1.jpg",
@@ -711,19 +712,19 @@ const productsData = [
             "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-L-L-BEAN/PANTALON-L-L-BEAN-5.jpg"
         ],
         description: "Pantalon de vestir a estrenar, con etiquetas.\nTalle: 36us\nEstado: 10/10",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CAMISETA BOCA - PUBLICADA - NUEVO
+    //CAMISETA BOCA - PUBLICADA - VENDIDO
     {
         id: "camiseta-nike-boca",
         name: "Camiseta Boca Juniors 07/08",
         category: "Camisetas",
-        price: 35000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Remeras-Chombas/Camisetas/CAMISETA-BOCA-07-08/CAMISETA-BOCA-07-08-1.jpg",
         images: [
             "assets/images/Productos/Remeras-Chombas/Camisetas/CAMISETA-BOCA-07-08/CAMISETA-BOCA-07-08-1.jpg",
@@ -734,8 +735,8 @@ const productsData = [
             "assets/images/Productos/Remeras-Chombas/Camisetas/CAMISETA-BOCA-07-08/CAMISETA-BOCA-07-08-6.jpg"
         ],
         description: "Camiseta alternativa, excelente calidad. Temporada 07/08, la que uso Boca cuando gano la Libertadores.\nTalle: M",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
@@ -758,14 +759,14 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //PANTALON NAUTICA CHINO BEIGE - PUBLICADA - NUEVO
+    //PANTALON NAUTICA CHINO BEIGE - PUBLICADA - VENDIDO
     {
         id: "pantalon-nautica-chino",
         name: "Pantalon Nautica",
         category: "Pantalones",
-        price: 30000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-NAUTICA-CHINO-BEIGE/PANTALON-NAUTICA-CHINO-BEIGE-1.jpg",
         images: [
             "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-NAUTICA-CHINO-BEIGE/PANTALON-NAUTICA-CHINO-BEIGE-1.jpg",
@@ -775,19 +776,19 @@ const productsData = [
             "assets/images/Productos/Pantalones-Shorts/Pantalones/PANTALON-NAUTICA-CHINO-BEIGE/PANTALON-NAUTICA-CHINO-BEIGE-5.jpg"
         ],
         description: "Pantalon de vestir original clasico sin bolsillos extras, y color beige\nTalle: 38us\nEstado: 10/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //GORRA JOHN DEERE - PUBLICADA NUEVA
+    //GORRA JOHN DEERE - PUBLICADA - VENDIDO
     {
         id: "gorra-john-deere",
         name: "Gorra John Deere",
         category: "Accesorios",
-        price: 60000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-1.jpg",
         images: [
             "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-1.jpg",
@@ -795,19 +796,19 @@ const productsData = [
             "assets/images/Productos/Accesorios/Gorras/John-Deere/GORRA-JOHN-DEERE-3.jpg"
         ],
         description: "Logo bordado en frente de la marca con correa de tela ajustable en la parte trasera.\nTalle: Unico AC (Apto Cabezones)\nEstado: 10/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CHOMBA NAUTICA AZUL - PUBLICADA - NUEVA
+    //CHOMBA NAUTICA AZUL - PUBLICADA - VENDIDO
     {
         id: "chomba-nautica-azul",
         name: "Chomba Nautica Azul",
         category: "Remeras",
-        price: 25000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
         images: [
             "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-1.jpg",
@@ -816,18 +817,19 @@ const productsData = [
             "assets/images/Productos/Remeras-Chombas/Chombas/NAUTICA-AZUL/CHOMBA-NAUTICA-AZUL-4.jpg"
         ],
         description: "chomba de vestir a rayas de material liviano, conserva botones originales sin desgastes y detalle con el nombre en la manga\nTalle: XL\nEstado: 9.5/10",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CAMPERA PUFFER NAUTICA - PUBLICADA
+    //CAMPERA PUFFER NAUTICA - VENDIDO
     {
         id: "campera-puffer-nautica",
         name: "Campera Puffer Nautica",
         category: "Abrigos",
-        price: 65000,
+        price: null,
         originalPrice: null,
+        badge: "VENDIDO",
         image: "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-1.jpg",
         images: [
             "assets/images/Productos/Abrigos/Camperas/CAMPERA-PUFF-NAUTICA/CAMPERA-PUFFER-NAUTICA-1.jpg",
@@ -837,7 +839,7 @@ const productsData = [
         ],
         description: "Campera abrigada con spell out en la manga, tiene detalles en otros colores y posee reguladores funcionando al igual que los cierres.\nTalle: M\nEstado: 8.5/10",
         isNew: false,
-        inStock: true,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
@@ -861,14 +863,14 @@ const productsData = [
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //SUETER VINTAGE - PUBLICADA - NUEVO
+    //SUETER VINTAGE - PUBLICADA - VENDIDO
     {
         id: "sueter-vintage",
         name: "Sueter Vintage",
         category: "Abrigos",
-        price: 35000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Abrigos/Sueter/VINTAGE/SUETER-VINTAGE-1.jpg",
         images: [
             "assets/images/Productos/Abrigos/Sueter/VINTAGE/SUETER-VINTAGE-1.jpg",
@@ -876,8 +878,8 @@ const productsData = [
             "assets/images/Productos/Abrigos/Sueter/VINTAGE/SUETER-VINTAGE-3.jpg"
         ],
         description: "Tipo vintage, tramado clasico con colores aun bastante conservados\nEstado: 10/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
@@ -899,14 +901,14 @@ const productsData = [
         inStock: true,
     },
 
-    //RELOJ CASIO - PUBLICADO NUEVO
+    //RELOJ CASIO - PUBLICADO - VENDIDO
     {
         id: "reloj-casio",
         name: "Reloj Casio",
         category: "Accesorios",
-        price: 180000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-1.jpg",
         images: [
             "assets/images/Productos/Accesorios/Relojes/RELOJ-CASIO-1.jpg",
@@ -916,37 +918,37 @@ const productsData = [
         ],
         description: "Reloj casio edifice modelo de la formula 1 (no.tiene pilas anda perfecto)\nEstado: 9.5/10.",
         isNew: false,
-        inStock: true,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //MUSCULOSA NIKE GRIS - PUBLICADA - NUEVO
+    //MUSCULOSA NIKE GRIS - PUBLICADA - VENDIDO
     {
         id: "musculosa-nike-gris",
         name: "Musculosa Nike Gris",
         category: "Remeras",
-        price: 15000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-1.jpg",
         images: [
             "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-1.jpg",
             "assets/images/Productos/Remeras-Chombas/Remeras/MUSCULOSA-NIKE-GRIS/MUSCULOSA-NIKE-GRIS-2.jpg"
         ],
         description: "Musculosa deportiva original, basica color gris sin desgastes\nTalle: L\n74x52\nEstado: 10/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
-    //CAMISA RALPH LAUREN OXFORD STRIPED - PUBLICADO
+    //CAMISA RALPH LAUREN OXFORD STRIPED - PUBLICADO - VENDIDO
     {
         id: "ralph-lauren-oxford-striped",
         name: "Ralph Lauren Oxford Striped",
         category: "Camisas",
-        price: 30000,
+        price: null,
         originalPrice: null,
-        badge: null,
+        badge: "VENDIDO",
         image: "assets/images/Productos/Camisas/RALPH-LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-1.jpg",
         images: [
             "assets/images/Productos/Camisas/RALPH-LAUREN/RALPH-LAUREN-0XFORD-STRIPED-SHIRT-1.jpg",
@@ -957,17 +959,17 @@ const productsData = [
         ],
         description: "Camisa Ralph Lauren de rayas finas azul y blanco, logo bordado chico, estética tipo old money.\nTalle L: 70cm (74 atras)de largo por 58cm de ancho.\nEstado: 9/10.",
         isNew: false,
-        inStock: true
+        inStock: false
     },
 
-    //POLO Ralph Lauren H1 TECH - PUBLICADO
+    //POLO Ralph Lauren H1 TECH - PUBLICADO - VENDIDO
     {
         id: "polo-ralph-lauren-h1-tech",
         name: "Polo Ralph Lauren H1 Tech",
         category: "Remeras",
-        price: 50000,
+        price: null,
         originalPrice: null,
-        badge: null,
+        badge: "VENDIDO",
         image: "assets/images/Productos/Remeras-Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-1.jpg",
         images: [
             "assets/images/Productos/Remeras-Chombas/Remeras/POLO-H1-TECH/POLO-H1-TECH-1.jpg",
@@ -980,7 +982,7 @@ const productsData = [
         ],
         description: "Polo Ralph Lauren Hi Tech long sleeve.\nInspirada en la línea outdoor de los 90s, pieza retro muy buscada dentro del universo Polo.\nTalle M: 74cm de largo por 55cm de ancho\nEstado: 10/10.",
         isNew: false,
-        inStock: true
+        inStock: false
     },
 
     //CAMISA CHAPS ROJA MANGACORTA - PUBLICADO
@@ -1003,14 +1005,14 @@ const productsData = [
         inStock: true
     },
 
-    //REMERA RUSSELL CHAMPIONS 2014 - PUBLICADO
+    //REMERA RUSSELL CHAMPIONS 2014 - PUBLICADO - VENDIDO
     {
         id: "remera-russell-champions-2014",
         name: "Remera Russell Champions 2014",
         category: "Remeras",
-        price: 0,
+        price: null,
         originalPrice: null,
-        badge: null,
+        badge: "VENDIDO",
         image: "assets/images/Productos/Remeras-Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-1.jpg",
         images: [
             "assets/images/Productos/Remeras-Chombas/Remeras/RUSSELL-CHAMPIONS-2014-NARANJA/RUSSELL-CHAMPIONS-2014-1.jpg",
@@ -1022,14 +1024,14 @@ const productsData = [
         inStock: false
     },
 
-    //SHORT CARHARTT - PUBLICADO
+    //SHORT CARHARTT - PUBLICADO - VENDIDO
     {
         id: "bermuda-carhartt",
         name: "Bermuda Carhartt",
         category: "Pantalones",
-        price: 40000,
+        price: null,
         originalPrice: null,
-        badge: null,
+        badge: "VENDIDO",
         image: "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-1.jpg",
         images: [
             "assets/images/Productos/Pantalones-Shorts/Shorts/JEAN-CARHARTT/SHORT-CARHARTT-1.jpg",
@@ -1039,17 +1041,17 @@ const productsData = [
         ],
         description: "Bermuda carpintero de jean bastante rigido, cuenta con varios bolsillos y un material super resistente, tag de cuero.\nTalle 40us(50AR): 60cm de cintura por 56cm de largo.\nEstado: 10/10.",
         isNew: false,
-        inStock: true
+        inStock: false
     },
 
-    //BUZO VERDE REAL TREE - PUBLICADO
+    //BUZO VERDE REAL TREE - PUBLICADO - VENDIDO
     {
         id: "buzo-real-tree",
         name: "Buzo Real-Tree",
         category: "Abrigos",
-        price: 25000,
+        price: null,
         originalPrice: null,
-        badge: null,
+        badge: "VENDIDO",
         image: "assets/images/Productos/Remeras-Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-.jpg",
         images: [
             "assets/images/Productos/Remeras-Chombas/Remeras/REALTREE-MANGALARGA-VERDE/REAL-TREE-MANGAS-LARGAS-.jpg",
@@ -1058,25 +1060,26 @@ const productsData = [
         ],
         description: "Crewneck de algodón con logo en el frente, bastante liviano de media estación. Sin capucha.\nTalle L: 68cm de largo x 60cm de ancho.\nEstado: 9/10 tiene un leve desgaste general.",
         isNew: false,
-        inStock: true
+        inStock: false
     },
 
-    //REMERA ADIDAS MC NARANJA - PUBLICADA - NUEVO
+    //REMERA ADIDAS MC NARANJA - PUBLICADA - VENDIDO
     {
         id: "remera-adidas-mc-naranja",
         name: "Remera Adidas",
         category: "Remeras",
-        price: 20000,
+        price: null,
         originalPrice: null,
+        badge: "VENDIDO",
         image: "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-ADIDAS-MC-NARANJA/REMERA-ADIDAS-MC-NARANJA-1.jpg",
         images: [
             "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-ADIDAS-MC-NARANJA/REMERA-ADIDAS-MC-NARANJA-1.jpg",
             "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-ADIDAS-MC-NARANJA/REMERA-ADIDAS-MC-NARANJA-2.jpg",
             "assets/images/Productos/Remeras-Chombas/Remeras/REMERA-ADIDAS-MC-NARANJA/REMERA-ADIDAS-MC-NARANJA-3.jpg"
         ],
-        description: "Remera de algodon con estampado original en su torso, no tiene desgastes en el estampado pero si un poco en la tela, detalles\nTalle: L\nEstado: 9/10.",
-        isNew: true,
-        inStock: true,
+        description: "Remera de algodon con estampado original en su torso, no tiene desgastes en el estampado pero si un poco en la tela, detalles\nTalle: L\nState: 9/10.",
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
@@ -1262,7 +1265,7 @@ const productsData = [
             "assets/images/Productos/Pantalones-Shorts/Pantalones/CARHARTT-CARPENTER/CARHARTT-CARPENTER-4.jpg"
         ],
         description: "Jean carpintero rigido, de materiales bastante resistentes a trabajos y esfuerzos duros, tag de cuero en la parte de atras y color sin desgastes ni detalles, talle bastante pedido/buscado mas en estas condiciones.\nTalle: 36us\nCintura: 46cm\nLargo: 114cm\nEstado: 10/10.",
-        isNew: true,
+        isNew: false,
         inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
@@ -1313,9 +1316,9 @@ const productsData = [
         id: "pasamontanas-realtree",
         name: "Pasamontañas Real Tree",
         category: "Accesorios",
-        price: 55000,
+        price: null,
         originalPrice: null,
-        badge: "NUEVO",
+        badge: "VENDIDO",
         image: "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-1.jpg",
         images: [
             "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-1.jpg",
@@ -1323,8 +1326,8 @@ const productsData = [
             "assets/images/Productos/Accesorios/Pasamontanas/REAL-TREE/PASAMONTANAS-REALTREE-3.jpg"
         ],
         description: "Balaclava liviano camuflado (sin desgaste)\nTalle: Unico AC (Apto Cabezones)\nEstado: 9.5/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
         isComingSoon: false // <- Propiedad clave para bloquear la tarjeta
     },
 
@@ -1333,7 +1336,7 @@ const productsData = [
         id: "lacoste-corderoy",
         name: "Lacoste Corderoy",
         category: "Pantalones",
-        price: 35000,
+        price: null,
         originalPrice: null,
         image: "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-1.jpg",
         images: [
@@ -1345,8 +1348,8 @@ const productsData = [
             "assets/images/Productos/Pantalones-Shorts/Pantalones/LACOSTE-CORDEROY/PANTALON-LACOSTE-CORDEROY-CRUDO-6.jpg"
         ],
         description: "Pantalon tipo corderoy abrigado original, posee detalle metalico sobre uno de sus bolsillos, cuenta con sus botones respectivos y libre de detalles y manchas, color crudo no blanco.\nTalle: 38us\n48 de Cintura\n108 de largo\nEstado: 10/10.",
-        isNew: true,
-        inStock: true,
+        isNew: false,
+        inStock: false,
     },
 
     //CHOMBA POLO AZUL LISA - PUBLICADO - VENDIDA
