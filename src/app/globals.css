@@ -1,0 +1,604 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   SISTEMA VISUAL — ONLY ZS
+   ------------------------------------------------------------
+   Todo lo visual del sitio nace acá. Si querés cambiar el color,
+   la tipografía o el espaciado de TODA la página, se cambia en
+   este archivo y en ningún otro lado.
+
+   Para modificar:
+   - colores:      bloque @theme, las variables --color-*
+   - tipografías:  src/app/layout.tsx (de dónde vienen) + --font-* acá
+   - grilla:       .masonry, más abajo
+   - animaciones:  .reveal, más abajo
+
+   Decisiones (el porqué, para que no se rompan sin querer):
+   - Solo hay DOS colores: tinta y papel. El único color de la
+     página es el de las fotos. Un catálogo de ropa compite con
+     su propia paleta si le agregás una. El dorado (--color-accent)
+     y el rojo (--color-accent-2) son la única excepción, y a
+     propósito: se usan en dos o tres lugares puntuales cada uno
+     (el dorado en la selección de texto y el subrayado de algunos
+     links; el rojo en el corazón de favoritos guardado) como si
+     fueran tinta de sello, no una paleta de marca.
+   - Un título NUNCA se apoya directo sobre una foto: va adentro
+     de una faja de tinta maciza (ver la portada, la galería, las
+     categorías y las colabs). Antes se resolvía con un degradado
+     de negro a transparente sobre la imagen, que es el recurso
+     más repetido del e-commerce: tapa media foto y el contraste
+     depende de qué haya debajo. Una faja sólida no depende de la
+     foto y además es un gesto de imprenta.
+   - El radio de borde es 0. Rectángulos. Los bordes redondeados
+     son el rasgo más rápido de "plantilla".
+   - No hay sombras. Se separa con espacio y con líneas de 1px
+     (a veces punteadas: es el gesto "recortá acá" de una fotocopia,
+     no un adorno).
+   ============================================================ */
+
+@theme {
+  /* --- Color ------------------------------------------------
+     Paleta: #DEDEDE (papel claro) / #120B08 (papel oscuro), con
+     #B8860B (dorado) y #C1121F (rojo) como los dos únicos
+     detalles. Tinta y papel se invierten en modo oscuro (ver TEMA
+     OSCURO, más abajo): acá abajo solo va el modo claro. */
+  --color-ink: #120b08; /* tinta base: texto, header, botones */
+  --color-ink-soft: #211611; /* tinta un punto más clara */
+  --color-paper: #dedede; /* fondo */
+  --color-paper-dim: #d5d5d5; /* fondo alterno de bloques */
+  /* Texto secundario y micro-labels. Da 4,97:1 sobre el papel y
+     4,55:1 sobre el fondo alterno (el más ajustado de los dos) —
+     el mínimo legible es 4,5:1. */
+  --color-ash: #5c5c5c;
+
+  /* Línea decorativa: separadores y bordes de bloques.
+     Es un hairline a propósito. NO la uses para el borde de un
+     input o un botón: ahí hace falta --color-line-strong. */
+  --color-line: #c4c4c4;
+
+  /* Borde de controles: inputs, botones con contorno, chips de
+     filtro. Da 3,3:1 sobre el papel, que es el mínimo para que
+     se distinga el límite de un control (WCAG 1.4.11). */
+  --color-line-strong: #787878;
+
+  /* Dorado: el detalle "positivo" — selección de texto, subrayado
+     de links de salida (ver el catálogo, ver resultados). Sobre el
+     papel da apenas 2,4:1 de contraste, así que NUNCA es color de
+     texto: solo se usa como fondo (con --color-scrim encima, que
+     sí da 6:1) o como trazo decorativo (el subrayado no compite
+     por legibilidad: el texto de arriba ya es tinta de sobra). */
+  --color-accent: #b8860b;
+
+  /* Rojo: el segundo detalle, para un solo gesto puntual — el
+     corazón de favoritos ya guardado (ver WishButton.tsx). Es
+     redundante a propósito: lo que dice "ya está guardado" es la
+     FORMA (corazón lleno en vez de contorno) más el aria-pressed,
+     no el color. Sobre el papel claro da 4,6:1 (pasa el mínimo de
+     texto chico) y sobre el papel oscuro 3,1:1 (pasa el mínimo de
+     un ícono, WCAG 1.4.11, no el de texto) — por diseño no se usa
+     en ningún lado donde el color sea la única señal. */
+  --color-accent-2: #c1121f;
+
+  /* Hay un puñado de lugares que oscurecen una FOTO para que un
+     texto claro se lea encima (el header de una categoría, el
+     visor de fotos, el fondo detrás de un panel) — esos tienen que
+     quedar oscuros SIEMPRE, sin importar el tema, porque están
+     tapando una imagen, no la página. Por eso son variables
+     aparte, que no se tocan en el bloque de modo oscuro (y por eso
+     valen lo mismo que la tinta/papel del modo claro: son, ya de
+     por sí, el par más oscuro/más claro de la paleta). */
+  --color-scrim: #120b08;
+  --color-on-scrim: #dedede;
+
+  /* --- Tipografía ------------------------------------------- */
+  /* Las variables --font-bebas, --font-archivo y --font-space-mono
+     las define next/font en layout.tsx. */
+  --font-display: var(--font-bebas), 'Arial Narrow', 'Haettenschweiler', sans-serif;
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  /* Mono de máquina de escribir: números, micro-labels, precios,
+     fichas técnicas. Es el segundo gesto tipográfico del "zine
+     fotocopiado" junto con Bebas: titulares gigantes + datos
+     tecleados, nada en el medio. */
+  --font-mono: var(--font-space-mono), 'Courier New', ui-monospace, monospace;
+
+  /* --- Ritmo ------------------------------------------------ */
+  --spacing: 0.25rem; /* base 4px: p-2 = 8px, p-6 = 24px, etc. */
+
+  /* --- Movimiento ------------------------------------------- */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   ESCALA DE DISPLAY
+   ------------------------------------------------------------
+   CUATRO tamaños de titular y ninguno más. Antes cada página
+   elegía el suyo a mano (text-[2rem], [2.5rem], [3rem], [3.25rem],
+   [5rem]…): funcionaba, pero eso es una página decidida caso por
+   caso, no una marca. Una marca repite cuatro tamaños.
+
+   Son clamp(): el tamaño sale del ancho de la pantalla, sin
+   breakpoints. Un titular no "salta" de un tamaño a otro al girar
+   el teléfono, crece parejo.
+
+   d1  título de página               ("Catálogo", "Galería ZS")
+   d2  título de sección              ("Último ingreso", frases)
+   d3  título de bloque               (nombre de pieza, colab)
+   d4  display chico                  (logo del header, menú)
+
+   El nombre en la portada de la home NO está acá y no debería:
+   ese "ONLY ZS" gigante es el logotipo de la marca puesto a
+   tamaño de tapa de revista, un caso único. Meterlo en la escala
+   obligaría a estirar la escala entera para un solo uso.
+   ============================================================ */
+
+@utility d1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.82;
+  letter-spacing: 0.01em;
+}
+
+@utility d2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 0.86;
+  letter-spacing: 0.01em;
+}
+
+@utility d3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+}
+
+@utility d4 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   RITMO DE PÁGINA
+   ------------------------------------------------------------
+   El contraste entre foto e imprenta. Es la herramienta central
+   de una revista y lo que hace que la página no se lea como un
+   scroll de secciones iguales:
+
+   - las FOTOS van casi al borde del papel  → .edge
+   - el TEXTO se mete bien adentro          → .gutter
+
+   Esa diferencia de márgenes es la que crea la tensión. Si todo
+   usara el mismo margen (que era lo que pasaba: px-3 / px-4 en
+   cada bloque del sitio), la página queda plana aunque el resto
+   esté bien.
+
+   .rhythm es la única separación entre secciones. Una sola, para
+   que el pulso vertical sea constante.
+   ============================================================ */
+
+@utility edge {
+  padding-inline: 0.75rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 1rem;
+  }
+}
+
+@utility gutter {
+  padding-inline: 1.5rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 4rem;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 7rem;
+  }
+}
+
+@utility rhythm {
+  margin-top: 5rem;
+
+  @media (width >= 48rem) {
+    margin-top: 9rem;
+  }
+}
+
+/* ============================================================
+   TEMA OSCURO
+   ------------------------------------------------------------
+   Se activa poniendo data-theme="dark" en el <html> (lo hace
+   src/lib/theme.ts, antes de que la página pinte, para que no
+   parpadee). Como el sitio entero está construido sobre DOS
+   colores semánticos (tinta = primer plano, papel = fondo), pasar
+   a oscuro es invertir esos dos valores acá — nada más. Ningún
+   componente sabe ni le importa en qué tema está.
+   ============================================================ */
+
+:root[data-theme='dark'] {
+  --color-ink: #dedede;
+  --color-ink-soft: #c7c7c7;
+  --color-paper: #120b08;
+  --color-paper-dim: #1d1410;
+  /* Da 5,93:1 sobre el papel y 5,51:1 sobre el fondo alterno (el
+     más ajustado): la misma cuenta que en modo claro, arriba. */
+  --color-ash: #928d89;
+  --color-line: #241a15;
+  --color-line-strong: #746a62; /* 3,7:1 sobre el papel, ídem WCAG 1.4.11 */
+  color-scheme: dark;
+  /* El dorado y el rojo ya estaban pensados "sobre negro" (ver los
+     comentarios de --color-accent y --color-accent-2, en @theme):
+     en oscuro quedan iguales, no hace falta tocarlos. */
+
+  /* Sobre fondo oscuro una sombra clara con la misma fórmula de
+     arriba casi no se ve (el papel ya es casi tan oscuro como la
+     sombra). Se compensa subiendo la opacidad, no el tamaño. */
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 6px 16px -8px rgba(0, 0, 0, 0.55);
+  --card-shadow-hover: 0 3px 6px rgba(0, 0, 0, 0.55), 0 18px 30px -9px rgba(0, 0, 0, 0.7);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+/* Cambio de tema suave: sin esto, tinta y papel se invierten de
+   golpe en cuanto tocás el botón de luna/sol. 200ms alcanza para que
+   se sienta como un cambio, no como un salto — y es corto a
+   propósito para no sentirse lento en el resto de la página.
+
+   Va en @layer base (no suelta, afuera de cualquier @layer) a
+   propósito: una regla suelta gana SIEMPRE, sin importar
+   especificidad, contra cualquier clase de Tailwind (@utility,
+   transition-opacity, etc.), porque esas viven en @layer utilities
+   y en cascade layers una capa posterior gana entera, aunque la
+   regla suelta tenga menos especificidad. Sin este @layer, esta
+   regla le pisaba el `transition` (shorthand, se reemplaza entero,
+   no se combina) a shadow-card, al cross-fade de la segunda foto y a
+   todos los hover:* con su propia transición.
+   Se desactiva solo con prefers-reduced-motion (ver más abajo). */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    transition:
+      background-color 0.2s var(--ease-out-soft),
+      border-color 0.2s var(--ease-out-soft),
+      color 0.2s var(--ease-out-soft);
+  }
+}
+
+/* El header, en oscuro, es una barra propia: un punto más oscura
+   que la página, para que se despegue del papel sin necesidad de
+   sombra ni de blur.
+
+   Antes también pasaba las letras a dorado (--color-ink →
+   --color-accent, solo adentro del header). Se sacó: hacía que la
+   marca se leyera de un color de día y de otro de noche, o sea dos
+   identidades. El dorado vuelve a ser lo que dice el bloque de
+   arriba — tinta de sello para dos o tres gestos puntuales, no un
+   color de marca.
+
+   Es opaco a propósito: el header ya no usa backdrop-blur (era el
+   único gesto de "vidrio" que quedaba en el sitio), así que tiene
+   que tapar de verdad lo que pasa por debajo. */
+:root[data-theme='dark'] header {
+  background-color: #0e0806;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--color-paper);
+
+  /* La única sombra del sitio, y a propósito chica: separa del
+     papel las fotos que viven ADENTRO de una grilla con aire
+     alrededor (tarjeta de producto, galería, colaboraciones,
+     categorías) — como una fotografía apoyada sobre una mesa, no
+     un panel flotando. Las fotos que llegan al borde de la
+     pantalla (los headers) no la llevan: ya tienen su propio gesto
+     (la faja de tinta) y ahí competiría con el borde real de la
+     pantalla en vez de sumar. Se invierte en modo oscuro (ver
+     TEMA OSCURO, más arriba).
+
+     Se llama --card-shadow y NO --shadow-card a propósito: Tailwind
+     reserva el prefijo --shadow-* como namespace de tema (igual que
+     --color-*), así que una variable --shadow-card declarada acá
+     afuera de @theme desaparecía del CSS compilado en vez de
+     quedar como una custom property común.
+
+     --card-shadow-hover es la misma sombra, pero un escalón más
+     honda: es la "elevación" al pasar el cursor (la tarjeta se
+     despega un poco más del papel). Ver .shadow-card, más abajo. */
+  --card-shadow: 0 1px 2px rgba(13, 13, 13, 0.06), 0 6px 14px -9px rgba(13, 13, 13, 0.18);
+  --card-shadow-hover: 0 3px 6px rgba(13, 13, 13, 0.08), 0 16px 26px -10px rgba(13, 13, 13, 0.24);
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Saca el retraso de ~300ms que algunos navegadores de celular
+   ponen antes de convertir un toque en click, y evita el doble-tap
+   para zoom sobre los controles. Es la razón más común de que un
+   botón "no responda" al primer toque en un celular. */
+button,
+a {
+  touch-action: manipulation;
+}
+
+/* Bebas Neue es toda mayúsculas y muy condensada: necesita
+   interlineado ajustado para que se lea como titular y no como
+   párrafo estirado. */
+.font-display,
+h1,
+h2 {
+  font-family: var(--font-display);
+  line-height: 0.85;
+  letter-spacing: 0.01em;
+}
+
+/* Dorado de sello en vez de negro puro: es "sobre bloque" en el
+   sentido de la regla de arriba (el texto seleccionado se convierte
+   en un bloque). */
+::selection {
+  background: var(--color-accent);
+  /* Fijo, no --color-ink: el dorado es un tono medio y en modo
+     oscuro --color-ink pasa a ser claro, lo que dejaría texto claro
+     sobre fondo dorado casi ilegible. */
+  color: var(--color-scrim);
+}
+
+/* El foco tiene que verse SIEMPRE. Es lo que permite usar el sitio
+   con teclado. No lo saques. Punteado, no sólido: la misma línea
+   de "recortá acá" que separa los bloques de la página. */
+:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   MICRO-LABEL
+   ------------------------------------------------------------
+   La firma editorial del sitio: texto chico, muy espaciado, gris.
+   Se usa para categorías, marcas, numeración y estados.
+   Ej:  01 / 58    ·    DICKIES    ·    TALLE 40 US
+   ============================================================ */
+
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem; /* 11px: el mono pesa más chico que el sans */
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--color-ash);
+}
+
+@utility label-ink {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--color-ink);
+}
+
+/* ============================================================
+   GRILLA DEL CATÁLOGO
+   ------------------------------------------------------------
+   Masonry de verdad: columnas CSS, las piezas se engranan y no
+   queda hueco muerto debajo de las más cortas.
+
+   Antes esto era un `display: grid` de filas, con este argumento:
+   "con columnas el producto 1 y el 2 quedan uno debajo del otro,
+   y en un catálogo ordenado por novedad eso es un problema".
+   El argumento era bueno pero el resultado no funcionaba, por un
+   dato que se puede medir: TODAS las fotos del catálogo son 4:5 o
+   3:4, o sea que la altura de una tarjeta y otra difiere un 6%.
+   Con esa variación, un grid de filas no da "irregularidad real":
+   da una grilla regular con un hueco de dos píxeles debajo de
+   algunas piezas. Lo peor de los dos mundos.
+
+   Con columnas, la irregularidad es real porque la da el recorte
+   (ver CROPS en ProductGrid.tsx: hay piezas cuadradas y piezas
+   bien altas), y el engranaje lo resuelve el navegador.
+
+   El costo es el orden: se lee hacia abajo por columna, como
+   Pinterest. Por eso la numeración correlativa (01, 02, 03…) se
+   cambió por un código de archivo estable por pieza — leído en
+   zigzag, "01, 05, 09" parecía un error; un código no tiene orden
+   que romper. Ver ProductCard.tsx.
+
+   Para cambiar la cantidad de columnas, tocá estos números.
+   ============================================================ */
+
+@utility masonry {
+  columns: 2;
+  column-gap: 0.5rem; /* 8px en celular: junto, hace bloque */
+
+  @media (width >= 48rem) {
+    columns: 3;
+    column-gap: 0.75rem;
+  }
+  @media (width >= 80rem) {
+    columns: 4;
+  }
+  @media (width >= 100rem) {
+    columns: 5;
+  }
+}
+
+/* Cada pieza dentro del masonry. `break-inside: avoid` es lo que
+   impide que una tarjeta se parta al final de una columna (la foto
+   arriba y el precio en la columna siguiente). El margen de abajo
+   hace de gap vertical: en un layout de columnas, `gap` solo
+   separa columnas, no lo que va apilado dentro de una. */
+@utility masonry-item {
+  break-inside: avoid;
+  margin-bottom: 0.5rem;
+
+  @media (width >= 48rem) {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* ============================================================
+   ANIMACIONES
+   ------------------------------------------------------------
+   Discretas a propósito: 300ms, una sola vez, sin rebote.
+   Todo se desactiva si la persona pidió menos movimiento.
+   ============================================================ */
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  animation: reveal-up 0.4s var(--ease-out-soft) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   MARQUEE DE MARCAS
+   ------------------------------------------------------------
+   Para cambiar la velocidad: la duración de la animación.
+   Las marcas se editan en src/data/site.ts (marqueeBrands).
+   ============================================================ */
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 45s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   SELLOS
+   ------------------------------------------------------------
+   Una caja de texto que parece sellada a mano: rotada un par de
+   grados, con un borde que no pretende ser perfecto. Se usa sobre
+   estados y numeración (NUEVO, VENDIDO, 07/58), nunca sobre la
+   foto del producto en sí.
+   ============================================================ */
+
+@utility stamp {
+  display: inline-block;
+  transform: rotate(-3deg);
+  border: 1px dashed currentcolor;
+  padding: 0.15em 0.45em;
+}
+
+/* ============================================================
+   SOMBRA DE TARJETA
+   ------------------------------------------------------------
+   Utilidad a mano, no la genera @theme (ver por qué en el
+   comentario de --card-shadow, en html {}, más arriba). El valor
+   en sí, en las dos versiones (clara y oscura), está en html {}
+   y en :root[data-theme='dark'] {}.
+
+   Al pasar el cursor, la sombra crece un escalón (--card-shadow →
+   --card-shadow-hover) y la tarjeta se despega un poco del papel:
+   la misma idea de "fotografía sobre una mesa" de la sombra en
+   reposo, pero levantada un centímetro. Solo en pantallas con
+   cursor de verdad (min-width: 48rem, el mismo criterio que usa
+   el resto del sitio para separar "hover de mouse" de "toque"):
+   en celular no hay cursor que quede pasando por encima sin
+   querer, así que ahí no hace falta la señal. */
+
+@utility shadow-card {
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.4s var(--ease-out-soft), transform 0.4s var(--ease-out-soft);
+
+  @media (width >= 48rem) {
+    &:hover {
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-4px);
+    }
+  }
+}
+
+/* ============================================================
+   UTILIDADES SUELTAS
+   ============================================================ */
+
+/* Oculta visualmente pero lo sigue leyendo un lector de pantalla. */
+@utility sr-only-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+
+  &:focus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.75rem 1rem;
+    clip-path: none;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    z-index: 100;
+  }
+}
+
+/* Barra de scroll fina en los carruseles horizontales. */
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
+
+/* Cuando un drawer está abierto, la página de atrás no scrollea. */
+body[data-locked='true'] {
+  overflow: hidden;
+}
