@@ -6,14 +6,17 @@ import { countItems } from '@/lib/cart';
 import { openPanel, useCart, useWishlist } from '@/lib/store';
 
 // ============================================================
-// BOTONES DEL HEADER (buscar, favoritos, bolsa, menú)
+// BOTONES DEL HEADER (favoritos, bolsa, menú)
 // ------------------------------------------------------------
 // Es la única parte del header que necesita JavaScript: tiene que
 // saber cuántas cosas hay guardadas en el navegador.
 //
+// El buscador no vive acá: es la barra principal debajo del
+// marquee, en la home (src/app/page.tsx). No abre un panel.
+//
 // Para modificar:
 // - qué botones aparecen: este archivo
-// - qué abre cada uno:    openPanel('cart' | 'wishlist' | 'search' | 'menu')
+// - qué abre cada uno:    openPanel('cart' | 'wishlist' | 'menu')
 // ============================================================
 
 /** Contador chiquito al lado del icono. No se muestra si está en cero. */
@@ -34,15 +37,6 @@ export function HeaderActions() {
   return (
     <div className="flex items-center gap-1">
       <ThemeToggle />
-
-      <button
-        type="button"
-        onClick={() => openPanel('search')}
-        aria-label="Buscar"
-        className="grid size-11 place-items-center hover:text-ash"
-      >
-        <Icon name="search" />
-      </button>
 
       <button
         type="button"

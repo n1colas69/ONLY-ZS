@@ -6,11 +6,9 @@ import { ProductGallery } from '@/components/products/ProductGallery';
 import { ProductGrid } from '@/components/products/ProductGrid';
 import { WishButton } from '@/components/products/WishButton';
 import { Icon } from '@/components/ui/Icon';
-import { ShareButton } from '@/components/ui/ShareButton';
 import { getCategoryName } from '@/data/categories';
 import { getImageSize, getImageUrl } from '@/data/image-sizes';
 import { products } from '@/data/products';
-import { site } from '@/data/site';
 import { formatPrice, isForSale, STATUS_LABEL } from '@/lib/format';
 import { getProduct, getRelatedProducts } from '@/lib/catalog';
 import { breadcrumbJsonLd, jsonLdScript, productJsonLd, productMetadata } from '@/lib/seo';
@@ -135,14 +133,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <h1 className="d2 mt-1.5">{product.name}</h1>
             </div>
             <div className="-mr-2 flex shrink-0 items-center gap-1">
-              <ShareButton
-                title={product.name}
-                text={`${product.name} — ${site.name}`}
-                url={`${site.url}/producto/${product.slug}`}
-                imageUrl={product.images[0] ? `${site.url}${getImageUrl(product.images[0])}` : undefined}
-                label={`Compartir ${product.name}`}
-                className="size-11 border border-line-strong hover:bg-paper-dim"
-              />
               <WishButton
                 slug={product.slug}
                 name={product.name}

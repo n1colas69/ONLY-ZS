@@ -3,7 +3,6 @@
 import { useEffect } from 'react';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { MobileMenu } from '@/components/layout/MobileMenu';
-import { SearchDialog } from '@/components/search/SearchDialog';
 import { ScrollToTop } from '@/components/ui/ScrollToTop';
 import { Toasts } from '@/components/ui/Toasts';
 import { WishlistDrawer } from '@/components/wishlist/WishlistDrawer';
@@ -39,13 +38,13 @@ function useLegacyServiceWorkerCleanup() {
 // ============================================================
 // PANELES
 // ------------------------------------------------------------
-// Monta los cuatro paneles (bolsa, favoritos, buscador, menú) y
-// los avisos. Se renderiza una sola vez, en el layout, así que
-// están disponibles desde cualquier página.
+// Monta los tres paneles (bolsa, favoritos, menú) y los avisos. Se
+// renderiza una sola vez, en el layout, así que están disponibles
+// desde cualquier página.
 //
 // Solo uno puede estar abierto a la vez: es una sola variable en
-// src/lib/store.ts. Abrir la bolsa cierra el buscador sin que
-// nadie tenga que coordinarlo.
+// src/lib/store.ts. Abrir la bolsa cierra el menú sin que nadie
+// tenga que coordinarlo.
 //
 // El catálogo llega como prop desde el servidor, en versión
 // liviana: así el navegador no descarga las descripciones largas
@@ -60,7 +59,6 @@ export function Overlays({ catalog }: { catalog: ProductLite[] }) {
     <>
       <CartDrawer open={panel === 'cart'} catalog={catalog} />
       <WishlistDrawer open={panel === 'wishlist'} catalog={catalog} />
-      <SearchDialog open={panel === 'search'} catalog={catalog} />
       <MobileMenu open={panel === 'menu'} />
       <ScrollToTop />
       <Toasts />

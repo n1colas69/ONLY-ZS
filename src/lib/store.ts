@@ -220,12 +220,12 @@ export function useToasts(): Toast[] {
 }
 
 // ---------------------------------------------------------------
-// Paneles (carrito, favoritos, buscador, menú)
+// Paneles (carrito, favoritos, menú)
 // ---------------------------------------------------------------
 // Solo puede haber uno abierto a la vez. Es una sola variable:
-// abrir el carrito cierra el buscador sin que nadie lo coordine.
+// abrir el carrito cierra el menú sin que nadie lo coordine.
 
-export type Panel = 'cart' | 'wishlist' | 'search' | 'menu' | null;
+export type Panel = 'cart' | 'wishlist' | 'menu' | null;
 
 const panelStore = createMemoryStore<Panel>(null);
 

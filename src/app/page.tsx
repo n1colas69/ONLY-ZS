@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Marquee } from '@/components/layout/Marquee';
 import { ProductGrid } from '@/components/products/ProductGrid';
 import { Icon } from '@/components/ui/Icon';
+import { SearchBar } from '@/components/search/SearchBar';
 import { categories } from '@/data/categories';
 import { collaborations } from '@/data/collaborations';
 import { galleryPhotos } from '@/data/gallery';
@@ -142,6 +143,15 @@ export default function HomePage() {
 
       <Marquee />
 
+      {/* ---------- BUSCADOR PRINCIPAL ----------
+          Antes el buscador vivía en el header, detrás de una lupa
+          que abría un panel. Acá está a la vista, entre la apertura
+          y las categorías: es un <form> común que manda a /tienda,
+          así que funciona sin JavaScript. */}
+      <section className="edge py-6 md:py-8" aria-label="Buscador">
+        <SearchBar />
+      </section>
+
       {/* ---------- 3. CATEGORÍAS ----------
           Un índice, no seis tarjetas. La foto se deja en paz: no
           lleva velo encima ni nombre pisado, y el nombre va DEBAJO,
@@ -157,19 +167,19 @@ export default function HomePage() {
         <h2 id="categorias" className="label mb-4">
           Categorías
         </h2>
-        <div className="grid grid-cols-2 gap-x-2 gap-y-6 md:grid-cols-3 md:gap-x-3 md:gap-y-10">
+        <div className="grid grid-cols-2 gap-x-2 gap-y-6 md:grid-cols-6 md:gap-x-3 md:gap-y-0">
           {categories.map((category, index) => {
             const cover = category.image ?? getCategoryImage(category.slug);
             return (
               <Link key={category.slug} href={`/categoria/${category.slug}`} className="group block">
                 <div className="shadow-card">
-                  <div className="relative aspect-3/4 overflow-hidden bg-paper-dim">
+                  <div className="relative aspect-3/4 overflow-hidden bg-paper-dim md:aspect-square">
                     {cover && (
                       <Image
                         src={getImageUrl(cover)}
                         alt=""
                         fill
-                        sizes="(max-width: 48rem) 50vw, 33vw"
+                        sizes="(max-width: 48rem) 50vw, 16vw"
                         loading={index < 2 ? 'eager' : 'lazy'}
                         className="object-cover"
                       />
