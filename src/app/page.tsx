@@ -2,14 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Marquee } from '@/components/layout/Marquee';
 import { ProductGrid } from '@/components/products/ProductGrid';
-import { Icon } from '@/components/ui/Icon';
 import { SearchBar } from '@/components/search/SearchBar';
+import { Icon } from '@/components/ui/Icon';
 import { categories } from '@/data/categories';
 import { collaborations } from '@/data/collaborations';
 import { galleryPhotos } from '@/data/gallery';
 import { getImageSize, getImageUrl } from '@/data/image-sizes';
 import { homeCopy, site } from '@/data/site';
-import { getCategoryImage, getFeaturedProducts, getPublicProducts } from '@/lib/catalog';
+import { getCategoryImage, getFeaturedProducts, getLiteCatalog, getPublicProducts } from '@/lib/catalog';
 
 // ============================================================
 // HOME
@@ -146,10 +146,11 @@ export default function HomePage() {
       {/* ---------- BUSCADOR PRINCIPAL ----------
           Antes el buscador vivía en el header, detrás de una lupa
           que abría un panel. Acá está a la vista, entre la apertura
-          y las categorías: es un <form> común que manda a /tienda,
-          así que funciona sin JavaScript. */}
+          y las categorías: sigue mandando a /tienda al enviar el
+          <form>, pero mientras se escribe muestra sugerencias de
+          productos en un desplegable (src/components/search/SearchBar.tsx). */}
       <section className="edge py-6 md:py-8" aria-label="Buscador">
-        <SearchBar />
+        <SearchBar catalog={getLiteCatalog()} />
       </section>
 
       {/* ---------- 3. CATEGORÍAS ----------
